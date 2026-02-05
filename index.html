@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NODE</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-container">
+        
+        <!-- 1. LEFT: Brand Anchor -->
+        <a href="/" class="brand-anchor">
+          <!-- Using the logo png from public/logo.png for now, assuming it contains icon + wordmark or is the intended asset -->
+          <img src="/logo.png" alt="NODE" class="brand-logo" />
+        </a>
+
+        <!-- 2. CENTER-LEFT: Primary Navigation -->
+        <nav class="primary-nav">
+          <a href="#" class="nav-item">Services</a>
+          <a href="#" class="nav-item">How It Works</a>
+          <a href="#" class="nav-item">For Professionals</a>
+        </nav>
+
+        <!-- 3. CENTER: Location Selector -->
+        <div class="location-selector">
+          <span class="location-icon">📍</span>
+          <span class="location-text">Bengaluru, KA</span>
+          <span class="location-arrow">▼</span>
+        </div>
+
+        <!-- 4. CENTER-RIGHT: Search Bar -->
+        <div class="search-bar">
+          <div class="search-input-wrapper">
+             <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+             </svg>
+            <input type="text" placeholder="Find a trusted professional near you" class="search-input" />
+          </div>
+        </div>
+
+        <!-- 5. RIGHT: Utility Icon -->
+        <div class="utility-icon">
+            <a href="#" class="profile-link" aria-label="Profile">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </a>
+        </div>
+
+      </div>
+    </header>
+    <main id="app">
+      <!-- Main content will be here -->
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

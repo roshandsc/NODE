@@ -1,0 +1,268 @@
+:root {
+  --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+  --color-white: #ffffff;
+  --color-bg: #ffffff;
+  --color-text-primary: #1a1a1a; /* Soft black/charcoal */
+  --color-text-secondary: #4a4a4a;
+  --color-text-placeholder: #757575;
+  --color-border: #e0e0e0;
+  --color-border-hover: #b0b0b0;
+  --color-accent: #0044cc; /* Deep blue - minimal use */
+  
+  --spacing-unit: 8px;
+  --header-height: 90px;
+  --container-width: 1440px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header Container */
+.header {
+  height: var(--header-height);
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%; /* Responsive horizontal padding */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  width: 100%;
+  max-width: var(--container-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* 1. LEFT: Brand Anchor */
+.brand-anchor {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 12px;
+  color: var(--color-text-primary);
+  /* Logo Animation: Subtle scale on hover */
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.brand-anchor:hover {
+  transform: scale(1.03); /* Subtle premium scale */
+}
+
+.brand-anchor:active {
+  transform: scale(0.98); /* Responsive click */
+}
+
+.brand-logo {
+  height: 84px; /* Increased by ~20% from 72px as requested (72 * 1.2 = 86.4, aiming for ~84px) */
+  width: auto;
+  display: block;
+  padding-left: 0;
+}
+
+/* 2. CENTER-LEFT: Primary Navigation */
+.primary-nav {
+  display: flex;
+  gap: 32px;
+  margin-left: 0;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-weight: 500; /* Medium weight */
+  font-size: 15px;
+  position: relative;
+  /* Hover transition */
+  transition: color 0.2s ease-out;
+}
+
+.nav-item:hover {
+  color: #000; /* Slight darken */
+}
+
+/* Center-out underline animation */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-text-primary);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease-out;
+}
+
+.nav-item:hover::after {
+  transform: scaleX(1);
+}
+
+/* 3. CENTER: Location Selector */
+.location-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px; /* Slightly increased padding */
+  border: 1px solid var(--color-border);
+  border-radius: 999px; /* Full pill */
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  white-space: nowrap;
+}
+
+.location-selector:hover {
+  border-color: #b0b0b0;
+  background-color: #fafafa;
+}
+
+.location-selector:active {
+  transform: scale(0.98);
+}
+
+.location-icon {
+  font-size: 16px;
+}
+
+.location-arrow {
+  font-size: 10px;
+  color: var(--color-text-placeholder);
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+}
+
+.location-selector:hover .location-arrow {
+  transform: rotate(180deg); /* Smooth rotation */
+}
+
+/* 4. CENTER-RIGHT: Search Bar */
+.search-bar {
+  flex-grow: 1;
+  max-width: 480px;
+  margin: 0 16px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  color: var(--color-text-placeholder);
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 16px 14px 48px; /* Slightly taller for comfort */
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--color-text-primary);
+  background-color: #FAFAFA;
+  transition: all 0.2s ease-out;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--color-text-placeholder);
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.search-input:focus {
+  background-color: var(--color-white);
+  border-color: #000; /* Subtle deep black border on focus */
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.05); /* Very subtle ring */
+}
+
+.search-input:focus::placeholder {
+  opacity: 0.7; /* Fade placeholder slightly */
+}
+
+.search-input:focus + .search-icon, /* If we had sibling selector logic, or just let icon be static */
+.search-input:focus ~ .search-icon {
+    /* CSS doesn't support previous sibling selection easily, but we can change icon color if we reorder HTML or just leave it. 
+       Actually, let's keep it simple. */
+    color: #333;
+}
+
+
+/* 5. RIGHT: Utility Icon (Profile) */
+.utility-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: unset; /* let it size naturally */
+}
+
+/* Premium Profile Icon Refinement */
+.profile-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; /* Larger size */
+  height: 48px;
+  border-radius: 50%;
+  background-color: #000000; /* Deep black background */
+  color: #ffffff; /* White icon */
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease; /* Bouncy scale */
+  text-decoration: none;
+  /* Shadow for depth? No, keep flat & minimal as per request "No loud shadows" */
+}
+
+.profile-link svg {
+  width: 24px; /* Clearly visible icon inside */
+  height: 24px;
+  stroke-width: 2px; /* Slightly thicker */
+}
+
+.profile-link:hover {
+  transform: scale(1.1); /* Noticeable scale up */
+  background-color: #1a1a1a; /* Subtle shift */
+  cursor: pointer; /* Explicit cursor change */
+}
+
+.profile-link:active {
+  transform: scale(0.95); /* Press effect */
+}
+@media (max-width: 1024px) {
+  .primary-nav {
+    display: none; /* Hide nav entries on smaller screens for now as per "Desktop First" */
+  }
+  
+  .location-selector {
+    display: none; /* Simplify header */
+  }
+  
+  .search-bar {
+    margin: 0 16px;
+  }
+}
