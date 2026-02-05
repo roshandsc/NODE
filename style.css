@@ -253,16 +253,154 @@ body {
 .profile-link:active {
   transform: scale(0.95); /* Press effect */
 }
+/* Responsive adjustments */
+/* Hamburger Menu - Hidden on Desktop */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 16px;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger-menu span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu:active {
+  transform: scale(0.95);
+}
+
+/* Mobile Nav Drawer - Hidden by default */
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background-color: var(--color-white);
+  box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+  padding: 80px 24px;
+  transition: right 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 999;
+}
+
+.mobile-nav-drawer.open {
+  right: 0;
+}
+
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 998;
+}
+
+.mobile-nav-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mobile-nav-item {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+.mobile-location {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+/* Tablet & Mobile Breakpoint */
 @media (max-width: 1024px) {
-  .primary-nav {
-    display: none; /* Hide nav entries on smaller screens for now as per "Desktop First" */
+  :root {
+    --header-height: 64px; /* Reduced header height for mobile/tablet */
   }
-  
+
+  /* Structural Changes */
+  .header {
+    padding: 0 16px; /* Reduced horizontal padding */
+  }
+
+  .header-container {
+    gap: 12px;
+  }
+
+  /* Hide Desktop Elements */
+  .primary-nav,
   .location-selector {
-    display: none; /* Simplify header */
+    display: none;
+  }
+
+  /* Show Hamburger */
+  .hamburger-menu {
+    display: flex;
+  }
+
+  /* Logo Adjustments - Align Left & Smaller */
+  .brand-logo {
+    height: 40px; /* Smaller logo for mobile */
+  }
+
+  /* Search Bar - Centered & Compact */
+  .search-bar {
+    max-width: none;
+    margin: 0 8px; /* Tight margins */
+    flex-grow: 1; /* Ensure it takes available center space */
+  }
+
+  .search-input {
+    padding: 10px 16px 10px 40px; /* Reduced padding */
+    font-size: 14px;
   }
   
-  .search-bar {
-    margin: 0 16px;
+  .search-icon {
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Utility Icon (Profile) & Menu Wrapper */
+  .utility-icon {
+    gap: 0; /* Let space styling handle it */
+  }
+  
+  .profile-link {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .profile-link svg {
+    width: 18px;
+    height: 18px;
   }
 }
