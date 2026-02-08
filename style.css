@@ -11,7 +11,7 @@
   --color-accent: #0044cc; /* Deep blue - minimal use */
   
   --spacing-unit: 8px;
-  --header-height: 90px;
+  --header-height: 110px;
   --container-width: 1440px;
 }
 
@@ -72,7 +72,7 @@ body {
 }
 
 .brand-logo {
-  height: 84px; /* Increased by ~20% from 72px as requested (72 * 1.2 = 86.4, aiming for ~84px) */
+  height: 100px; /* Increased for better visibility and authority */
   width: auto;
   display: block;
   padding-left: 0;
@@ -341,7 +341,7 @@ body {
 /* Tablet & Mobile Breakpoint */
 @media (max-width: 1024px) {
   :root {
-    --header-height: 64px; /* Reduced header height for mobile/tablet */
+    --header-height: 72px; /* Increased from 64px for larger mobile logo */
   }
 
   /* Structural Changes */
@@ -366,7 +366,7 @@ body {
 
   /* Logo Adjustments - Align Left & Smaller */
   .brand-logo {
-    height: 40px; /* Smaller logo for mobile */
+    height: 52px; /* Increased from 40px */
   }
 
   /* Search Bar - Centered & Compact */
