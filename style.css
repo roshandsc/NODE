@@ -38,7 +38,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 5%; /* Responsive horizontal padding - Matches .container padding */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -51,6 +50,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  padding: 0 5%; /* Moved padding here to align perfectly with .container content */
 }
 
 /* 1. LEFT: Brand Anchor */
@@ -511,7 +511,7 @@ body {
 /* 1. HERO SECTION */
 .hero-section {
   padding: 120px 0 100px;
-  background-color: #F8F8F8; /* Light grey to match image background seamlessly */
+  background-color: #ffffff; /* Use strict white to eliminate potential line if image bg is white */
   /* Removed background image as requested */
 }
 
