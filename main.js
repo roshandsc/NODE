@@ -1,8 +1,6 @@
 import './style.css'
 
-document.querySelector('#app').innerHTML = `
-<!-- Main Content Area -->
-`
+// Main Content Area Logic - removed to prevent clearing static HTML
 
 // Mobile Menu Logic
 const hamburger = document.querySelector('.hamburger-menu');
