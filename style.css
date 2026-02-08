@@ -515,29 +515,35 @@ body {
 
 /* 1. HERO SECTION */
 .hero-section {
-  padding: 140px 0 100px;
-  background-color: var(--color-white);
-  /* Subtle bottom border? No, let trust strip handle separation */
+  padding: 160px 0 120px; /* Slight increase for visual balance with image */
+  background-color: #1a1a1a; /* Fallback */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/herosection_image.png');
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  position: relative;
 }
 
 .hero-container {
     padding-top: 20px;
+    z-index: 2;
+    position: relative;
 }
 
 .hero-headline {
-  font-size: 68px; /* Impactful */
-  line-height: 1.05;
+  font-size: 72px; /* Increased slightly */
+  line-height: 1.1;
   font-weight: 600;
   letter-spacing: -0.03em;
-  color: #111;
-  max-width: 900px;
+  color: #ffffff;
+  max-width: 800px; /* Constrain width for cleaner left alignment */
   margin-bottom: 24px;
 }
 
 .hero-subheadline {
   font-size: 20px;
   line-height: 1.5;
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.9); /* High contrast subhead */
   margin-bottom: 48px;
   max-width: 600px;
   font-weight: 400;
@@ -546,6 +552,25 @@ body {
 .hero-actions {
   display: flex;
   align-items: center;
+}
+
+.hero-actions .btn-primary {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+.hero-actions .btn-primary:hover {
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+}
+
+.hero-actions .link-secondary {
+    color: #ffffff;
+}
+
+.hero-actions .link-secondary:hover {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* 2. TRUST STRIP */
