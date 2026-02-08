@@ -417,12 +417,6 @@ body {
   padding: 0 5%;
 }
 
-/* Ensure header container uses the same constraints if not already */
-.header-container {
-    /* Inherits container width var, but defined separately in header block. 
-       We leave header block as is to avoid regression. */
-}
-
 .section-padding {
   padding: 120px 0;
 }
@@ -516,7 +510,7 @@ body {
 /* 1. HERO SECTION */
 .hero-section {
   padding: 120px 0 100px;
-  background-color: var(--color-white);
+  background-color: #F8F8F8; /* Light grey to match image background seamlessly */
   /* Removed background image as requested */
 }
 
@@ -540,11 +534,9 @@ body {
 }
 
 .hero-card {
+    /* Removed card styling for seamless integration */
     position: relative;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 24px 48px rgba(0,0,0,0.08); /* Premium soft shadow */
-    max-width: 500px;
+    max-width: 600px; /* Allow image to be larger if needed */
     width: 100%;
 }
 
@@ -552,7 +544,7 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
+    object-fit: contain; /* Ensure full image is visible without cropping */
 }
 
 .hero-headline {
