@@ -515,37 +515,61 @@ body {
 
 /* 1. HERO SECTION */
 .hero-section {
-  padding: 160px 0 120px; /* Slight increase for visual balance with image */
-  background-color: #1a1a1a; /* Fallback */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/herosection_image.png');
-  background-size: cover;
-  background-position: center;
-  color: #ffffff;
-  position: relative;
+  padding: 120px 0 100px;
+  background-color: var(--color-white);
+  /* Removed background image as requested */
 }
 
 .hero-container {
     padding-top: 20px;
-    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 64px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-card {
     position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.08); /* Premium soft shadow */
+    max-width: 500px;
+    width: 100%;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
 .hero-headline {
-  font-size: 72px; /* Increased slightly */
-  line-height: 1.1;
+  font-size: 64px;
+  line-height: 1.05;
   font-weight: 600;
   letter-spacing: -0.03em;
-  color: #ffffff;
-  max-width: 800px; /* Constrain width for cleaner left alignment */
+  color: #111; /* Reverted to dark */
   margin-bottom: 24px;
 }
 
 .hero-subheadline {
   font-size: 20px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.9); /* High contrast subhead */
-  margin-bottom: 48px;
-  max-width: 600px;
+  color: var(--color-text-secondary); /* Reverted to secondary */
+  margin-bottom: 40px;
+  max-width: 90%;
   font-weight: 400;
 }
 
@@ -555,22 +579,22 @@ body {
 }
 
 .hero-actions .btn-primary {
-    background-color: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
 }
 
 .hero-actions .btn-primary:hover {
-    background-color: #f0f0f0;
-    border-color: #f0f0f0;
+    background-color: #333;
+    border-color: #333;
 }
 
 .hero-actions .link-secondary {
-    color: #ffffff;
+    color: var(--color-text-secondary);
 }
 
 .hero-actions .link-secondary:hover {
-    color: rgba(255, 255, 255, 0.8);
+    color: #000;
 }
 
 /* 2. TRUST STRIP */
@@ -833,6 +857,14 @@ body {
     padding: 100px 0 60px;
     text-align: left;
   }
+
+  .hero-container {
+      flex-direction: column-reverse; /* Image top, or Text top? Let's do Text top as is standard for this design usually, or column reverse to show image first? 
+      Actually, standard for "hero" is often image top on mobile, but for "trust" text top is better. 
+      Let's stick to column (text top) for now to ensure headline is read first. */
+      flex-direction: column; 
+      gap: 40px;
+  }
   
   .hero-headline {
     font-size: 42px; /* Readable on mobile */
@@ -850,6 +882,15 @@ body {
     align-items: flex-start;
     gap: 16px;
     width: 100%;
+  }
+
+  .hero-content {
+      max-width: 100%;
+  }
+
+  .hero-image-wrapper {
+      justify-content: center;
+      width: 100%;
   }
   
   .btn {
