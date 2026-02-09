@@ -553,6 +553,8 @@ body {
     /* Explicitly ensure no borders */
     border: none;
     outline: none;
+    /* Blend mode to hide any off-white background box edges */
+    mix-blend-mode: multiply;
 }
 
 .hero-headline {
