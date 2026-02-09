@@ -539,6 +539,10 @@ body {
     position: relative;
     max-width: 600px; /* Allow image to be larger if needed */
     width: 100%;
+    /* Explicitly ensure no borders or shadows exist */
+    border: none;
+    box-shadow: none;
+    background: transparent;
 }
 
 .hero-img {
@@ -546,6 +550,9 @@ body {
     height: auto;
     display: block;
     object-fit: contain; /* Ensure full image is visible without cropping */
+    /* Explicitly ensure no borders */
+    border: none;
+    outline: none;
 }
 
 .hero-headline {
