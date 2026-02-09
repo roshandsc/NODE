@@ -510,13 +510,13 @@ body {
 
 /* 1. HERO SECTION */
 .hero-section {
-  padding: 120px 0 100px;
+  padding: 40px 0 80px; /* Reduced top padding significantly for minimal gap */
   background-color: #ffffff; /* Use strict white to eliminate potential line if image bg is white */
   /* Removed background image as requested */
 }
 
 .hero-container {
-    padding-top: 20px;
+    padding-top: 0; /* Removed extra padding */
     display: flex;
     align-items: center;
     justify-content: space-between;
