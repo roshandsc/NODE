@@ -53,6 +53,56 @@ body {
   padding: 0 5%; /* Moved padding here to align perfectly with .container content */
 }
 
+/* =========================================
+   LOADER STYLES
+   ========================================= */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-bg); /* Use site background or #fff */
+    z-index: 9999; /* Ensure it's on top of everything */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1); /* Ease-in-out quart */
+}
+
+.loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.greeting-text {
+    font-family: var(--font-family);
+    font-size: 3rem; /* Large, premium size */
+    font-weight: 500; /* Medium weight for elegance */
+    color: var(--color-text-primary);
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.greeting-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+    .greeting-text {
+        font-size: 4rem;
+    }
+}
+
 /* 1. LEFT: Brand Anchor */
 .brand-anchor {
   display: flex;
