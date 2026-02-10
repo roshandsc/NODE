@@ -926,42 +926,47 @@ body {
 /* Service Node Base Styling */
 .service-node {
     position: absolute;
-    width: 150px;
+    width: 200px; /* Wider for longer text */
     text-align: center;
     background: #fff;
-    padding: 20px 15px;
+    padding: 24px 16px;
     border: 1px solid #e5e5e5;
     border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03); /* Very subtle shadow */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Simple, non-bouncy transition */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 5;
+    cursor: pointer; /* Interaction request */
 }
 
 .service-node:hover {
-    box-shadow: 0 12px 24px rgba(0,0,0,0.08); /* Architectural lift */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06); /* Slight lift, not heavy */
     border-color: #d0d0d0;
     z-index: 15;
+    /* Transform handled by specific node rules below */
 }
 
 .node-icon {
     font-size: 26px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .node-title {
     font-size: 15px;
     font-weight: 600;
     color: var(--color-text-primary);
-    margin-bottom: 2px;
+    margin-bottom: 6px;
 }
 
 .node-desc {
-    font-size: 12px;
+    font-size: 13px; /* Slightly legible size */
     color: var(--color-text-secondary);
+    line-height: 1.4;
+    max-width: 180px;
+    margin: 0 auto;
 }
 
 
