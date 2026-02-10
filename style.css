@@ -62,14 +62,23 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: var(--color-bg); /* Use site background or #fff */
-    z-index: 9999; /* Ensure it's on top of everything */
+    /* Minimal, tasteful background with subtle animation */
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    background-size: 200% 200%;
+    animation: gradientFlow 10s ease infinite;
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 1;
     pointer-events: all;
-    transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1); /* Ease-in-out quart */
+    transition: opacity 1.2s cubic-bezier(0.645, 0.045, 0.355, 1); /* Slower, elegant fade out */
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .loader.hidden {
@@ -79,27 +88,33 @@ body {
 
 .loader-content {
     text-align: center;
+    position: relative;
+    /* Add a subtle blur/glow behind the text for depth if needed, 
+       but keeping it clean as per request "uncluttered". */
 }
 
 .greeting-text {
-    font-family: var(--font-family);
-    font-size: 3rem; /* Large, premium size */
-    font-weight: 500; /* Medium weight for elegance */
-    color: var(--color-text-primary);
+    font-family: 'Pinyon Script', cursive; /* Premium handwritten style */
+    font-size: 5rem; /* Larger, clearly readable */
+    font-weight: 400; 
+    color: #111; /* Sharp dark text */
     margin: 0;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    /* Apple-style transition: Gentle fade-in with slight upward motion */
+    transform: translateY(30px) scale(0.95);
+    filter: blur(5px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth 'ease-out expo' feel */
 }
 
 .greeting-text.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: blur(0);
 }
 
 @media (min-width: 768px) {
     .greeting-text {
-        font-size: 4rem;
+        font-size: 7rem; /* Even larger on desktop */
     }
 }
 
@@ -674,10 +689,16 @@ body {
   letter-spacing: -0.01em;
 }
 
-.trust-icon {
-  font-size: 18px;
-  filter: grayscale(1); /* Muted */
-  opacity: 0.8;
+.trust-icon-svg {
+  width: 20px;
+  height: 20px;
+  color: #475569; /* Slate 600 - Professional, trustworthy blue-grey */
+  transition: transform 0.2s ease;
+}
+
+.trust-item:hover .trust-icon-svg {
+  transform: scale(1.1);
+  color: #334155; /* Darker slate on hover */
 }
 
 /* 3. HOW IT WORKS */
