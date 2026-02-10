@@ -100,12 +100,56 @@ document.addEventListener('DOMContentLoaded', () => {
 // Main Content Area Logic - removed to prevent clearing static HTML
 
 // Header Utilities Logic
+import { translations } from './translations.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Language Switcher
     const langBtn = document.querySelector('.lang-btn');
     const langDropdown = document.querySelector('.lang-dropdown');
     const langOptions = document.querySelectorAll('.lang-option');
     const langCurrent = document.querySelector('.lang-current');
+
+    // Function to update page content based on language
+    function updateLanguage(lang) {
+        // validate lang
+        if (!['en', 'hi', 'kn'].includes(lang)) return;
+
+        // Update DOM elements
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (translations[key] && translations[key][lang]) {
+                if (element.tagName === 'INPUT' && element.getAttribute('placeholder')) {
+                    element.placeholder = translations[key][lang];
+                } else {
+                    element.innerHTML = translations[key][lang];
+                }
+            }
+        });
+
+        // Update html lang attribute
+        document.documentElement.lang = lang;
+
+        // Update Button Text
+        langCurrent.textContent = lang.toUpperCase();
+
+        // Update Active State in Dropdown
+        langOptions.forEach(opt => {
+            if (opt.getAttribute('data-lang') === lang) {
+                opt.classList.add('active');
+            } else {
+                opt.classList.remove('active');
+            }
+        });
+
+        // Persist to local storage
+        localStorage.setItem('node-lang', lang);
+        
+        console.log(`Language updated to: ${lang}`);
+    }
+
+    // Initialize Language
+    const savedLang = localStorage.getItem('node-lang') || 'en';
+    updateLanguage(savedLang);
 
     if (langBtn && langDropdown) {
         langBtn.addEventListener('click', (e) => {
@@ -121,20 +165,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         langOptions.forEach(option => {
             option.addEventListener('click', () => {
-                // Update active state
-                langOptions.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-                
-                // Update label
-                const langCode = option.getAttribute('data-lang').toUpperCase();
-                langCurrent.textContent = langCode;
-                
-                // Close dropdown
+                const langCode = option.getAttribute('data-lang');
+                updateLanguage(langCode);
                 langDropdown.classList.remove('show');
-
-                // Simulate text update (Optional visual feedback)
-                // In a real app, this would trigger i18n
-                console.log(`Language switched to: ${langCode}`);
             });
         });
     }
