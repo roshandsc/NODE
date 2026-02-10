@@ -99,6 +99,79 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Main Content Area Logic - removed to prevent clearing static HTML
 
+// Header Utilities Logic
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Language Switcher
+    const langBtn = document.querySelector('.lang-btn');
+    const langDropdown = document.querySelector('.lang-dropdown');
+    const langOptions = document.querySelectorAll('.lang-option');
+    const langCurrent = document.querySelector('.lang-current');
+
+    if (langBtn && langDropdown) {
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+
+        langOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Update active state
+                langOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                
+                // Update label
+                const langCode = option.getAttribute('data-lang').toUpperCase();
+                langCurrent.textContent = langCode;
+                
+                // Close dropdown
+                langDropdown.classList.remove('show');
+
+                // Simulate text update (Optional visual feedback)
+                // In a real app, this would trigger i18n
+                console.log(`Language switched to: ${langCode}`);
+            });
+        });
+    }
+
+    // 2. Theme Toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    const sunIcon = document.querySelector('.sun-icon');
+    const moonIcon = document.querySelector('.moon-icon');
+    
+    // Check local storage or preference
+    const savedTheme = localStorage.getItem('node-theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        updateThemeIcon(true);
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            
+            updateThemeIcon(isDark);
+            localStorage.setItem('node-theme', isDark ? 'dark' : 'light');
+        });
+    }
+
+    function updateThemeIcon(isDark) {
+        if (isDark) {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        } else {
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
+        }
+    }
+});
+
 // Mobile Menu Logic
 const hamburger = document.querySelector('.hamburger-menu');
 const drawer = document.querySelector('.mobile-nav-drawer');

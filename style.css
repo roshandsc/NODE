@@ -1,18 +1,33 @@
 :root {
   --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   
+  /* Light Mode (Default) */
   --color-white: #ffffff;
   --color-bg: #ffffff;
-  --color-text-primary: #1a1a1a; /* Soft black/charcoal */
+  --color-text-primary: #1a1a1a; /* Soft black */
   --color-text-secondary: #4a4a4a;
   --color-text-placeholder: #757575;
   --color-border: #e0e0e0;
   --color-border-hover: #b0b0b0;
-  --color-accent: #0044cc; /* Deep blue - minimal use */
+  --color-accent: #0044cc; /* Deep blue */
+  --color-surface-hover: #f5f5f7;
   
   --spacing-unit: 8px;
   --header-height: 110px;
   --container-width: 1440px;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --color-white: #1e1e1e; /* Card bg */
+    --color-bg: #121212; /* Main bg */
+    --color-text-primary: #e0e0e0;
+    --color-text-secondary: #a0a0a0;
+    --color-text-placeholder: #666;
+    --color-border: #333;
+    --color-border-hover: #555;
+    --color-accent: #60a5fa; /* Lighter blue for dark mode */
+    --color-surface-hover: #2d2d2d;
 }
 
 * {
@@ -27,13 +42,13 @@ body {
   color: var(--color-text-primary);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Header Container */
 .header {
   height: var(--header-height);
-  background-color: var(--color-white);
-  /* Removes bottom border for seamless look as requested */
+  background-color: var(--color-bg); /* Use variable for theme switch */
   border-bottom: none; 
   display: flex;
   align-items: center;
@@ -41,6 +56,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: background-color 0.3s ease;
 }
 
 .header-container {
@@ -50,8 +66,113 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 0 5%; /* Moved padding here to align perfectly with .container content */
+  padding: 0 5%;
 }
+
+/* Brand Group */
+.brand-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Language Switcher */
+.language-switcher {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+    color: var(--color-text-primary);
+    background-color: var(--color-surface-hover);
+}
+
+.lang-current {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 8px;
+    background: var(--color-white); /* Handles dark mode */
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 8px;
+    min-width: 140px;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    gap: 4px;
+    z-index: 1001;
+}
+
+.lang-dropdown.show {
+    display: flex;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.lang-option {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-text-primary);
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.lang-option:hover {
+    background: var(--color-surface-hover);
+}
+
+.lang-option.active {
+    font-weight: 600;
+    color: var(--color-accent);
+    background: rgba(0, 68, 204, 0.05); /* Very light accent tint */
+}
+
+
+/* Theme Toggle */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    margin-left: 8px;
+}
+
+.theme-toggle:hover {
+    background-color: var(--color-surface-hover);
+    color: var(--color-text-primary);
+}
+
+
+/* ... Existing Loader Styles ... */
 
 /* =========================================
    LOADER STYLES
