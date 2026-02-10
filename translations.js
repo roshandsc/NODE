@@ -275,8 +275,8 @@ export const translations = {
         "kn": "ಸಾಮಾಜಿಕ"
     },
     "footer_copyright": {
-        "en": "© 2024 NODE Industries within India. All rights reserved.",
-        "hi": "© 2024 NODE Industries भारत के भीतर। सर्वाधिकार सुरक्षित।",
-        "kn": "© 2024 NODE Industries ಭಾರತದಲ್ಲಿ. ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
+        "en": "© 2026 NODE Industries within India. All rights reserved.",
+        "hi": "© 2026 NODE Industries भारत के भीतर। सर्वाधिकार सुरक्षित।",
+        "kn": "© 2026 NODE Industries ಭಾರತದಲ್ಲಿ. ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
     }
 };
