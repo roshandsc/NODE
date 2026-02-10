@@ -94,10 +94,10 @@ body {
 }
 
 .greeting-text {
-    font-family: 'Pinyon Script', cursive; /* Premium handwritten style */
+    font-family: 'Pacifico', cursive; /* Bold, rounded handwritten style */
     font-size: 5rem; /* Larger, clearly readable */
     font-weight: 400; 
-    color: #111; /* Sharp dark text */
+    color: #000000; /* Sharp black text */
     margin: 0;
     opacity: 0;
     /* Apple-style transition: Gentle fade-in with slight upward motion */
