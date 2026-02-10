@@ -134,15 +134,14 @@
             </div>
           </div>
           <div class="hero-image-wrapper">
-             <div class="hero-image-placeholder">
-                <!-- Abstract visual or high-quality photo -->
-                <img src="/hero-image.png" alt="Worker Profile" class="hero-img" />
+             <div class="hero-card">
+               <img src="/hero_section.png" alt="NODE Hero" class="hero-img" />
              </div>
           </div>
         </div>
       </section>
 
-      <!-- 2. TRUST SIGNAL STRIP -->
+      <!-- 2. TRUST SIGNAL STRIP (Kept as is, assuming correct) -->
       <section class="trust-strip fade-in-up">
         <div class="container trust-container">
           <div class="trust-item">
@@ -180,84 +179,91 @@
         </div>
       </section>
 
-      <!-- 3. HOW IT WORKS (Workflow Redesign) -->
+      <!-- 3. HOW IT WORKS (Restored Premium Design) -->
       <section class="how-it-works section-padding fade-in-up">
         <div class="container">
             <h2 class="section-headline text-center mb-large" data-i18n="hiw_headline">How it works</h2>
             
             <div class="workflow-container">
-                <!-- Step 1 -->
-                <div class="workflow-step">
+            
+                <!-- Step 1: Request (User) -->
+                <div class="workflow-step user-step">
                     <div class="workflow-icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                             <polyline points="17 8 12 3 7 8"></polyline>
                             <line x1="12" y1="3" x2="12" y2="15"></line>
                         </svg>
                     </div>
                     <div class="workflow-content">
+                        <span class="workflow-label" data-i18n="step_label_1">Step 01</span>
                         <h3 class="workflow-title" data-i18n="step_post">Post a Request</h3>
-                        <p class="workflow-desc" data-i18n="step_post_desc">Describe what you need done.</p>
+                        <p class="workflow-desc" data-i18n="step_post_desc">Tell us what you need.</p>
                     </div>
                 </div>
 
+                <!-- Connector 1 -->
                 <div class="workflow-connector">
                     <div class="connector-line"></div>
+                    <div class="connector-dot"></div>
                 </div>
 
-                <!-- Step 2 -->
-                <div class="workflow-step">
+                <!-- Step 2: Processing (System) -->
+                <div class="workflow-step system-step">
                     <div class="workflow-icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M22 12h-4"></path>
-                            <path d="M6 12H2"></path>
-                            <path d="M12 6V2"></path>
-                            <path d="M12 22v-4"></path>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path>
+                            <path d="M8.5 8.5v.01"></path>
+                            <path d="M16 16v.01"></path>
+                            <path d="M12 12v.01"></path>
                         </svg>
                     </div>
                     <div class="workflow-content">
+                        <span class="workflow-label" data-i18n="step_label_system">System</span>
                         <h3 class="workflow-title" data-i18n="step_match">We Match You</h3>
-                        <p class="workflow-desc" data-i18n="step_match_desc">Connect with verified local experts.</p>
+                        <p class="workflow-desc" data-i18n="step_match_desc">Finding the best local pros.</p>
                     </div>
                 </div>
 
+                <!-- Connector 2 -->
                 <div class="workflow-connector">
                     <div class="connector-line"></div>
+                    <div class="connector-dot"></div>
                 </div>
 
-                <!-- Step 3 -->
-                <div class="workflow-step">
+                <!-- Step 3: Action (Communication) -->
+                <div class="workflow-step action-step">
                     <div class="workflow-icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            <line x1="9" y1="10" x2="15" y2="10"></line>
                         </svg>
                     </div>
                     <div class="workflow-content">
+                        <span class="workflow-label" data-i18n="step_label_2">Step 02</span>
                         <h3 class="workflow-title" data-i18n="step_approve">Approve & Hire</h3>
-                        <p class="workflow-desc" data-i18n="step_approve_desc">Review profiles and transparent quotes.</p>
+                        <p class="workflow-desc" data-i18n="step_approve_desc">Check the price and book.</p>
                     </div>
                 </div>
 
+                <!-- Connector 3 -->
                 <div class="workflow-connector">
                     <div class="connector-line"></div>
+                    <div class="connector-dot"></div>
                 </div>
 
-                <!-- Step 4 -->
-                <div class="workflow-step">
+                <!-- Step 4: Result (Assurance) -->
+                <div class="workflow-step result-step">
                     <div class="workflow-icon-wrapper">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="m9 12 2 2 4-4"></path>
                         </svg>
                     </div>
                     <div class="workflow-content">
+                        <span class="workflow-label" data-i18n="step_label_completion">Completion</span>
                         <h3 class="workflow-title" data-i18n="step_done">Work Done</h3>
-                        <p class="workflow-desc" data-i18n="step_done_desc">Pay securely after satisfaction.</p>
+                        <p class="workflow-desc" data-i18n="step_done_desc">Completed with guarantee.</p>
                     </div>
                 </div>
             </div>

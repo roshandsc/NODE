@@ -76,15 +76,25 @@ export const translations = {
         "hi": "यह कैसे काम करता है",
         "kn": "ಇದು ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ"
     },
+    "step_label_1": {
+        "en": "Step 01",
+        "hi": "चरण 01",
+        "kn": "ಹಂತ 01"
+    },
     "step_post": {
         "en": "Post a Request",
         "hi": "अनुरोध पोस्ट करें",
         "kn": "ವಿನಂತಿಯನ್ನು ಪೋಸ್ಟ್ ಮಾಡಿ"
     },
     "step_post_desc": {
-        "en": "Describe what you need done.",
-        "hi": "बताएं कि आपको क्या करवाना है।",
-        "kn": "ನಿಮಗೆ ಏನು ಬೇಕು ಎಂದು ವಿವರಿಸಿ."
+        "en": "Tell us what you need.",
+        "hi": "हमें बताएं कि आपको क्या चाहिए।",
+        "kn": "ನಿಮಗೆ ಏನು ಬೇಕು ಎಂದು ನಮಗೆ ತಿಳಿಸಿ."
+    },
+    "step_label_system": {
+        "en": "System",
+        "hi": "सिस्टम",
+        "kn": "ವ್ಯವಸ್ಥೆ"
     },
     "step_match": {
         "en": "We Match You",
@@ -92,9 +102,14 @@ export const translations = {
         "kn": "ನಾವು ನಿಮ್ಮನ್ನು ಹೊಂದಿಸುತ್ತೇವೆ"
     },
     "step_match_desc": {
-        "en": "Connect with verified local experts.",
-        "hi": "सत्यापित स्थानीय विशेषज्ञों से जुड़ें।",
-        "kn": "ಪರಿಶೀಲಿಸಿದ ಸ್ಥಳೀಯ ತಜ್ಞರೊಂದಿಗೆ ಸಂಪರ್ಕ ಸಾಧಿಸಿ."
+        "en": "Finding the best local pros.",
+        "hi": "सर्वश्रेष्ठ स्थानीय पेशेवरों को खोजना।",
+        "kn": "ಅತ್ಯುತ್ತಮ ಸ್ಥಳೀಯ ವೃತ್ತಿಪರರನ್ನು ಹುಡುಕುವುದು."
+    },
+    "step_label_2": {
+        "en": "Step 02",
+        "hi": "चरण 02",
+        "kn": "ಹಂತ 02"
     },
     "step_approve": {
         "en": "Approve & Hire",
@@ -102,9 +117,14 @@ export const translations = {
         "kn": "ಅನುಮೋದಿಸಿ ಮತ್ತು ನೇಮಿಸಿ"
     },
     "step_approve_desc": {
-        "en": "Review profiles and transparent quotes.",
-        "hi": "प्रोफाइल और पारदर्शी कोट्स की समीक्षा करें।",
-        "kn": "ಪ್ರೊಫೈಲ್‌ಗಳು ಮತ್ತು ಪಾರದರ್ಶಕ ದರಗಳನ್ನು ಪರಿಶೀಲಿಸಿ."
+        "en": "Check the price and book.",
+        "hi": "कीमत जांचें और बुक करें।",
+        "kn": "ಬೆಲೆಯನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಬುಕ್ ಮಾಡಿ."
+    },
+    "step_label_completion": {
+        "en": "Completion",
+        "hi": "पूर्णता",
+        "kn": "ಪೂರ್ಣಗೊಳಿಸುವಿಕೆ"
     },
     "step_done": {
         "en": "Work Done",
@@ -112,9 +132,9 @@ export const translations = {
         "kn": "ಕೆಲಸ ಪೂರ್ಣಗೊಂಡಿದೆ"
     },
     "step_done_desc": {
-        "en": "Pay securely after satisfaction.",
-        "hi": "संतुष्टि के बाद सुरक्षित रूप से भुगतान करें।",
-        "kn": "ತೃಪ್ತಿಯ ನಂತರ ಸುರಕ್ಷಿತವಾಗಿ ಪಾವತಿಸಿ."
+        "en": "Completed with guarantee.",
+        "hi": "गारंटी के साथ पूरा हुआ।",
+        "kn": "ಖಾತರಿಯೊಂದಿಗೆ ಪೂರ್ಣಗೊಂಡಿದೆ."
     },
 
     // Services (Circular Nodes)
