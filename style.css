@@ -814,6 +814,11 @@ body {
     mix-blend-mode: multiply;
 }
 
+body.dark-mode .hero-img {
+    mix-blend-mode: normal;
+    filter: brightness(0.9);
+}
+
 .hero-headline {
   font-size: 64px;
   line-height: 1.05;
