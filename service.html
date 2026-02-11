@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <title>Service - NODE</title>
+  </head>
+  <body>
+    <!-- Full-screen Loader (Reused if needed, but keeping it simple for subpage) -->
+    
+    <!-- Reuse Header from Index (Ideally componentized, but duplicating for static template) -->
+    <header class="header">
+      <div class="header-container">
+        <div class="brand-group">
+            <a href="/" class="brand-anchor">
+              <img src="/logo.png" alt="NODE" class="brand-logo" />
+            </a>
+            <!-- Language Switcher (Static for now in template) -->
+             <div class="language-switcher">
+                <button class="lang-btn" aria-label="Select Language">
+                    <span class="lang-current">EN</span>
+                </button>
+            </div>
+        </div>
+        <nav class="primary-nav">
+          <a href="/index.html" class="nav-item">Home</a>
+          <a href="/index.html#how-it-works" class="nav-item">How It Works</a>
+        </nav>
+        <div class="utility-icon">
+            <button class="theme-toggle" aria-label="Toggle Dark Mode">
+                 <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="service-app">
+      
+      <!-- 1. SERVICE HERO -->
+      <section class="service-hero fade-in-up">
+        <div class="container">
+          <div class="service-hero-content">
+            <h1 id="service-title" class="service-headline">Loading...</h1>
+            <p id="service-subtitle" class="service-subheadline">Please wait while we fetch the details.</p>
+            <button id="request-btn" class="btn btn-primary btn-large">Request Service</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. WHAT THIS SERVICE COVERS -->
+      <section class="section-padding">
+        <div class="container">
+            <h2 class="section-headline mb-medium">What This Service Covers</h2>
+            <div id="coverage-list" class="coverage-grid">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+      </section>
+
+      <!-- 3. HOW NODE HANDLES THIS -->
+      <section class="section-padding bg-secondary">
+        <div class="container">
+            <h2 class="section-headline text-center mb-large">How NODE Handles This Service</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <span class="step-number">01</span>
+                    <h3>Request Service</h3>
+                    <p>Tell us what you need. We'll match you with a verified local expert.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">02</span>
+                    <h3>Assigned Verified Firm</h3>
+                    <p>A screened and background-checked professional accepts your job.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">03</span>
+                    <h3>Work Completed</h3>
+                    <p>The job is done to standard. Payments are released only after satisfaction.</p>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- 4. TRANSPARENT PRICING -->
+      <section class="section-padding">
+        <div class="container pricing-container">
+            <div class="pricing-header">
+                <h2 class="section-headline">Transparent Pricing</h2>
+                <p>Pricing depends on scope of work. Basic visits start from <span id="price-start" class="price-highlight">...</span>.</p>
+                <p id="price-note" class="text-secondary small-text"></p>
+            </div>
+            <div class="pricing-table-wrapper">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Service Cost</strong></td>
+                            <td>Paid directly to assigned firm via NODE</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Platform Assurance</strong></td>
+                            <td>Small fixed fee covering verification & support</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      </section>
+
+      <!-- 5. PLATFORM ASSURANCE -->
+      <section class="section-padding bg-assurance">
+        <div class="container">
+            <h2 class="section-headline">Platform-Backed Assurance</h2>
+            <div class="assurance-grid">
+                <div class="assurance-item">✓ Verified firm assignment</div>
+                <div class="assurance-item">✓ Professional conduct standards</div>
+                <div class="assurance-item">✓ Clear communication</div>
+                <div class="assurance-item">✓ Issue resolution support</div>
+                <div class="assurance-item">✓ Replacement assistance if required</div>
+            </div>
+        </div>
+      </section>
+
+      <!-- 6. WHY CHOOSE NODE -->
+      <section class="section-padding">
+        <div class="container">
+            <h2 class="section-headline mb-medium">Why Choose NODE</h2>
+            <div id="why-grid" class="why-grid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section class="section-padding bg-secondary">
+        <div class="container narrow-container">
+            <h2 class="section-headline text-center mb-medium">Frequently Asked Questions</h2>
+            <div id="faq-list" class="faq-list">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+      </section>
+
+      <!-- 8. FINAL CTA -->
+      <section class="section-padding text-center">
+        <div class="container">
+            <h2 id="cta-headline" class="section-headline mb-medium">Need Reliable Support?</h2>
+            <button class="btn btn-primary btn-large">Request Service</button>
+        </div>
+      </section>
+      
+    </main>
+
+    <!-- Footer (Simplified Copy) -->
+    <footer class="footer">
+      <div class="container">
+         <p class="copyright">© 2026 NODE Platform. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="/main.js"></script> <!-- For Dark Mode Logic Reuse -->
+    <script type="module" src="/service-loader.js"></script> <!-- For Dynamic Content -->
+  </body>
+</html>
