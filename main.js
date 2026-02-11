@@ -4,56 +4,34 @@ import './style.css'
 document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
     const greetingElement = document.getElementById('greeting-text');
+    
+    // session storage check
+    if (sessionStorage.getItem('node_loader_shown')) {
+        if (loader) loader.style.display = 'none';
+        return;
+    }
+
     const greetings = [
         "Hi", "Hello", "Namaste", "Hola", "Bonjour", 
         "Ciao", "Konnichiwa", "Salaam"
     ]; // Add more if needed
 
     let currentIndex = 0;
-    const greetingDuration = 250; // Ms per word visible (fast to get through list)
-    const fadeDuration = 100; // Ms for fade transition
-    // Adjust timing: The user wants "smooth, elegant transitions". 
-    // Too fast is chaotic. Let's do ~800ms total per word? 
-    // Actually, "Greetings loop only while the website is loading" implies it could be infinite.
-    // But we want to show a few. Let's cycle at a readable pace.
     
-    // Revised timing for elegance:
-    // Fade in: 400ms (CSS)
-    // Stay: 1200ms
-    // Fade out: 400ms (CSS)
-    // But we want to likely finish the loop or at least show 'Hi' 'Hello' 'Namaste' etc.
-    // If the site loads instantly, we should arguably show the animation for a minimum time 
-    // so it doesn't look like a glitch.
-
-    // Let's implement a queue-based approach. 
-    // We'll show one word, wait, hide, show next. 
-    // We check if the page is loaded. If loaded AND we've shown at least X words (or just 1 full cycle is too long?), 
-    // we exit.
-    // The prompt says: "Greetings loop only while the website is loading".
-    // This implies if it takes 10s, we loop 10s. If 0.1s, we stop? 
-    // Instant stop is jarring. 
-    // Strategy: Ensure at least the first 2-3 greetings are shown, then if loaded, fade out. 
-    // Or simpler: Just run the loop. If loaded, wait for current greeting to finish, then exit.
-
+    // Revised transition timing
+    // Cycle through greetings while loading, but ensure at least a few are shown
+    
     let isPageLoaded = false;
     window.addEventListener('load', () => {
         isPageLoaded = true;
     });
 
     const showGreeting = (index) => {
+        if (!loader) return;
+        
         if (index >= greetings.length) {
             index = 0; // Loop back
         }
-        
-        // If page is loaded, we can stop the loop and hide the loader
-        // UNLESS we want to force a minimum experience. 
-        // Let's minimally ensure we don't cut off a word mid-transition.
-        // And maybe show at least 1-2 words? 
-        // For a local site, it will be instant. Let's force a small delay effectively 
-        // by the nature of the timeout.
-        
-        // However, if the user sees "Hi" -> "Hello" -> "Namaste" and that's it, that's fine.
-        // If `isPageLoaded` is true, we should probably transition out *after* the current word.
         
         greetingElement.textContent = greetings[index];
         greetingElement.classList.add('visible');
@@ -61,8 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Wait for reading time
         setTimeout(() => {
             // Check if we should exit
-            if (isPageLoaded && index >= 2) { // Ensure at least 3 words are shown (approx 2-3 sec) for effect
-                // Start exit sequence
+            // Exit if page is loaded AND we've shown at least 3 greetings (approx 2.5s)
+            // This prevents the loader from disappearing too instantly on fast connections, giving a smoother feel
+            if (isPageLoaded && index >= 2) { 
                 finishLoader();
             } else {
                 // Fade out current word
@@ -77,13 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function finishLoader() {
-        // Fade out text first? Or just the whole loader?
-        // Let's fade out the text
+        // Mark as shown for this session
+        sessionStorage.setItem('node_loader_shown', 'true');
+
         greetingElement.classList.remove('visible');
         
         setTimeout(() => {
              loader.classList.add('hidden');
-             // optional: remove from DOM after transition
              setTimeout(() => {
                  loader.style.display = 'none';
              }, 800); // Match CSS transition
@@ -91,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Start the loop
-    // Initial delay to let CSS load/render
     setTimeout(() => {
         showGreeting(0);
     }, 100);
