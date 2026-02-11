@@ -46,7 +46,7 @@
 
         <!-- 2. CENTER-LEFT: Primary Navigation -->
         <nav class="primary-nav">
-          <a href="#" class="nav-item" data-i18n="nav_services">Services</a>
+          <a href="#services" class="nav-item" data-i18n="nav_services">Services</a>
           <a href="#how-it-works" class="nav-item" data-i18n="nav_how_it_works">How It Works</a>
           <a href="#" class="nav-item" data-i18n="nav_professionals">For Professionals</a>
         </nav>
@@ -111,7 +111,7 @@
     <div class="mobile-nav-overlay"></div>
     <div class="mobile-nav-drawer">
         <nav class="mobile-nav">
-            <a href="#" class="mobile-nav-item" data-i18n="nav_services">Services</a>
+            <a href="#services" class="mobile-nav-item" data-i18n="nav_services">Services</a>
             <a href="#how-it-works" class="mobile-nav-item" data-i18n="nav_how_it_works">How It Works</a>
             <a href="#" class="mobile-nav-item" data-i18n="nav_professionals">For Professionals</a>
             <!-- Mobile Location Selector could go here too if needed, keeping it simple for now -->
@@ -129,7 +129,7 @@
             <h1 class="hero-headline" data-i18n="hero_headline">The trusted connection for local work</h1>
             <p class="hero-subheadline" data-i18n="hero_subheadline">Verified firms. Transparent pricing. Work done with accountability.</p>
             <div class="hero-actions">
-              <a href="#" class="btn btn-primary" data-i18n="btn_find_service">Find a Trusted Service</a>
+              <a href="#services" class="btn btn-primary" data-i18n="btn_find_service">Find a Trusted Service</a>
               <a href="#how-it-works" class="link-secondary" data-i18n="link_how_node_works">How NODE Works →</a>
             </div>
           </div>
@@ -272,7 +272,7 @@
       </section>
 
       <!-- 4. SERVICES (Circular Node Network) -->
-      <section class="services section-padding fade-in-up">
+      <section id="services" class="services section-padding fade-in-up">
         <div class="services-node-wrapper">
             <!-- Central Node -->
             <div class="node-center">
@@ -291,39 +291,44 @@
 
 
             <!-- Node 1: Plumbing (Top Left) -->
-            <div class="service-node node-1">
+            <!-- Node 1: Plumbing (Top Left) -->
+            <a href="/service.html?type=plumbing" class="service-node node-1">
                 <div class="node-icon">🔧</div>
                 <h3 class="node-title" data-i18n="service_plumbing_title">Plumbing</h3>
                 <p class="node-desc" data-i18n="service_plumbing_desc">Leaks, fittings, and water system repairs</p>
-            </div>
+            </a>
 
             <!-- Node 2: Electrical (Top Right) -->
-            <div class="service-node node-2">
+            <!-- Node 2: Electrical (Top Right) -->
+            <a href="/service.html?type=electrical" class="service-node node-2">
                 <div class="node-icon">⚡</div>
                 <h3 class="node-title" data-i18n="service_electrical_title">Electrical</h3>
                 <p class="node-desc" data-i18n="service_electrical_desc">Wiring, switches, and electrical fixes</p>
-            </div>
+            </a>
 
             <!-- Node 3: Repairs (Right) -->
-            <div class="service-node node-3">
+            <!-- Node 3: Repairs (Right) -->
+            <a href="/service.html?type=repairs" class="service-node node-3">
                 <div class="node-icon">🛠️</div>
                 <h3 class="node-title" data-i18n="service_repairs_title">Repairs</h3>
                 <p class="node-desc" data-i18n="service_repairs_desc">Everyday home and utility repairs</p>
-            </div>
+            </a>
 
             <!-- Node 4: Construction (Bottom Right) -->
-            <div class="service-node node-4">
+            <!-- Node 4: Construction (Bottom Right) -->
+            <a href="/service.html?type=construction" class="service-node node-4">
                 <div class="node-icon">🏗️</div>
                 <h3 class="node-title" data-i18n="service_construction_title">Construction</h3>
                 <p class="node-desc" data-i18n="service_construction_desc">Small construction and renovation work</p>
-            </div>
+            </a>
 
             <!-- Node 5: Cleaning (Bottom Left) -->
-            <div class="service-node node-5">
+            <!-- Node 5: Cleaning (Bottom Left) -->
+            <a href="/service.html?type=cleaning" class="service-node node-5">
                 <div class="node-icon">🧹</div>
                 <h3 class="node-title" data-i18n="service_cleaning_title">Cleaning</h3>
                 <p class="node-desc" data-i18n="service_cleaning_desc">Professional one-time cleaning services</p>
-            </div>
+            </a>
 
           </div>
         </div>
