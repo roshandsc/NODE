@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <title>Services - NODE</title>
+    <!-- Reuse Global Styles -->
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* Specific Styles for Services Listing Page */
+        .services-hero {
+            padding: 120px 0 60px;
+            background-color: var(--bg-secondary);
+            text-align: center;
+        }
+        .services-hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+        .services-hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid-section {
+            padding: 80px 0;
+        }
+
+        .services-listing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-color: var(--border-hover);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .service-link {
+            color: var(--accent-color);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Banner Section */
+        .cta-banner {
+            background: var(--bg-tertiary);
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Reuse Header Structure (Static duplication for template) -->
+    <header class="header">
+      <div class="header-container">
+        <div class="brand-group">
+            <a href="/" class="brand-anchor">
+              <img src="/logo.png" alt="NODE" class="brand-logo" />
+            </a>
+            <div class="language-switcher">
+                <button class="lang-btn" aria-label="Select Language">
+                     <span class="lang-current">EN</span>
+                </button>
+            </div>
+        </div>
+        <nav class="primary-nav">
+          <a href="/index.html" class="nav-item">Home</a>
+          <a href="/services.html" class="nav-item active">Services</a>
+          <a href="/index.html#how-it-works" class="nav-item">How It Works</a>
+        </nav>
+        <div class="utility-icon">
+            <button class="theme-toggle" aria-label="Toggle Dark Mode">
+                 <!-- Sun/Moon SVG -->
+                 <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                 <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="services-hero">
+            <div class="container">
+                <h1>Our Services</h1>
+                <p>Comprehensive solutions for your home and office needs. Verified, professional, and reliable.</p>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="services-grid-section">
+            <div class="container">
+                <div class="services-listing-grid">
+                    <!-- Plumbing -->
+                    <a href="/service.html?type=plumbing" class="service-card">
+                        <span class="service-icon">🔧</span>
+                        <h3>Plumbing</h3>
+                        <p>Leak repairs, fixture installation, and drainage solutions by expert plumbers.</p>
+                        <span class="service-link">View Details →</span>
+                    </a>
+
+                    <!-- Electrical -->
+                    <a href="/service.html?type=electrical" class="service-card">
+                        <span class="service-icon">⚡</span>
+                        <h3>Electrical</h3>
+                        <p>Safety-focused wiring, switch repairs, and appliance installation.</p>
+                        <span class="service-link">View Details →</span>
+                    </a>
+
+                    <!-- Repairs -->
+                    <a href="/service.html?type=repairs" class="service-card">
+                        <span class="service-icon">🛠️</span>
+                        <h3>General Repairs</h3>
+                        <p>Furniture assembly, carpentry, and general home wear-and-tear fixes.</p>
+                        <span class="service-link">View Details →</span>
+                    </a>
+
+                    <!-- Construction -->
+                    <a href="/service.html?type=construction" class="service-card">
+                        <span class="service-icon">🏗️</span>
+                        <h3>Construction</h3>
+                        <p>Renovations, tile work, and structural modifications managed by pros.</p>
+                        <span class="service-link">View Details →</span>
+                    </a>
+
+                    <!-- Cleaning -->
+                    <a href="/service.html?type=cleaning" class="service-card">
+                        <span class="service-icon">🧹</span>
+                        <h3>Deep Cleaning</h3>
+                        <p>Full home sanitization, kitchen deep cleans, and floor polishing.</p>
+                        <span class="service-link">View Details →</span>
+                    </a>
+                
+                    <!-- Painting (New/Additional) -->
+                    <a href="#" class="service-card" style="opacity: 0.6; pointer-events: none;">
+                        <span class="service-icon">🎨</span>
+                        <h3>Painting (Coming Soon)</h3>
+                        <p>Interior and exterior painting with professional finishes.</p>
+                        <span class="service-link">Coming Soon</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner -->
+        <section class="cta-banner">
+            <div class="container">
+                <h2 style="font-size: 32px; margin-bottom: 24px; color: var(--text-main);">Verified quality you can trust.</h2>
+                <a href="#services-grid-section" class="btn btn-primary btn-large">Choose a Service</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+         <p class="copyright">© 2026 NODE Platform. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+    <!-- Add active state logic for header if needed, for now inline active class used -->
+  </body>
+</html>
