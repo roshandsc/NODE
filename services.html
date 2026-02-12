@@ -57,9 +57,16 @@
         }
 
         .service-icon {
-            font-size: 40px;
+            width: 72px;
+            height: 72px;
             margin-bottom: 24px;
             display: block;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.05);
         }
 
         .service-card h3 {
@@ -140,7 +147,7 @@
                 <div class="services-listing-grid">
                     <!-- Plumbing -->
                     <a href="/service.html?type=plumbing" class="service-card">
-                        <span class="service-icon">🔧</span>
+                        <img src="/icon-plumbing.png" alt="Plumbing" class="service-icon" />
                         <h3 data-i18n="svc_plumbing">Plumbing</h3>
                         <p data-i18n="svc_plumbing_desc">Leak repairs, fixture installation, and drainage solutions by expert plumbers.</p>
                         <span class="service-link" data-i18n="link_view_details">View Details →</span>
@@ -148,7 +155,7 @@
 
                     <!-- Electrical -->
                     <a href="/service.html?type=electrical" class="service-card">
-                        <span class="service-icon">⚡</span>
+                        <img src="/icon-electrical.png" alt="Electrical" class="service-icon" />
                         <h3 data-i18n="svc_electrical">Electrical</h3>
                         <p data-i18n="svc_electrical_desc">Safety-focused wiring, switch repairs, and appliance installation.</p>
                         <span class="service-link" data-i18n="link_view_details">View Details →</span>
@@ -156,7 +163,7 @@
 
                     <!-- Repairs -->
                     <a href="/service.html?type=repairs" class="service-card">
-                        <span class="service-icon">🛠️</span>
+                        <img src="/icon-repairs.png" alt="Repairs" class="service-icon" />
                         <h3 data-i18n="svc_repairs">General Repairs</h3>
                         <p data-i18n="svc_repairs_desc">Furniture assembly, carpentry, and general home wear-and-tear fixes.</p>
                         <span class="service-link" data-i18n="link_view_details">View Details →</span>
@@ -164,7 +171,7 @@
 
                     <!-- Construction -->
                     <a href="/service.html?type=construction" class="service-card">
-                        <span class="service-icon">🏗️</span>
+                        <img src="/icon-construction.png" alt="Construction" class="service-icon" />
                         <h3 data-i18n="svc_construction">Construction</h3>
                         <p data-i18n="svc_construction_desc">Renovations, tile work, and structural modifications managed by pros.</p>
                         <span class="service-link" data-i18n="link_view_details">View Details →</span>
@@ -172,7 +179,7 @@
 
                     <!-- Cleaning -->
                     <a href="/service.html?type=cleaning" class="service-card">
-                        <span class="service-icon">🧹</span>
+                        <img src="/icon-cleaning.png" alt="Cleaning" class="service-icon" />
                         <h3 data-i18n="svc_cleaning">Deep Cleaning</h3>
                         <p data-i18n="svc_cleaning_desc">Full home sanitization, kitchen deep cleans, and floor polishing.</p>
                         <span class="service-link" data-i18n="link_view_details">View Details →</span>
