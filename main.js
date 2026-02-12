@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Main Content Area Logic - removed to prevent clearing static HTML
 
 // Header Utilities Logic
-import { translations } from './translations.js';
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Language Switcher
