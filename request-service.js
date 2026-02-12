@@ -1,4 +1,6 @@
 
+import { translations } from './translations.js';
+
 // Mock API Data for Service Options
 const SERVICE_OPTIONS = {
     'plumbing': [
@@ -299,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- LANGUAGE LOGIC (Replicated from main.js for persistence) ---
-    import { translations } from './translations.js';
+    // import { translations } from './translations.js'; // Moved to top
     
     // 1. Language Switcher Logic
     const langBtn = document.querySelector('.lang-btn');
@@ -370,3 +372,39 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- THEME TOGGLE LOGIC (Replicated from main.js) ---
+    const themeToggle = document.querySelector('.theme-toggle');
+    const sunIcon = document.querySelector('.sun-icon');
+    const moonIcon = document.querySelector('.moon-icon');
+    
+    // Check local storage or preference
+    const savedTheme = localStorage.getItem('node-theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        updateThemeIcon(true);
+    } else {
+        updateThemeIcon(false); // Ensure correct icon on load
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            
+            updateThemeIcon(isDark);
+            localStorage.setItem('node-theme', isDark ? 'dark' : 'light');
+        });
+    }
+
+    function updateThemeIcon(isDark) {
+        if (isDark) {
+            if(sunIcon) sunIcon.style.display = 'none';
+            if(moonIcon) moonIcon.style.display = 'block';
+        } else {
+            if(sunIcon) sunIcon.style.display = 'block';
+            if(moonIcon) moonIcon.style.display = 'none';
+        }
+    }
+
+});
