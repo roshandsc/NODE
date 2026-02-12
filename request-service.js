@@ -2,35 +2,35 @@
 // Mock API Data for Service Options
 const SERVICE_OPTIONS = {
     'plumbing': [
-        { id: 'leak', label: 'Leak Repair' },
-        { id: 'tap', label: 'Tap / Pipe Replacement' },
-        { id: 'blockage', label: 'Drain Blockage' },
-        { id: 'fittings', label: 'Bathroom Fittings' },
-        { id: 'other', label: 'Other Issue' }
+        { id: 'leak', label: { en: 'Leak Repair', hi: 'लीक मरम्मत', kn: 'ಸೋರಿಕೆ ದುರಸ್ತಿ' } },
+        { id: 'tap', label: { en: 'Tap / Pipe Replacement', hi: 'नल / पाइप प्रतिस्थापन', kn: 'ನಲ್ಲಿ / ಪೈಪ್ ಬದಲಿ' } },
+        { id: 'blockage', label: { en: 'Drain Blockage', hi: 'नाली रुकावट', kn: 'ಚರಂಡಿ ನಿರ್ಬಂಧ' } },
+        { id: 'fittings', label: { en: 'Bathroom Fittings', hi: 'बाथरूम फिटिंग', kn: 'ಬಾತ್ ರೂಮ್ ಫಿಟ್ಟಿಂಗ್' } },
+        { id: 'other', label: { en: 'Other Issue', hi: 'अन्य समस्या', kn: 'ಇತರೆ ಸಮಸ್ಯೆ' } }
     ],
     'electrical': [
-        { id: 'wiring', label: 'Wiring Check / Repair' },
-        { id: 'switch', label: 'Switch / Socket Replacement' },
-        { id: 'appliance', label: 'Appliance Installation' },
-        { id: 'fan', label: 'Fan Repair' },
-        { id: 'other', label: 'Other Issue' }
+        { id: 'wiring', label: { en: 'Wiring Check / Repair', hi: 'वायरिंग जाँच / मरम्मत', kn: 'ವೈರಿಂಗ್ ಪರಿಶೀಲನೆ / ದುರಸ್ತಿ' } },
+        { id: 'switch', label: { en: 'Switch / Socket Replacement', hi: 'स्विच / सॉकेट प्रतिस्थापन', kn: 'ಸ್ವಿಚ್ / ಸಾಕೆಟ್ ಬದಲಿ' } },
+        { id: 'appliance', label: { en: 'Appliance Installation', hi: 'उपकरण स्थापना', kn: 'ಉಪಕರಣ ಸ್ಥಾಪನೆ' } },
+        { id: 'fan', label: { en: 'Fan Repair', hi: 'पंखा मरम्मत', kn: 'ಫ್ಯಾನ್ ದುರಸ್ತಿ' } },
+        { id: 'other', label: { en: 'Other Issue', hi: 'अन्य समस्या', kn: 'ಇತರೆ ಸಮಸ್ಯೆ' } }
     ],
     'repairs': [
-        { id: 'furniture', label: 'Furniture Assembly' },
-        { id: 'door', label: 'Door / Lock Repair' },
-        { id: 'wall', label: 'Wall Drilling / Mounting' },
-        { id: 'other', label: 'General Handyman' }
+        { id: 'furniture', label: { en: 'Furniture Assembly', hi: 'फर्नीचर असेंबली', kn: 'ಪೀಠೋಪಕರಣ ಜೋಡಣೆ' } },
+        { id: 'door', label: { en: 'Door / Lock Repair', hi: 'दरवाजा / लॉक मरम्मत', kn: 'ಬಾಗಿಲು / ಲಾಕ್ ದುರಸ್ತಿ' } },
+        { id: 'wall', label: { en: 'Wall Drilling / Mounting', hi: 'दीवार ड्रिलिंग / माउंटिंग', kn: 'ಗೋಡೆ ಕೊರೆಯುವಿಕೆ / ಮೌಂಟಿಂಗ್' } },
+        { id: 'other', label: { en: 'General Handyman', hi: 'सामान्य अप्रेंटिस', kn: 'ಸಾಮಾನ್ಯ ಕೆಲಸಗಾರ' } }
     ],
     'construction': [
-        { id: 'tiling', label: 'Tile Replacement' },
-        { id: 'painting', label: 'Touch-up Painting' },
-        { id: 'plaster', label: 'Plaster Repair' }
+        { id: 'tiling', label: { en: 'Tile Replacement', hi: 'टाइल्स प्रतिस्थापन', kn: 'ಟೈಲ್ ಬದಲಿ' } },
+        { id: 'painting', label: { en: 'Touch-up Painting', hi: 'टच-अप पेंटिंग', kn: 'ಟಚ್-ಅಪ್ ಪೇಂಟಿಂಗ್' } },
+        { id: 'plaster', label: { en: 'Plaster Repair', hi: 'प्लास्टर मरम्मत', kn: 'ಪ್ಲಾಸ್ಟರ್ ದುರಸ್ತಿ' } }
     ],
     'cleaning': [
-        { id: 'deep_clean', label: 'Deep Home Cleaning' },
-        { id: 'kitchen', label: 'Kitchen Deep Clean' },
-        { id: 'bathroom', label: 'Bathroom Cleaning' },
-        { id: 'sofa', label: 'Sofa / Carpet Cleaning' }
+        { id: 'deep_clean', label: { en: 'Deep Home Cleaning', hi: 'गहरी घर की सफाई', kn: 'ಮನೆ ಆಳವಾದ ಶುಚಿಗೊಳಿಸುವಿಕೆ' } },
+        { id: 'kitchen', label: { en: 'Kitchen Deep Clean', hi: 'रसोई की गहरी सफाई', kn: 'ಅಡುಗೆಮನೆ ಆಳವಾದ ಶುಚಿಗೊಳಿಸುವಿಕೆ' } },
+        { id: 'bathroom', label: { en: 'Bathroom Cleaning', hi: 'बाथरूम की सफाई', kn: 'ಬಾತ್ ರೂಮ್ ಶುಚಿಗೊಳಿಸುವಿಕೆ' } },
+        { id: 'sofa', label: { en: 'Sofa / Carpet Cleaning', hi: 'सोफा / कालीन सफाई', kn: 'ಸೋಫಾ / ಕಾರ್ಪೆಟ್ ಶುಚಿಗೊಳಿಸುವಿಕೆ' } }
     ]
 };
 
@@ -57,36 +57,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Populate Dynamic Options
     const dynamicTasksContainer = document.getElementById('dynamic-tasks');
-    const options = SERVICE_OPTIONS[serviceType] || SERVICE_OPTIONS['plumbing']; // Fallback
     
-    options.forEach(opt => {
-        const label = document.createElement('label');
-        label.className = 'checkbox-item';
-        label.innerHTML = `
-            <input type="checkbox" name="task" value="${opt.id}">
-            <span>${opt.label}</span>
-        `;
-        dynamicTasksContainer.appendChild(label);
+    function renderOptions(lang) {
+        // Clear existing
+        dynamicTasksContainer.innerHTML = '';
+        const options = SERVICE_OPTIONS[serviceType] || SERVICE_OPTIONS['plumbing']; // Fallback
         
-        // Add click listener for styling
-        label.addEventListener('click', (e) => {
-            // e.stopPropagation(); // Don't stop propagation, let input handle it
-            // Small delay to let check state update
-            setTimeout(() => {
-                const checkbox = label.querySelector('input');
-                if (checkbox.checked) {
-                    label.classList.add('checked');
-                } else {
-                    label.classList.remove('checked');
-                }
-                
-                // Handle "Other" visibility
-                if (opt.id === 'other') {
-                    toggleOtherInput(checkbox.checked);
-                }
-            }, 0);
+        options.forEach(opt => {
+            const label = document.createElement('label');
+            label.className = 'checkbox-item';
+            
+            // Get text for current language, fallback to en
+            const labelText = opt.label[lang] || opt.label['en'];
+
+            label.innerHTML = `
+                <input type="checkbox" name="task" value="${opt.id}">
+                <span>${labelText}</span>
+            `;
+            dynamicTasksContainer.appendChild(label);
+            
+            // Add click listener for styling
+            label.addEventListener('click', (e) => {
+                // Small delay to let check state update
+                setTimeout(() => {
+                    const checkbox = label.querySelector('input');
+                    if (checkbox.checked) {
+                        label.classList.add('checked');
+                    } else {
+                        label.classList.remove('checked');
+                    }
+                    
+                    // Handle "Other" visibility
+                    if (opt.id === 'other') {
+                        toggleOtherInput(checkbox.checked);
+                    }
+                }, 0);
+            });
         });
-    });
+    }
 
     // Toggle Other Input
     const otherWrapper = document.getElementById('other-task-wrapper');
@@ -290,4 +298,75 @@ document.addEventListener('DOMContentLoaded', () => {
         dateInput.setAttribute('min', today);
     }
 
-});
+    // --- LANGUAGE LOGIC (Replicated from main.js for persistence) ---
+    import { translations } from './translations.js';
+    
+    // 1. Language Switcher Logic
+    const langBtn = document.querySelector('.lang-btn');
+    const langDropdown = document.querySelector('.lang-dropdown');
+    const langOptions = document.querySelectorAll('.lang-option');
+    const langCurrent = document.querySelector('.lang-current');
+
+    // Function to update page content based on language
+    function updateLanguage(lang) {
+        // validate lang
+        if (!['en', 'hi', 'kn'].includes(lang)) return;
+
+        // Update DOM elements
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (translations[key] && translations[key][lang]) {
+                if (element.tagName === 'INPUT' && element.getAttribute('placeholder')) {
+                    element.placeholder = translations[key][lang];
+                } else {
+                    element.innerHTML = translations[key][lang]; // innerHTML allows HTML in translation (like spans)
+                }
+            }
+        });
+        
+        // RE-RENDER DYNAMIC OPTIONS
+        renderOptions(lang);
+
+        // Update html lang attribute
+        document.documentElement.lang = lang;
+
+        // Update Button Text
+        if (langCurrent) langCurrent.textContent = lang.toUpperCase();
+
+        // Update Active State in Dropdown
+        langOptions.forEach(opt => {
+            if (opt.getAttribute('data-lang') === lang) {
+                opt.classList.add('active');
+            } else {
+                opt.classList.remove('active');
+            }
+        });
+
+        // Persist to local storage
+        localStorage.setItem('node-lang', lang);
+    }
+
+    // Initialize Language
+    const savedLang = localStorage.getItem('node-lang') || 'en';
+    updateLanguage(savedLang);
+
+    if (langBtn && langDropdown) {
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+        });
+
+        langOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const langCode = option.getAttribute('data-lang');
+                updateLanguage(langCode);
+                langDropdown.classList.remove('show');
+            });
+        });
+    }

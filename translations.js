@@ -278,5 +278,187 @@ export const translations = {
         "en": "© 2026 NODE Industries within India. All rights reserved.",
         "hi": "© 2026 NODE Industries भारत के भीतर। सर्वाधिकार सुरक्षित।",
         "kn": "© 2026 NODE Industries ಭಾರತದಲ್ಲಿ. ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
+    },
+
+    // --- Service Request Form ---
+    "form_title": {
+        "en": "Let's get started",
+        "hi": "चलिए शुरू करते हैं",
+        "kn": "ಪ್ರಾರಂಭಿಸೋಣ"
+    },
+    "form_subtitle": {
+        "en": "What type of property is this for?",
+        "hi": "यह किस प्रकार की संपत्ति के लिए है?",
+        "kn": "ಇದು ಯಾವ ರೀತಿಯ ಆಸ್ತಿಗಾಗಿ?"
+    },
+    "lbl_service_type": {
+        "en": "Service Type",
+        "hi": "सेवा का प्रकार",
+        "kn": "ಸೇವೆಯ ಪ್ರಕಾರ"
+    },
+    "lbl_property_type": {
+        "en": "Property Type",
+        "hi": "संपत्ति का प्रकार",
+        "kn": "ಆಸ್ತಿ ಪ್ರಕಾರ"
+    },
+    "prop_residential": {
+        "en": "Private Home",
+        "hi": "निजी घर",
+        "kn": "ಖಾಸಗಿ ಮನೆ"
+    },
+    "prop_commercial": {
+        "en": "Commercial Property",
+        "hi": "व्यावसायिक संपत्ति",
+        "kn": "ವಾಣಿಜ್ಯ ಆಸ್ತಿ"
+    },
+    "helper_property": {
+        "en": "Select the property type to help us assign the right team.",
+        "hi": "हमें सही टीम सौंपने में मदद करने के लिए संपत्ति का प्रकार चुनें।",
+        "kn": "ಸರಿಯಾದ ತಂಡವನ್ನು ನಿಯೋಜಿಸಲು ನಮಗೆ ಸಹಾಯ ಮಾಡಲು ಆಸ್ತಿ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ."
+    },
+    "btn_continue": {
+        "en": "Continue",
+        "hi": "जारी रखें",
+        "kn": "ಮುಂದುವರಿಸಿ"
+    },
+    "btn_back": {
+        "en": "Back",
+        "hi": "वापस",
+        "kn": "ಹಿಂದಕ್ಕೆ"
+    },
+    "sec_details": {
+        "en": "Service Details",
+        "hi": "सेवा विवरण",
+        "kn": "ಸೇವೆಯ ವಿವರಗಳು"
+    },
+    "sec_details_sub": {
+        "en": "Tell us a bit more about what you need.",
+        "hi": "हमें अपनी ज़रूरत के बारे में थोड़ा और बताएं।",
+        "kn": "ನಿಮಗೆ ಏನು ಬೇಕು ಎಂಬುದರ ಕುರಿತು ಇನ್ನಷ್ಟು ತಿಳಿಸಿ."
+    },
+    "lbl_help_with": {
+        "en": "What do you need help with?",
+        "hi": "आपको किस चीज़ में मदद चाहिए?",
+        "kn": "ನಿಮಗೆ ಯಾವುದರ ಬಗ್ಗೆ ಸಹಾಯ ಬೇಕು?"
+    },
+    "lbl_professionals": {
+        "en": "Estimated professionals required",
+        "hi": "अनुमानित पेशेवरों की आवश्यकता",
+        "kn": "ಅಂದಾಜು ವೃತ್ತಿಪರರ ಅಗತ್ಯವಿದೆ"
+    },
+    "opt_unsure": {
+        "en": "I'm unsure (Let assessments decide)",
+        "hi": "मुझे यकीन नहीं है (आकलन तय करने दें)",
+        "kn": "ನನಗೆ ಖಚಿತವಿಲ್ಲ (ಮೌಲ್ಯಮಾಪನ ನಿರ್ಧರಿಸಲಿ)"
+    },
+    "sec_location": {
+        "en": "Location & Time",
+        "hi": "स्थान और समय",
+        "kn": "ಸ್ಥಳ ಮತ್ತು ಸಮಯ"
+    },
+    "sec_location_sub": {
+        "en": "Where and when should we arrive?",
+        "hi": "हमें कहाँ और कब आना चाहिए?",
+        "kn": "ನಾವು ಎಲ್ಲಿ ಮತ್ತು ಯಾವಾಗ ಬರಬೇಕು?"
+    },
+    "lbl_location": {
+        "en": "Service Location",
+        "hi": "सेवा स्थान",
+        "kn": "ಸೇವಾ ಸ್ಥಳ"
+    },
+    "ph_location": {
+        "en": "House/Flat No., Street, Area",
+        "hi": "घर/फ्लैट नंबर, गली, क्षेत्र",
+        "kn": "ಮನೆ/ಫ್ಲಾಟ್ ಸಂಖ್ಯೆ, ಬೀದಿ, ಪ್ರದೇಶ"
+    },
+    "lbl_city": {
+        "en": "City",
+        "hi": "शहर",
+        "kn": "ನಗರ"
+    },
+    "lbl_landmark": {
+        "en": "Landmark (Optional)",
+        "hi": "लैंडमार्क (वैकल्पिक)",
+        "kn": "ಲ್ಯಾಂಡ್‌ಮಾರ್ಕ್ (ಐಚ್ಛಿಕ)"
+    },
+    "lbl_date": {
+        "en": "Preferred Date",
+        "hi": "पसंदीदा तारीख",
+        "kn": "ಆದ್ಯತೆಯ ದಿನಾಂಕ"
+    },
+    "lbl_time": {
+        "en": "Preferred Time Slot",
+        "hi": "पसंदीदा समय स्लॉट",
+        "kn": "ಆದ್ಯತೆಯ ಸಮಯ"
+    },
+    "opt_morning": {
+        "en": "Morning (9am – 12pm)",
+        "hi": "सुबह (9 बजे – 12 बजे)",
+        "kn": "ಬೆಳಿಗ್ಗೆ (9am – 12pm)"
+    },
+    "opt_afternoon": {
+        "en": "Afternoon (12pm – 4pm)",
+        "hi": "दोपहर (12 बजे – 4 बजे)",
+        "kn": "ಮಧ್ಯಾಹ್ನ (12pm – 4pm)"
+    },
+    "opt_evening": {
+        "en": "Evening (4pm – 7pm)",
+        "hi": "शाम (4 बजे – 7 बजे)",
+        "kn": "ಸಂಜೆ (4pm – 7pm)"
+    },
+    "helper_time": {
+        "en": "Exact timing will be confirmed after assignment.",
+        "hi": "असाइनमेंट के बाद सटीक समय की पुष्टि की जाएगी।",
+        "kn": "ನಿಯೋಜನೆಯ ನಂತರ ನಿಖರವಾದ ಸಮಯವನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತದೆ."
+    },
+    "sec_final": {
+        "en": "Final Details",
+        "hi": "अंतिम विवरण",
+        "kn": "ಅಂತಿಮ ವಿವರಗಳು"
+    },
+    "sec_final_sub": {
+        "en": "How can we reach you?",
+        "hi": "हम आप तक कैसे पहुंच सकते हैं?",
+        "kn": "ನಾವು ನಿಮ್ಮನ್ನು ಹೇಗೆ ಸಂಪರ್ಕಿಸಬಹುದು?"
+    },
+    "lbl_fullname": {
+        "en": "Full Name",
+        "hi": "पूरा नाम",
+        "kn": "ಪೂರ್ಣ ಹೆಸರು"
+    },
+    "lbl_phone": {
+        "en": "Phone Number",
+        "hi": "फ़ोन नंबर",
+        "kn": "ದೂರವಾಣಿ ಸಂಖ್ಯೆ"
+    },
+    "lbl_email": {
+        "en": "Email (Optional)",
+        "hi": "ईमेल (वैकल्पिक)",
+        "kn": "ಇಮೇಲ್ (ಐಚ್ಛಿಕ)"
+    },
+    "helper_email": {
+        "en": "We'll use this to confirm your request.",
+        "hi": "हम इसका उपयोग आपके अनुरोध की पुष्टि करने के लिए करेंगे।",
+        "kn": "ನಿಮ್ಮ ವಿನಂತಿಯನ್ನು ಖಚಿತಪಡಿಸಲು ನಾವು ಇದನ್ನು ಬಳಸುತ್ತೇವೆ."
+    },
+    "lbl_confirm": {
+        "en": "I confirm the details provided are accurate.",
+        "hi": "मैं पुष्टि करता हूं कि प्रदान किया गया विवरण सटीक है।",
+        "kn": "ಒದಗಿಸಿದ ವಿವರಗಳು ನಿಖರವಾಗಿವೆ ಎಂದು ನಾನು ಖಚಿತಪಡಿಸುತ್ತೇನೆ."
+    },
+    "lbl_pricing": {
+        "en": "I understand that pricing depends on scope and will be confirmed before work begins.",
+        "hi": "मैं समझता हूं कि मूल्य निर्धारण दायरे पर निर्भर करता है और काम शुरू होने से पहले पुष्टि की जाएगी।",
+        "kn": "ಬೆಲೆಯು ಕೆಲಸದ ವ್ಯಾಪ್ತಿಯನ್ನು ಅವಲಂಬಿಸಿರುತ್ತದೆ ಮತ್ತು ಕೆಲಸ ಪ್ರಾರಂಭವಾಗುವ ಮೊದಲು ದೃಢೀಕರಿಸಲಾಗುತ್ತದೆ ಎಂದು ನಾನು ಅರ್ಥಮಾಡಿಕೊಂಡಿದ್ದೇನೆ."
+    },
+    "lbl_terms": {
+        "en": "I agree to NODE’s Terms of Service and Platform Assurance Policy.",
+        "hi": "मैं NODE की सेवा की शर्तों और प्लेटफ़ॉर्म आश्वासन नीति से सहमत हूँ।",
+        "kn": "ನಾನು NODE ನ ಸೇವಾ ನಿಯಮಗಳು ಮತ್ತು ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಭರವಸೆ ನೀತಿಯನ್ನು ಒಪ್ಪುತ್ತೇನೆ."
+    },
+    "btn_submit": {
+        "en": "Submit Request",
+        "hi": "अनुरोध सबमिट करें",
+        "kn": "ವಿನಂತಿಯನ್ನು ಸಲ್ಲಿಸಿ"
     }
 };
