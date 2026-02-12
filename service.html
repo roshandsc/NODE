@@ -21,15 +21,21 @@
               <img src="/logo.png" alt="NODE" class="brand-logo" />
             </a>
             <!-- Language Switcher (Static for now in template) -->
+            <!-- Language Switcher -->
              <div class="language-switcher">
                 <button class="lang-btn" aria-label="Select Language">
-                    <span class="lang-current">EN</span>
+                     <span class="lang-current">EN</span>
                 </button>
+                <div class="lang-dropdown">
+                    <div class="lang-option active" data-lang="en">English</div>
+                    <div class="lang-option" data-lang="hi">हिंदी</div>
+                    <div class="lang-option" data-lang="kn">ಕನ್ನಡ</div>
+                </div>
             </div>
         </div>
         <nav class="primary-nav">
-          <a href="/index.html" class="nav-item">Home</a>
-          <a href="/index.html#how-it-works" class="nav-item">How It Works</a>
+          <a href="/index.html" class="nav-item" data-i18n="nav_home">Home</a>
+          <a href="/index.html#how-it-works" class="nav-item" data-i18n="nav_how_it_works">How It Works</a>
         </nav>
         <div class="utility-icon">
             <button class="theme-toggle" aria-label="Toggle Dark Mode">
@@ -58,9 +64,9 @@
       <section class="service-hero fade-in-up">
         <div class="container">
           <div class="service-hero-content">
-            <h1 id="service-title" class="service-headline">Loading...</h1>
-            <p id="service-subtitle" class="service-subheadline">Please wait while we fetch the details.</p>
-            <button id="request-btn" class="btn btn-primary btn-large">Request Service</button>
+            <h1 id="service-title" class="service-headline" data-i18n="lbl_loading">Loading...</h1>
+            <p id="service-subtitle" class="service-subheadline" data-i18n="lbl_wait">Please wait while we fetch the details.</p>
+            <button id="request-btn" class="btn btn-primary btn-large" data-i18n="btn_request_service">Request Service</button>
           </div>
         </div>
       </section>
@@ -68,7 +74,7 @@
       <!-- 2. WHAT THIS SERVICE COVERS -->
       <section class="section-padding">
         <div class="container">
-            <h2 class="section-headline mb-medium">What This Service Covers</h2>
+            <h2 class="section-headline mb-medium" data-i18n="sec_covers">What This Service Covers</h2>
             <div id="coverage-list" class="coverage-grid">
                 <!-- Dynamically populated -->
             </div>
@@ -78,22 +84,22 @@
       <!-- 3. HOW NODE HANDLES THIS -->
       <section class="section-padding bg-secondary">
         <div class="container">
-            <h2 class="section-headline text-center mb-large">How NODE Handles This Service</h2>
+            <h2 class="section-headline text-center mb-large" data-i18n="sec_process">How NODE Handles This Service</h2>
             <div class="process-grid">
                 <div class="process-step">
                     <span class="step-number">01</span>
-                    <h3>Request Service</h3>
-                    <p>Tell us what you need. We'll match you with a verified local expert.</p>
+                    <h3 data-i18n="step_01_title">Request Service</h3>
+                    <p data-i18n="step_01_desc">Tell us what you need. We'll match you with a verified local expert.</p>
                 </div>
                 <div class="process-step">
                     <span class="step-number">02</span>
-                    <h3>Assigned Verified Firm</h3>
-                    <p>A screened and background-checked professional accepts your job.</p>
+                    <h3 data-i18n="step_02_title">Assigned Verified Firm</h3>
+                    <p data-i18n="step_02_desc">A screened and background-checked professional accepts your job.</p>
                 </div>
                 <div class="process-step">
                     <span class="step-number">03</span>
-                    <h3>Work Completed</h3>
-                    <p>The job is done to standard. Payments are released only after satisfaction.</p>
+                    <h3 data-i18n="step_03_title">Work Completed</h3>
+                    <p data-i18n="step_03_desc">The job is done to standard. Payments are released only after satisfaction.</p>
                 </div>
             </div>
         </div>
@@ -103,26 +109,26 @@
       <section class="section-padding">
         <div class="container pricing-container">
             <div class="pricing-header">
-                <h2 class="section-headline">Transparent Pricing</h2>
-                <p>Pricing depends on scope of work. Basic visits start from <span id="price-start" class="price-highlight">...</span>.</p>
+                <h2 class="section-headline" data-i18n="sec_pricing">Transparent Pricing</h2>
+                <p><span data-i18n="lbl_pricing_start">Pricing depends on scope of work. Basic visits start from</span> <span id="price-start" class="price-highlight">...</span>.</p>
                 <p id="price-note" class="text-secondary small-text"></p>
             </div>
             <div class="pricing-table-wrapper">
                 <table class="pricing-table">
                     <thead>
                         <tr>
-                            <th>Component</th>
-                            <th>Description</th>
+                            <th data-i18n="tbl_component">Component</th>
+                            <th data-i18n="tbl_desc">Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Service Cost</strong></td>
-                            <td>Paid directly to assigned firm via NODE</td>
+                            <td><strong data-i18n="tbl_service_cost">Service Cost</strong></td>
+                            <td data-i18n="tbl_service_cost_desc">Paid directly to assigned firm via NODE</td>
                         </tr>
                         <tr>
-                            <td><strong>Platform Assurance</strong></td>
-                            <td>Small fixed fee covering verification & support</td>
+                            <td><strong data-i18n="tbl_assurance">Platform Assurance</strong></td>
+                            <td data-i18n="tbl_assurance_desc">Small fixed fee covering verification & support</td>
                         </tr>
                     </tbody>
                 </table>
@@ -133,13 +139,13 @@
       <!-- 5. PLATFORM ASSURANCE -->
       <section class="section-padding bg-assurance">
         <div class="container">
-            <h2 class="section-headline">Platform-Backed Assurance</h2>
+            <h2 class="section-headline" data-i18n="sec_assurance">Platform-Backed Assurance</h2>
             <div class="assurance-grid">
-                <div class="assurance-item">✓ Verified firm assignment</div>
-                <div class="assurance-item">✓ Professional conduct standards</div>
-                <div class="assurance-item">✓ Clear communication</div>
-                <div class="assurance-item">✓ Issue resolution support</div>
-                <div class="assurance-item">✓ Replacement assistance if required</div>
+                <div class="assurance-item" data-i18n="assr_1">✓ Verified firm assignment</div>
+                <div class="assurance-item" data-i18n="assr_2">✓ Professional conduct standards</div>
+                <div class="assurance-item" data-i18n="assr_3">✓ Clear communication</div>
+                <div class="assurance-item" data-i18n="assr_4">✓ Issue resolution support</div>
+                <div class="assurance-item" data-i18n="assr_5">✓ Replacement assistance if required</div>
             </div>
         </div>
       </section>
@@ -147,7 +153,7 @@
       <!-- 6. WHY CHOOSE NODE -->
       <section class="section-padding">
         <div class="container">
-            <h2 class="section-headline mb-medium">Why Choose NODE</h2>
+            <h2 class="section-headline mb-medium" data-i18n="sec_why">Why Choose NODE</h2>
             <div id="why-grid" class="why-grid">
                 <!-- Populated by JS -->
             </div>
@@ -157,7 +163,7 @@
       <!-- 7. FAQ -->
       <section class="section-padding bg-secondary">
         <div class="container narrow-container">
-            <h2 class="section-headline text-center mb-medium">Frequently Asked Questions</h2>
+            <h2 class="section-headline text-center mb-medium" data-i18n="sec_faq">Frequently Asked Questions</h2>
             <div id="faq-list" class="faq-list">
                 <!-- Populated by JS -->
             </div>
@@ -167,8 +173,8 @@
       <!-- 8. FINAL CTA -->
       <section class="section-padding text-center">
         <div class="container">
-            <h2 id="cta-headline" class="section-headline mb-medium">Need Reliable Support?</h2>
-            <button id="cta-request-btn" class="btn btn-primary btn-large">Request Service</button>
+            <h2 id="cta-headline" class="section-headline mb-medium" data-i18n="sec_cta">Need Reliable Support?</h2>
+            <button id="cta-request-btn" class="btn btn-primary btn-large" data-i18n="btn_request_service_cta">Request Service</button>
         </div>
       </section>
       

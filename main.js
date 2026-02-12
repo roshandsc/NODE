@@ -1,4 +1,5 @@
 import './style.css'
+import { translations } from './translations.js';
 
 // Loader Logic
 document.addEventListener('DOMContentLoaded', () => {
@@ -123,6 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('node-lang', lang);
         
         console.log(`Language updated to: ${lang}`);
+        
+        // Dispatch custom event for other scripts (like service-loader.js)
+        const event = new CustomEvent('languageChanged', { detail: { lang: lang } });
+        window.dispatchEvent(event);
     }
 
     // Initialize Language
