@@ -1,0 +1,455 @@
+/* Service Request Form Styles */
+
+:root {
+    /* Inherit main variables, define specific form ones */
+    --form-max-width: 600px;
+    --step-transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --input-focus-border: #000000;
+    --error-color: #d32f2f;
+    --success-color: #388e3c;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+}
+
+/* Minimal Header */
+.form-header {
+    height: 80px;
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg-main);
+    display: flex;
+    align-items: center;
+}
+
+.form-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-logo-small {
+    height: 40px;
+    width: auto;
+}
+
+.secure-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    padding: 6px 12px;
+    border-radius: 99px;
+}
+
+/* Main Layout */
+.form-main {
+    padding: 40px 0 80px;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    max-width: var(--form-max-width);
+    width: 100%;
+}
+
+/* Progress Bar */
+.progress-container {
+    margin-bottom: 40px;
+}
+
+.progress-bar {
+    height: 4px;
+    background: var(--bg-tertiary);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent-color);
+    width: 25%; /* Start at 25% */
+    transition: width 0.3s ease;
+}
+
+.steps-indicator {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-placeholder);
+}
+
+.step.active {
+    color: var(--text-main);
+}
+
+/* Form Sections */
+.service-form {
+    position: relative;
+    overflow: hidden; /* Hide sliding sections */
+}
+
+.form-section {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.form-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-row .half {
+    flex: 1;
+}
+
+.field-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+.required {
+    color: var(--text-secondary); /* Subtle asterisk */
+    margin-left: 2px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--text-main);
+    background: var(--bg-main);
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
+}
+
+.form-input::placeholder {
+    color: var(--text-placeholder);
+}
+
+/* Static Display Field */
+.static-input {
+    padding: 14px 16px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    color: var(--text-main);
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+/* Custom Select */
+.select-wrapper {
+    position: relative;
+}
+
+.select {
+    appearance: none;
+    cursor: pointer;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--text-secondary);
+}
+
+/* Radio Cards */
+.radio-group-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.radio-card {
+    cursor: pointer;
+    position: relative;
+}
+
+.radio-card input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    transition: all 0.2s ease;
+    background: var(--bg-main);
+    text-align: center;
+}
+
+.card-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.radio-card input:checked + .card-content {
+    border-color: var(--accent-color);
+    background-color: rgba(0, 68, 204, 0.04);
+}
+
+/* Checkbox Items */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.checkbox-item:hover {
+    background-color: var(--bg-tertiary);
+}
+
+.checkbox-item.checked {
+    border-color: var(--accent-color);
+    background-color: rgba(0, 68, 204, 0.04);
+}
+
+.checkbox-item input {
+    margin-right: 12px;
+    accent-color: var(--accent-color);
+    width: 18px;
+    height: 18px;
+}
+
+/* Validations */
+.form-input.error {
+    border-color: var(--error-color);
+    background-color: #fff8f8;
+}
+
+.error-msg {
+    color: var(--error-color);
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+/* Textarea */
+.textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.other-input-wrapper {
+    margin-top: 12px;
+    animation: fadeIn 0.3s ease;
+}
+
+.other-input-wrapper.hidden {
+    display: none;
+}
+
+.char-count {
+    text-align: right;
+    font-size: 12px;
+    color: var(--text-placeholder);
+    margin-top: 4px;
+}
+
+/* Phone Input */
+.phone-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.country-code {
+    position: absolute;
+    left: 16px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding-right: 12px;
+    border-right: 1px solid var(--border-subtle);
+}
+
+.phone-input {
+    padding-left: 70px; /* Space for code */
+}
+
+/* Policies */
+.policy-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.checkbox-label input {
+    margin-top: 3px;
+    accent-color: var(--text-main); /* Black check */
+    width: 16px;
+    height: 16px;
+}
+
+.checkbox-label a {
+    color: var(--text-main);
+    text-decoration: underline;
+}
+
+/* Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+}
+
+.next-btn {
+    margin-left: auto; /* Push to right if alone */
+}
+
+/* Form Message */
+.form-message {
+    color: var(--error-color);
+    margin-bottom: 16px;
+    font-size: 14px;
+    text-align: center;
+    min-height: 20px;
+}
+
+/* Success State */
+.success-state {
+    text-align: center;
+    padding: 40px 0;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.success-state.hidden {
+    display: none;
+}
+
+.success-icon {
+    margin-bottom: 24px;
+}
+
+.success-desc {
+    color: var(--text-secondary);
+    margin: 16px 0 32px;
+    line-height: 1.6;
+}
+
+/* Loader in button */
+.btn-loader {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 0.8s linear infinite;
+    margin-left: 8px;
+}
+
+.btn-loader.hidden {
+    display: none;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.helper-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+}
+
+.form-divider {
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 32px 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .radio-group-cards {
+        grid-template-columns: 1fr; /* Stack cards */
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 24px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+}

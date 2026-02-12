@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <title>Request Service - NODE</title>
+    <link rel="stylesheet" href="/style.css"> <!-- Base styles -->
+    <link rel="stylesheet" href="/request-service.css"> <!-- Form specific styles -->
+  </head>
+  <body>
+    
+    <!-- Minimal Header for Form Page -->
+    <header class="form-header">
+        <div class="container form-header-container">
+            <a href="/" class="brand-anchor">
+              <img src="/logo.png" alt="NODE" class="brand-logo-small" />
+            </a>
+            <div class="secure-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <span>Secure Request</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="form-main">
+        <div class="container form-container">
+            
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="steps-indicator">
+                    <span class="step active" data-step="1">Service</span>
+                    <span class="step" data-step="2">Details</span>
+                    <span class="step" data-step="3">Location</span>
+                    <span class="step" data-step="4">Contact</span>
+                </div>
+            </div>
+
+            <form id="service-request-form" class="service-form" novalidate>
+                
+                <!-- SECTION 1: Service Context -->
+                <div class="form-section active" id="section-1">
+                    <h2 class="section-title">Let's get started</h2>
+                    <p class="section-subtitle">What type of property is this for?</p>
+                    
+                    <div class="form-group service-display">
+                        <label>Service Type</label>
+                        <div class="static-input" id="display-service-type">Detecting...</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="field-label">Property Type <span class="required">*</span></label>
+                        <div class="radio-group-cards">
+                            <label class="radio-card">
+                                <input type="radio" name="propertyType" value="residential" required>
+                                <div class="card-content">
+                                    <span class="card-icon">🏠</span>
+                                    <span class="card-title">Private Home</span>
+                                </div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="propertyType" value="commercial" required>
+                                <div class="card-content">
+                                    <span class="card-icon">🏢</span>
+                                    <span class="card-title">Commercial Property</span>
+                                </div>
+                            </label>
+                        </div>
+                        <p class="helper-text">Select the property type to help us assign the right team.</p>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary next-btn">Continue</button>
+                    </div>
+                </div>
+
+                <!-- SECTION 2: Service Details -->
+                <div class="form-section" id="section-2">
+                    <h2 class="section-title">Service Details</h2>
+                    <p class="section-subtitle">Tell us a bit more about what you need.</p>
+
+                    <div class="form-group">
+                        <label class="field-label">What do you need help with? <span class="required">*</span></label>
+                        <div class="checkbox-group" id="dynamic-tasks">
+                            <!-- Populated by JS -->
+                        </div>
+                        
+                        <!-- "Other" text area, hidden by default -->
+                        <div class="other-input-wrapper hidden" id="other-task-wrapper">
+                            <textarea name="otherTaskDescription" class="form-input textarea" placeholder="Please briefly describe your requirement..." maxlength="300"></textarea>
+                            <div class="char-count">0/300</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="field-label">Estimated professionals required</label>
+                        <div class="select-wrapper">
+                            <select name="peopleRequired" class="form-input select">
+                                <option value="1">1 Professional</option>
+                                <option value="2">2 Professionals</option>
+                                <option value="3">3 Professionals</option>
+                                <option value="4+">4+ Professionals</option>
+                                <option value="unsure" selected>I'm unsure (Let assessments decide)</option>
+                            </select>
+                            <svg class="select-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary back-btn">Back</button>
+                        <button type="button" class="btn btn-primary next-btn">Continue</button>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: Location & Scheduling -->
+                <div class="form-section" id="section-3">
+                    <h2 class="section-title">Location & Time</h2>
+                    <p class="section-subtitle">Where and when should we arrive?</p>
+
+                    <div class="form-group">
+                        <label class="field-label">Service Location <span class="required">*</span></label>
+                        <input type="text" name="address" class="form-input" placeholder="House/Flat No., Street, Area" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label class="field-label">City</label>
+                            <input type="text" name="city" class="form-input" value="Bengaluru" readonly> 
+                        </div>
+                        <div class="form-group half">
+                            <label class="field-label">Landmark (Optional)</label>
+                            <input type="text" name="landmark" class="form-input" placeholder="Near...">
+                        </div>
+                    </div>
+
+                    <div class="form-divider"></div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label class="field-label">Preferred Date <span class="required">*</span></label>
+                            <input type="date" name="preferredDate" class="form-input" required id="date-picker">
+                        </div>
+                        <div class="form-group half">
+                            <label class="field-label">Preferred Time Slot <span class="required">*</span></label>
+                            <div class="select-wrapper">
+                                <select name="preferredTime" class="form-input select" required>
+                                    <option value="" disabled selected>Select a slot</option>
+                                    <option value="morning">Morning (9am – 12pm)</option>
+                                    <option value="afternoon">Afternoon (12pm – 4pm)</option>
+                                    <option value="evening">Evening (4pm – 7pm)</option>
+                                </select>
+                                <svg class="select-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="helper-text">Exact timing will be confirmed after assignment.</p>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary back-btn">Back</button>
+                        <button type="button" class="btn btn-primary next-btn">Continue</button>
+                    </div>
+                </div>
+
+                <!-- SECTION 4: Contact & Policies -->
+                <div class="form-section" id="section-4">
+                    <h2 class="section-title">Final Details</h2>
+                    <p class="section-subtitle">How can we reach you?</p>
+
+                    <div class="form-group">
+                        <label class="field-label">Full Name <span class="required">*</span></label>
+                        <input type="text" name="fullName" class="form-input" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="field-label">Phone Number <span class="required">*</span></label>
+                        <div class="phone-input-wrapper">
+                            <span class="country-code">+91</span>
+                            <input type="tel" name="phone" class="form-input phone-input" placeholder="98765 43210" maxlength="10" required pattern="[0-9]{10}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="field-label">Email (Optional)</label>
+                        <input type="email" name="email" class="form-input" placeholder="name@example.com">
+                        <p class="helper-text">We'll use this to confirm your request.</p>
+                    </div>
+
+                    <div class="form-divider"></div>
+
+                    <!-- Policies -->
+                    <div class="policy-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="confirmDetails" required>
+                            <span class="checkbox-custom"></span>
+                            <span class="label-text">I confirm the details provided are accurate.</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="understandPricing" required>
+                            <span class="checkbox-custom"></span>
+                            <span class="label-text">I understand that pricing depends on scope and will be confirmed before work begins.</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="agreeTerms" required>
+                            <span class="checkbox-custom"></span>
+                            <span class="label-text">I agree to NODE’s <a href="#">Terms of Service</a> and <a href="#">Platform Assurance Policy</a>.</span>
+                        </label>
+                    </div>
+
+                    <div class="form-message" id="form-error-message"></div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary back-btn">Back</button>
+                        <button type="submit" class="btn btn-primary submit-btn">
+                            <span class="btn-text">Submit Request</span>
+                            <span class="btn-loader hidden"></span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Success State (Hidden initially) -->
+                 <div class="success-state hidden" id="success-state">
+                    <div class="success-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h2>Request Received!</h2>
+                    <p>Reference ID: <span id="request-id-display">NODE-REQ-101</span></p>
+                    <p class="success-desc">We've sent a confirmation to your phone. A professional will be assigned shortly.</p>
+                    <a href="/" class="btn btn-primary">Return Home</a>
+                 </div>
+
+            </form>
+        </div>
+    </main>
+
+    <script type="module" src="/request-service.js"></script>
+  </body>
+</html>

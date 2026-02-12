@@ -30,7 +30,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hero Section
     setText('service-title', data.title);
     setText('service-subtitle', data.heroSubtext);
-    setText('request-btn', `Request ${capitalize(serviceType)} Service`);
+    
+    // Update Buttons
+    const heroBtn = document.getElementById('request-btn');
+    const ctaBtn = document.getElementById('cta-request-btn');
+    
+    [heroBtn, ctaBtn].forEach(btn => {
+        if (btn) {
+            btn.textContent = `Request ${capitalize(serviceType)} Service`;
+            btn.onclick = () => {
+                window.location.href = `/request-service.html?type=${serviceType}`;
+            };
+        }
+    });
+
     setText('cta-headline', `Need Reliable ${capitalize(serviceType)} Support?`);
 
     // Coverages
