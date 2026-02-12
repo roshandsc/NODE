@@ -460,5 +460,244 @@ export const translations = {
         "en": "Submit Request",
         "hi": "अनुरोध सबमिट करें",
         "kn": "ವಿನಂತಿಯನ್ನು ಸಲ್ಲಿಸಿ"
+    },
+
+    // --- Services Listing Page ---
+    "services_page_title": {
+        "en": "Our Services",
+        "hi": "हमारी सेवाएं",
+        "kn": "ನಮ್ಮ ಸೇವೆಗಳು"
+    },
+    "services_page_sub": {
+        "en": "Comprehensive solutions for your home and office needs. Verified, professional, and reliable.",
+        "hi": "आपके घर और कार्यालय की जरूरतों के लिए व्यापक समाधान। सत्यापित, पेशेवर और विश्वसनीय।",
+        "kn": "ನಿಮ್ಮ ಮನೆ ಮತ್ತು ಕಚೇರಿ ಅಗತ್ಯಗಳಿಗಾಗಿ ಸಮಗ್ರ ಪರಿಹಾರಗಳು. ಪರಿಶೀಲಿಸಿದ, ವೃತ್ತಿಪರ ಮತ್ತು ವಿಶ್ವಾಸಾರ್ಹ."
+    },
+    "svc_plumbing": {
+        "en": "Plumbing",
+        "hi": "प्लंबिंग",
+        "kn": "ಪ್ಲಂಬಿಂಗ್"
+    },
+    "svc_plumbing_desc": {
+        "en": "Leak repairs, fixture installation, and drainage solutions by expert plumbers.",
+        "hi": "विशेषज्ञ प्लंबर द्वारा लीक मरम्मत, फिक्स्चर स्थापना और जल निकासी समाधान।",
+        "kn": "ತಜ್ಞ ಕೊಳಾಯಿಗಾರರಿಂದ ಸೋರಿಕೆ ದುರಸ್ತಿ, ಫಿಕ್ಚರ್ ಅಳವಡಿಕೆ ಮತ್ತು ಒಳಚರಂಡಿ ಪರಿಹಾರಗಳು."
+    },
+    "svc_electrical": {
+        "en": "Electrical",
+        "hi": "इलेक्ट्रिकल",
+        "kn": "ಎಲೆಕ್ಟ್ರಿಕಲ್"
+    },
+    "svc_electrical_desc": {
+        "en": "Safety-focused wiring, switch repairs, and appliance installation.",
+        "hi": "सुरक्षा-केंद्रित वायरिंग, स्विच मरम्मत और उपकरण स्थापना।",
+        "kn": "ಸುರಕ್ಷತೆ-ಕೇಂದ್ರಿತ ವೈರಿಂಗ್, ಸ್ವಿಚ್ ದುರಸ್ತಿ ಮತ್ತು ಉಪಕರಣ ಸ್ಥಾಪನೆ."
+    },
+    "svc_repairs": {
+        "en": "General Repairs",
+        "hi": "सामान्य मरम्मत",
+        "kn": "ಸಾಮಾನ್ಯ ದುರಸ್ತಿ"
+    },
+    "svc_repairs_desc": {
+        "en": "Furniture assembly, carpentry, and general home wear-and-tear fixes.",
+        "hi": "फर्नीचर असेंबली, बढ़ईगीरी और सामान्य घर की टूट-फूट ठीक करना।",
+        "kn": "ಪೀಠೋಪಕರಣ ಜೋಡಣೆ, ಮರಗೆಲಸ ಮತ್ತು ಸಾಮಾನ್ಯ ಮನೆಯ ಸವೆತ ಮತ್ತು ಹರಿದುಹೋಗುವಿಕೆ ಪರಿಹಾರಗಳು."
+    },
+    "svc_construction": {
+        "en": "Construction",
+        "hi": "निर्माण",
+        "kn": "ನಿರ್ಮಾಣ"
+    },
+    "svc_construction_desc": {
+        "en": "Renovations, tile work, and structural modifications managed by pros.",
+        "hi": "पेशेवरों द्वारा प्रबंधित नवीनीकरण, टाइल का काम और संरचनात्मक संशोधन।",
+        "kn": "ವೃತ್ತಿಪರರಿಂದ ನಿರ್ವಹಿಸಲ್ಪಡುವ ನವೀಕರಣಗಳು, ಟೈಲ್ ಕೆಲಸ ಮತ್ತು ರಚನಾತ್ಮಕ ಬದಲಾವಣೆಗಳು."
+    },
+    "svc_cleaning": {
+        "en": "Deep Cleaning",
+        "hi": "गहरी सफाई",
+        "kn": "ಆಳವಾದ ಶುಚಿಗೊಳಿಸುವಿಕೆ"
+    },
+    "svc_cleaning_desc": {
+        "en": "Full home sanitization, kitchen deep cleans, and floor polishing.",
+        "hi": "पूर्ण घर की स्वच्छता, रसोई की गहरी सफाई, और फर्श पालिश करना।",
+        "kn": "ಪೂರ್ಣ ಮನೆ ನೈರ್ಮಲ್ಯೀಕರಣ, ಅಡುಗೆಮನೆ ಆಳವಾದ ಶುಚಿಗೊಳಿಸುವಿಕೆ ಮತ್ತು ನೆಲದ ಹೊಳಪು."
+    },
+    "svc_painting": {
+        "en": "Painting (Coming Soon)",
+        "hi": "पेंटिंग (जल्द आ रहा है)",
+        "kn": "ಪೇಂಟಿಂಗ್ (ಶೀಘ್ರದಲ್ಲೇ ಬರಲಿದೆ)"
+    },
+    "svc_painting_desc": {
+        "en": "Interior and exterior painting with professional finishes.",
+        "hi": "पेशेवर फिनिश के साथ आंतरिक और बाहरी पेंटिंग।",
+        "kn": "ವೃತ್ತಿಪರ ಪೂರ್ಣಗೊಳಿಸುವಿಕೆಗಳೊಂದಿಗೆ ಆಂತರಿಕ ಮತ್ತು ಬಾಹ್ಯ ಪೇಂಟಿಂಗ್."
+    },
+    "link_view_details": {
+        "en": "View Details →",
+        "hi": "विवरण देखें →",
+        "kn": "ವಿವರಗಳನ್ನು ವೀಕ್ಷಿಸಿ →"
+    },
+    "link_coming_soon": {
+        "en": "Coming Soon",
+        "hi": "जल्द आ रहा है",
+        "kn": "ಶೀಘ್ರದಲ್ಲೇ ಬರಲಿದೆ"
+    },
+    "banner_title": {
+        "en": "Verified quality you can trust.",
+        "hi": "सत्यापित गुणवत्ता जिस पर आप भरोसा कर सकते हैं।",
+        "kn": "ನೀವು ನಂಬಬಹುದಾದ ಪರಿಶೀಲಿಸಿದ ಗುಣಮಟ್ಟ."
+    },
+    "btn_choose_service": {
+        "en": "Choose a Service",
+        "hi": "एक सेवा चुनें",
+        "kn": "ಸೇವೆಯನ್ನು ಆರಿಸಿ"
+    },
+
+    // --- Service Detail Page Generic ---
+    "lbl_loading": {
+        "en": "Loading...",
+        "hi": "लोड हो रहा है...",
+        "kn": "ಲೋಡ್ ಆಗುತ್ತಿದೆ..."
+    },
+    "lbl_wait": {
+        "en": "Please wait while we fetch the details.",
+        "hi": "कृपया प्रतीक्षा करें जबकि हम विवरण प्राप्त कर रहे हैं।",
+        "kn": "ನಾವು ವಿವರಗಳನ್ನು ಪಡೆಯುವಾಗ ದಯವಿಟ್ಟು ನಿರೀಕ್ಷಿಸಿ."
+    },
+    "btn_request_service": {
+        "en": "Request Service",
+        "hi": "सेवा का अनुरोध करें",
+        "kn": "ಸೇವೆಯನ್ನು ವಿನಂತಿಸಿ"
+    },
+    "sec_covers": {
+        "en": "What This Service Covers",
+        "hi": "यह सेवा क्या कवर करती है",
+        "kn": "ಈ ಸೇವೆಯು ಏನನ್ನು ಒಳಗೊಂಡಿದೆ"
+    },
+    "sec_process": {
+        "en": "How NODE Handles This Service",
+        "hi": "NODE इस सेवा को कैसे संभालता है",
+        "kn": "NODE ಈ ಸೇವೆಯನ್ನು ಹೇಗೆ ನಿರ್ವಹಿಸುತ್ತದೆ"
+    },
+    "step_01_title": {
+        "en": "Request Service",
+        "hi": "सेवा का अनुरोध करें",
+        "kn": "ಸೇವೆಯನ್ನು ವಿನಂತಿಸಿ"
+    },
+    "step_01_desc": {
+        "en": "Tell us what you need. We'll match you with a verified local expert.",
+        "hi": "हमें बताएं कि आपको क्या चाहिए। हम आपको एक सत्यापित स्थानीय विशेषज्ञ के साथ मिलाएंगे।",
+        "kn": "ನಿಮಗೆ ಏನು ಬೇಕು ಎಂದು ನಮಗೆ ತಿಳಿಸಿ. ನಾವು ನಿಮ್ಮನ್ನು ಪರಿಶೀಲಿಸಿದ ಸ್ಥಳೀಯ ತಜ್ಞರೊಂದಿಗೆ ಹೊಂದಿಸುತ್ತೇವೆ."
+    },
+    "step_02_title": {
+        "en": "Assigned Verified Firm",
+        "hi": "सत्यापित फर्म असाइन की गई",
+        "kn": "ಪರಿಶೀಲಿಸಿದ ಸಂಸ್ಥೆಯನ್ನು ನಿಯೋಜಿಸಲಾಗಿದೆ"
+    },
+    "step_02_desc": {
+        "en": "A screened and background-checked professional accepts your job.",
+        "hi": "एक जांचा-परखा और पृष्ठभूमि-जांच किया गया पेशेवर आपका काम स्वीकार करता है।",
+        "kn": "ಪರಿಶೀಲಿಸಿದ ಮತ್ತು ಹಿನ್ನೆಲೆ ಪರಿಶೀಲಿಸಿದ ವೃತ್ತಿಪರರು ನಿಮ್ಮ ಕೆಲಸವನ್ನು ಸ್ವೀಕರಿಸುತ್ತಾರೆ."
+    },
+    "step_03_title": {
+        "en": "Work Completed",
+        "hi": "काम पूरा हुआ",
+        "kn": "ಕೆಲಸ ಪೂರ್ಣಗೊಂಡಿದೆ"
+    },
+    "step_03_desc": {
+        "en": "The job is done to standard. Payments are released only after satisfaction.",
+        "hi": "काम मानक के अनुसार किया जाता है। भुगतान केवल संतुष्टि के बाद जारी किए जाते हैं।",
+        "kn": "ಕೆಲಸವು ಗುಣಮಟ್ಟಕ್ಕೆ ತಕ್ಕಂತೆ ನಡೆದಿದೆ. ತೃಪ್ತಿಯ ನಂತರವೇ ಪಾವತಿಗಳನ್ನು ಬಿಡುಗಡೆ ಮಾಡಲಾಗುತ್ತದೆ."
+    },
+    "sec_pricing": {
+        "en": "Transparent Pricing",
+        "hi": "पारदर्शी मूल्य निर्धारण",
+        "kn": "ಪಾರದರ್ಶಕ ಬೆಲೆ ನಿಗದಿ"
+    },
+    "lbl_pricing_start": {
+        "en": "Pricing depends on scope of work. Basic visits start from",
+        "hi": "मूल्य निर्धारण कार्य के दायरे पर निर्भर करता है। मूल यात्राएं शुरू होती हैं",
+        "kn": "ಬೆಲೆಯು ಕೆಲಸದ ವ್ಯಾಪ್ತಿಯನ್ನು ಅವಲಂಬಿಸಿರುತ್ತದೆ. ಮೂಲ ಭೇಟಿಗಳು ಪ್ರಾರಂಭವಾಗುತ್ತವೆ"
+    },
+    "tbl_component": {
+        "en": "Component",
+        "hi": "घटक",
+        "kn": "ಘಟಕ"
+    },
+    "tbl_desc": {
+        "en": "Description",
+        "hi": "विवरण",
+        "kn": "ವಿವರಣೆ"
+    },
+    "tbl_service_cost": {
+        "en": "Service Cost",
+        "hi": "सेवा लागत",
+        "kn": "ಸೇವಾ ವೆಚ್ಚ"
+    },
+    "tbl_service_cost_desc": {
+        "en": "Paid directly to assigned firm via NODE",
+        "hi": "NODE के माध्यम से असाइन की गई फर्म को सीधे भुगतान किया गया",
+        "kn": "NODE ಮೂಲಕ ನಿಯೋಜಿತ ಸಂಸ್ಥೆಗೆ ನೇರವಾಗಿ ಪಾವತಿಸಲಾಗುತ್ತದೆ"
+    },
+    "tbl_assurance": {
+        "en": "Platform Assurance",
+        "hi": "प्लेटफ़ॉर्म आश्वासन",
+        "kn": "ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಭರವಸೆ"
+    },
+    "tbl_assurance_desc": {
+        "en": "Small fixed fee covering verification & support",
+        "hi": "सत्यापन और समर्थन को कवर करने वाला छोटा निश्चित शुल्क",
+        "kn": "ಪರಿಶೀಲನೆ ಮತ್ತು ಬೆಂಬಲವನ್ನು ಒಳಗೊಂಡಿರುವ ಸಣ್ಣ ಸ್ಥಿರ ಶುಲ್ಕ"
+    },
+    "sec_assurance": {
+        "en": "Platform-Backed Assurance",
+        "hi": "प्लेटफ़ॉर्म-समर्थित आश्वासन",
+        "kn": "ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಬೆಂಬಲಿತ ಭರವಸೆ"
+    },
+    "assr_1": {
+        "en": "✓ Verified firm assignment",
+        "hi": "✓ सत्यापित फर्म असाइनमेंट",
+        "kn": "✓ ಪರಿಶೀಲಿಸಿದ ಸಂಸ್ಥೆ ನಿಯೋಜನೆ"
+    },
+    "assr_2": {
+        "en": "✓ Professional conduct standards",
+        "hi": "✓ पेशेवर आचरण मानक",
+        "kn": "✓ ವೃತ್ತಿಪರ ನಡವಳಿಕೆ ಮಾನದಂಡಗಳು"
+    },
+    "assr_3": {
+        "en": "✓ Clear communication",
+        "hi": "✓ स्पष्ट संचार",
+        "kn": "✓ ಸ್ಪಷ್ಟ ಸಂವಹನ"
+    },
+    "assr_4": {
+        "en": "✓ Issue resolution support",
+        "hi": "✓ समस्या समाधान समर्थन",
+        "kn": "✓ ಸಮಸ್ಯೆ ಪರಿಹಾರ ಬೆಂಬಲ"
+    },
+    "assr_5": {
+        "en": "✓ Replacement assistance if required",
+        "hi": "✓ आवश्यकता होने पर प्रतिस्थापन सहायता",
+        "kn": "✓ ಅಗತ್ಯವಿದ್ದರೆ ಬದಲಿ ಸಹಾಯ"
+    },
+    "sec_why": {
+        "en": "Why Choose NODE",
+        "hi": "NODE क्यों चुनें",
+        "kn": "NODE ಅನ್ನು ಏಕೆ ಆರಿಸಬೇಕು"
+    },
+    "sec_faq": {
+        "en": "Frequently Asked Questions",
+        "hi": "अक्सर पूछे जाने वाले प्रश्न",
+        "kn": "ಪದೇ ಪದೇ ಕೇಳಲಾಗುವ ಪ್ರಶ್ನೆಗಳು"
+    },
+    "sec_cta": {
+        "en": "Need Reliable Support?",
+        "hi": "विश्वसनीय समर्थन की आवश्यकता है?",
+        "kn": "ವಿಶ್ವಾಸಾರ್ಹ ಬೆಂಬಲ ಬೇಕೇ?"
+    },
+    "btn_request_service_cta": {
+        "en": "Request Service",
+        "hi": "सेवा का अनुरोध करें",
+        "kn": "ಸೇವೆಯನ್ನು ವಿನಂತಿಸಿ"
     }
 };

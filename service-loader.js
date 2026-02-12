@@ -36,6 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
         setText('service-title', data.title[lang]);
         setText('service-subtitle', data.heroSubtext[lang]);
         
+        // Remove data-i18n to prevent main.js from reverting them to "Loading..." on lang change
+        document.getElementById('service-title')?.removeAttribute('data-i18n');
+        document.getElementById('service-subtitle')?.removeAttribute('data-i18n');
+        
         // Update Buttons
         const heroBtn = document.getElementById('request-btn');
         const ctaBtn = document.getElementById('cta-request-btn');
