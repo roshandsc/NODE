@@ -35,6 +35,7 @@ const SERVICE_OPTIONS = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("Service Request Form Loaded");
     
     // --- 1. SETUP & SERVICE DETECTION ---
     const urlParams = new URLSearchParams(window.location.search);
@@ -100,6 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 2. MULTI-STEP NAVIGATION ---
     let currentStep = 1;
     const totalSteps = 4;
+    
+    // Force show first step on load
+    setTimeout(() => updateProgress(1), 100);
     
     const sections = {
         1: document.getElementById('section-1'),

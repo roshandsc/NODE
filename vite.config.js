@@ -8,6 +8,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         services: resolve(__dirname, 'services.html'),
         service: resolve(__dirname, 'service.html'),
+        requestService: resolve(__dirname, 'request-service.html'),
       },
     },
   },
