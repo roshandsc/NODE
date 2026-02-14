@@ -115,33 +115,87 @@ export const servicesData = {
             { question: { en: "Is a site visit mandatory?", hi: "क्या साइट का दौरा अनिवार्य है?", kn: "ಸೈಟ್ ಭೇಟಿ ಕಡ್ಡಾಯವೇ?" }, answer: { en: "For construction work, a site assessment is necessary to provide an accurate estimate.", hi: "निर्माण कार्य के लिए, सटीक अनुमान प्रदान करने के लिए साइट का मूल्यांकन आवश्यक है।", kn: "ನಿರ್ಮಾಣ ಕೆಲಸಕ್ಕೆ, ನಿಖರವಾದ ಅಂದಾಜು ನೀಡಲು ಸೈಟ್ ಮೌಲ್ಯಮಾಪನ ಅಗತ್ಯ." } }
         ]
     },
-    "cleaning": {
-        title: { en: "Professional Cleaning Services", hi: "पेशेवर सफाई सेवाएं", kn: "ವೃತ್ತಿಪರ ಶುಚಿಗೊಳಿಸುವ ಸೇವೆಗಳು" },
-        heroSubtext: { en: "Deep cleaning for homes and offices. Hygiene guaranteed.", hi: "घरों और कार्यालयों के लिए गहरी सफाई। स्वच्छता की गारंटी।", kn: "ಮನೆಗಳು ಮತ್ತು ಕಚೇರಿಗಳಿಗೆ ಆಳವಾದ ಶುಚಿಗೊಳಿಸುವಿಕೆ. ನೈರ್ಮಲ್ಯ ಖಾತರಿ." },
+    "domestic_help": {
+        title: { en: "Domestic Help Services", hi: "घरेलू सहायता सेवाएं", kn: "ಗೃಹ ಸಹಾಯ ಸೇವೆಗಳು" },
+        heroSubtext: { en: "Hire reliable maids and houseboys. For a day or for a month.", hi: "विश्वसनीय नौकरानियों और हाउस बॉयज़ को किराए पर लें। एक दिन के लिए या एक महीने के लिए।", kn: "ವಿಶ್ವಾಸಾರ್ಹ ಮನೆಗೆಲಸದವರು ಮತ್ತು ಹೌಸ್‌ಬಾಯ್‌ಗಳನ್ನು ನೇಮಿಸಿ. ಒಂದು ದಿನ ಅಥವಾ ತಿಂಗಳಿಗೆ." },
         coverages: [
-            { en: "Deep home cleaning", hi: "गहरी घर की सफाई", kn: "ಮನೆ ಆಳವಾದ ಶುಚಿಗೊಳಿಸುವಿಕೆ" },
-            { en: "Kitchen & bathroom sanitization", hi: "रसोई और बाथरूम स्वच्छता", kn: "ಅಡುಗೆಮನೆ ಮತ್ತು ಬಾತ್ ರೂಮ್ ನೈರ್ಮಲ್ಯೀಕರಣ" },
-            { en: "Sofa & carpet shampooing", hi: "सोफा और कालीन शैम्पू", kn: "ಸೋಫಾ ಮತ್ತು ಕಾರ್ಪೆಟ್ ಶಾಂಪೂಯಿಂಗ್" },
-            { en: "Window & glass cleaning", hi: "खिड़की और कांच की सफाई", kn: "ಕಿಟಕಿ ಮತ್ತು ಗಾಜು ಶುಚಿಗೊಳಿಸುವಿಕೆ" },
-            { en: "Post-construction cleaning", hi: "निर्माण के बाद की सफाई", kn: "ನಿರ್ಮಾಣದ ನಂತರದ ಶುಚಿಗೊಳಿಸುವಿಕೆ" },
-            { en: "Move-in/Move-out cleaning", hi: "मूव-इन/मूव-आउट सफाई", kn: "ಮನೆ ಬದಲಾವಣೆ ಶುಚಿಗೊಳಿಸುವಿಕೆ" },
-            { en: "Water tank cleaning", hi: "पानी की टंकी की सफाई", kn: "ನೀರಿನ ಟ್ಯಾಂಕ್ ಶುಚಿಗೊಳಿಸುವಿಕೆ" },
-            { en: "Pest control integration", hi: "कीट नियंत्रण एकीकरण", kn: "ಕೀಟ ನಿಯಂತ್ರಣ ಏಕೀಕರಣ" }
+            { en: "Daily household cleaning", hi: "दैनिक घर की सफाई", kn: "ದೈನಂದಿನ ಮನೆ ಸ್ವಚ್ಛಗೊಳಿಸುವಿಕೆ" },
+            { en: "Utensil washing", hi: "बर्तन धोना", kn: "ಪಾತ್ರೆ ತೊಳೆಯುವುದು" },
+            { en: "Clothes washing & drying", hi: "कपड़े धोना और सुखाना", kn: "ಬಟ್ಟೆ ಒಗೆಯುವುದು ಮತ್ತು ಒಣಗಿಸುವುದು" },
+            { en: "Full-day houseboy assistance", hi: "पूरे दिन की हाउस बॉय सहायता", kn: "ಪೂರ್ಣ ದಿನದ ಹೌಸ್‌ಬಾಯ್ ಸಹಾಯ" },
+            { en: "Deep cleaning assistance", hi: "गहरी सफाई सहायता", kn: "ಆಳವಾದ ಶುಚಿಗೊಳಿಸುವಿಕೆ ಸಹಾಯ" },
+            { en: "Vegetable chopping & prep", hi: "सब्जी काटना और तैयारी", kn: "ತರಕಾರಿ ಕತ್ತರಿಸುವಿಕೆ ಮತ್ತು ತಯಾರಿ" },
+            { en: "Grocery runs", hi: "किराना रन", kn: "ದಿನಸಿ ತರುವುದು" },
+            { en: "Event help", hi: "घटना सहायता", kn: "ಕಾರ್ಯಕ್ರಮ ಸಹಾಯ" }
         ],
         whyChoose: [
-            { title: { en: "Eco-friendly", hi: "पर्यावरण के अनुकूल", kn: "ಪರಿಸರ ಹಿತಸ್ನೇಹಿ" }, desc: { en: "Safe chemicals used.", hi: "सुरक्षित रसायनों का उपयोग।", kn: "ಸುರಕ್ಷಿತ ರಾಸಾಯನಿಕಗಳ ಬಳಕೆ." } },
-            { title: { en: "Trained Staff", hi: "प्रशिक्षित कर्मचारी", kn: "ತರಬೇತಿ ಪಡೆದ ಸಿಬ್ಬಂದಿ" }, desc: { en: "Experienced & background checked.", hi: "अनुभवी और पृष्ठभूमि की जाँच की गई।", kn: "ಅನುಭವಿ ಮತ್ತು ಹಿನ್ನೆಲೆ ಪರಿಶೀಲಿಸಿದ." } },
-            { title: { en: "Detail Oriented", hi: "विस्तार उन्मुख", kn: "ವಿವರಗಳಿಗೆ ಗಮನ" }, desc: { en: "We don't miss spots.", hi: "हम कोई जगह नहीं छोड़ते।", kn: "ನಾವು ಯಾವುದೇ ಕಲೆಗಳನ್ನು ಬಿಡುವುದಿಲ್ಲ." } },
-            { title: { en: "Satisfaction Guarantee", hi: "संतुष्टि की गारंटी", kn: "ತೃಪ್ತಿಯ ಖಾತರಿ" }, desc: { en: "Re-clean if unsatisfied.", hi: "यदि असंतुष्ट हैं तो फिर से सफाई।", kn: "ತೃಪ್ತಿಯಾಗದಿದ್ದರೆ ಮರು-ಶುಚಿಗೊಳಿಸುವಿಕೆ." } }
+            { title: { en: "Verified Personnel", hi: "सत्यापित कर्मी", kn: "ಪರಿಶೀಲಿಸಿದ ಸಿಬ್ಬಂದಿ" }, desc: { en: "Background checked & safe.", hi: "पृष्ठभूमि की जाँच की गई और सुरक्षित।", kn: "ಹಿನ್ನೆಲೆ ಪರಿಶೀಲಿಸಲಾಗಿದೆ ಮತ್ತು ಸುರಕ್ಷಿತ." } },
+            { title: { en: "Flexible Tenure", hi: "लचीला कार्यकाल", kn: "ಹೊಂದಿಕೊಳ್ಳುವ ಅವಧಿ" }, desc: { en: "Book for a day or month.", hi: "एक दिन या महीने के लिए बुक करें।", kn: "ಒಂದು ದಿನ ಅಥವಾ ತಿಂಗಳಿಗೆ ಬುಕ್ ಮಾಡಿ." } },
+            { title: { en: "Quick Replacements", hi: "त्वरित प्रतिस्थापन", kn: "ತ್ವರಿತ ಬದಲಿಗಳು" }, desc: { en: "If unsatisfied, we replace.", hi: "यदि असंतुष्ट हैं, तो हम बदलते हैं।", kn: "ತೃಪ್ತಿಯಿಲ್ಲದಿದ್ದರೆ, ನಾವು ಬದಲಾಯಿಸುತ್ತೇವೆ." } },
+            { title: { en: "Trained Staff", hi: "प्रशिक्षित कर्मचारी", kn: "ತರಬೇತಿ ಪಡೆದ ಸಿಬ್ಬಂದಿ" }, desc: { en: "Knows household etiquette.", hi: "घरेलू शिष्टाचार जानते हैं।", kn: "ಮನೆಯ ಶಿಷ್ಟಾಚಾರ ತಿಳಿದಿದೆ." } }
         ],
         pricing: {
-            startPrice: "999",
-            notes: { en: "Based on BHK size or specific area square footage.", hi: "BHK आकार या विशिष्ट क्षेत्र वर्ग फुट के आधार पर।", kn: "BHK ಗಾತ್ರ ಅಥವಾ ನಿರ್ದಿಷ್ಟ ಪ್ರದೇಶದ ಚದರ ಅಡಿಗಳನ್ನು ಆಧರಿಸಿದೆ." }
+            startPrice: { en: "₹499 / day", hi: "₹499 / दिन", kn: "₹499 / ದಿನ" },
+            notes: { en: "Monthly rates vary based on hours and tasks.", hi: "मासिक दरें घंटों और कार्यों के आधार पर भिन्न होती हैं।", kn: "ಗಂಟೆಗಳು ಮತ್ತು ಕಾರ್ಯಗಳನ್ನು ಆಧರಿಸಿ ಮಾಸಿಕ ದರಗಳು ಬದಲಾಗುತ್ತವೆ." }
         },
         faqs: [
-            { question: { en: "How long does a deep clean take?", hi: "गहरी सफाई में कितना समय लगता है?", kn: "ಆಳವಾದ ಶುಚಿಗೊಳಿಸುವಿಕೆಗೆ ಎಷ್ಟು ಸಮಯ ಬೇಕಾಗುತ್ತದೆ?" }, answer: { en: "A standard 2BHK deep clean typically takes 6-8 hours with a team of 2-3 professionals.", hi: "एक मानक 2BHK गहरी सफाई में आमतौर पर 2-3 पेशेवरों की टीम के साथ 6-8 घंटे लगते हैं।", kn: "ಸಾಮಾನ್ಯ 2BHK ಆಳವಾದ ಶುಚಿಗೊಳಿಸುವಿಕೆಗೆ ಸಾಮಾನ್ಯವಾಗಿ 2-3 ವೃತ್ತಿಪರರ ತಂಡದೊಂದಿಗೆ 6-8 ಗಂಟೆಗಳು ಬೇಕಾಗುತ್ತದೆ." } },
-            { question: { en: "Are cleaning supplies included?", hi: "क्या सफाई की आपूर्ति शामिल है?", kn: "ಶುಚಿಗೊಳಿಸುವ ಸಾಮಗ್ರಿಗಳು ಸೇರಿವೆಯೇ?" }, answer: { en: "Yes, we bring all necessary professional-grade machines and chemicals.", hi: "हाँ, हम सभी आवश्यक पेशेवर-ग्रेड मशीनें और रसायन लाते हैं।", kn: "ಹೌದು, ನಾವು ಎಲ್ಲಾ ಅಗತ್ಯ ವೃತ್ತಿಪರ-ದರ್ಜೆಯ ಯಂತ್ರಗಳು ಮತ್ತು ರಾಸಾಯನಿಕಗಳನ್ನು ತರುತ್ತೇವೆ." } },
-            { question: { en: "Is it safe for pets/kids?", hi: "क्या यह पालतू जानवरों/बच्चों के लिए सुरक्षित है?", kn: "ಇದು ಸಾಕುಪ್ರಾಣಿಗಳು/ಮಕ್ಕಳಿಗೆ ಸುರಕ್ಷಿತವೇ?" }, answer: { en: "We use high-quality, non-toxic chemicals that are safe once dried.", hi: "हम उच्च गुणवत्ता वाले, गैर-विषाक्त रसायनों का उपयोग करते हैं जो सूखने के बाद सुरक्षित होते हैं।", kn: "ನಾವು ಉತ್ತಮ ಗುಣಮಟ್ಟದ, ವಿಷಕಾರಿಯಲ್ಲದ ರಾಸಾಯನಿಕಗಳನ್ನು ಬಳಸುತ್ತೇವೆ, ಅದು ಒಣಗಿದ ನಂತರ ಸುರಕ್ಷಿತವಾಗಿರುತ್ತದೆ." } }
+            { question: { en: "Can I hire for just one day?", hi: "क्या मैं सिर्फ एक दिन के लिए किराए पर ले सकता हूँ?", kn: "ನಾನು ಕೇವಲ ಒಂದು ದಿನಕ್ಕೆ ನೇಮಿಸಬಹುದೇ?" }, answer: { en: "Yes, we offer on-demand daily bookings for urgent needs or events.", hi: "हाँ, हम तत्काल जरूरतों या कार्यक्रमों के लिए ऑन-डिमांड दैनिक बुकिंग प्रदान करते हैं।", kn: "ಹೌದು, ತುರ್ತು ಅಗತ್ಯಗಳು ಅಥವಾ ಕಾರ್ಯಕ್ರಮಗಳಿಗಾಗಿ ನಾವು ಬೇಡಿಕೆಯ ಮೇರೆಗೆ ದೈನಂದಿನ ಬುಕಿಂಗ್ ಅನ್ನು ನೀಡುತ್ತೇವೆ." } },
+            { question: { en: "Do you provide replacements?", hi: "क्या आप प्रतिस्थापन प्रदान करते हैं?", kn: "ನೀವು ಬದಲಿಗಳನ್ನು ಒದಗಿಸುತ್ತೀರಾ?" }, answer: { en: "For monthly subscriptions, we guarantee replacements if the staff takes leave.", hi: "मासिक सदस्यता के लिए, यदि कर्मचारी छुट्टी लेता है तो हम प्रतिस्थापन की गारंटी देते हैं।", kn: "ಮಾಸಿಕ ಚಂದಾದಾರಿಕೆಗಳಿಗೆ, ಸಿಬ್ಬಂದಿ ರಜೆ ತೆಗೆದುಕೊಂಡರೆ ನಾವು ಬದಲಿಗಳನ್ನು ಖಾತರಿಪಡಿಸುತ್ತೇವೆ." } },
+            { question: { en: "Are meals included for them?", hi: "क्या उनके लिए भोजन शामिल है?", kn: "ಅವರಿಗೆ ಊಟ ಸೇರಿದೆಯೇ?" }, answer: { en: "No, meals are not mandatory but offered at your discretion for full-day shifts.", hi: "नहीं, भोजन अनिवार्य नहीं है लेकिन पूरे दिन की पारियों के लिए आपके विवेक पर पेश किया जाता है।", kn: "ಇಲ್ಲ, ಊಟ ಕಡ್ಡಾಯವಲ್ಲ ಆದರೆ ಪೂರ್ಣ ದಿನದ ಶಿಫ್ಟ್‌ಗಳಿಗೆ ನಿಮ್ಮ ಇಚ್ಛೆಯಂತೆ ನೀಡಬಹುದು." } }
+        ]
+    },
+    "painter": {
+        title: { en: "Professional Painting Services", hi: "पेशेवर पेंटिंग सेवाएं", kn: "ವೃತ್ತಿಪರ ಪೇಂಟಿಂಗ್ ಸೇವೆಗಳು" },
+        heroSubtext: { en: "Interior and exterior painting. Wall textures and waterproofing.", hi: "आंतरिक और बाहरी पेंटिंग। दीवार बनावट और वॉटरप्रूफिंग।", kn: "ಒಳಾಂಗಣ ಮತ್ತು ಹೊರಾಂಗಣ ಪೇಂಟಿಂಗ್. ಗೋಡೆ ಟೆಕ್ಸ್ಚರ್ ಮತ್ತು ವಾಟರ್ ಪ್ರೂಫಿಂಗ್." },
+        coverages: [
+            { en: "Interior wall painting", hi: "आंतरिक दीवार पेंटिंग", kn: "ಒಳಾಂಗಣ ಗೋಡೆ ಪೇಂಟಿಂಗ್" },
+            { en: "Exterior wall painting", hi: "बाहरी दीवार पेंटिंग", kn: "ಹೊರಾಂಗಣ ಗೋಡೆ ಪೇಂಟಿಂಗ್" },
+            { en: "Waterproofing solutions", hi: "वॉटरप्रूफिंग समाधान", kn: "ವಾಟರ್ ಪ್ರೂಫಿಂಗ್ ಪರಿಹಾರಗಳು" },
+            { en: "Texture painting", hi: "टेक्सचर पेंटिंग", kn: "ಟೆಕ್ಸ್ಚರ್ ಪೇಂಟಿಂಗ್" },
+            { en: "Wood polishing", hi: "लकड़ी की पॉलिशिंग", kn: "ಮರದ ಪಾಲಿಶಿಂಗ್" },
+            { en: "Wall putty & sanding", hi: "दीवार पुट्टी और सैंडिंग", kn: "ಗೋಡೆ ಪುಟ್ಟಿ ಮತ್ತು ಸ್ಯಾಂಡಿಂಗ್" },
+            { en: "Stencil work", hi: "स्टेंसिल कार्य", kn: "ಸ್ಟೆನ್ಸಿಲ್ ಕೆಲಸ" }
+        ],
+        whyChoose: [
+            { title: { en: "Dust-Free Process", hi: "धूल-मुक्त प्रक्रिया", kn: "ಧೂಳು ಮುಕ್ತ ಪ್ರಕ್ರಿಯೆ" }, desc: { en: "We cover furniture.", hi: "हम फर्नीचर को कवर करते हैं।", kn: "ನಾವು ಪೀಠೋಪಕರಣಗಳನ್ನು ಮುಚ್ಚುತ್ತೇವೆ." } },
+            { title: { en: "On-Time Completion", hi: "समय पर पूर्णता", kn: "ಸಮಯಕ್ಕೆ ಪೂರ್ಣಗೊಳಿಸುವಿಕೆ" }, desc: { en: "Strict timelines.", hi: "सख्त समय सीमा।", kn: "ಕಟ್ಟುನಿಟ್ಟಾದ ಸಮಯಪಾಲನೆ." } },
+            { title: { en: "Quality Paints", hi: "गुणवत्ता वाले पेंट", kn: "ಗುಣಮಟ್ಟದ ಬಣ್ಣಗಳು" }, desc: { en: "Branded materials only.", hi: "केवल ब्रांडेड सामग्री।", kn: "ಬ್ರ್ಯಾಂಡೆಡ್ ವಸ್ತುಗಳು ಮಾತ್ರ." } },
+            { title: { en: "Post-Paint Cleanup", hi: "पेंट के बाद सफाई", kn: "ಪೇಂಟಿಂಗ್ ನಂತರದ ಸ್ವಚ್ಛಗೊಳಿಸುವಿಕೆ" }, desc: { en: "We leave it clean.", hi: "हम इसे साफ छोड़ते हैं।", kn: "ನಾವು ಅದನ್ನು ಸ್ವಚ್ಛವಾಗಿ ಬಿಡುತ್ತೇವೆ." } }
+        ],
+        pricing: {
+            startPrice: { en: "Consultation", hi: "परामर्श", kn: "ಸಮಾಲೋಚನೆ" },
+            notes: { en: "Pricing per sq. ft. Requires site measurement.", hi: "मूल्य प्रति वर्ग फुट। साइट माप की आवश्यकता है।", kn: "ಪ್ರತಿ ಚದರ ಅಡಿಗೆ ಬೆಲೆ. ಸೈಟ್ ಅಳತೆ ಅಗತ್ಯ." }
+        },
+        faqs: [
+            { question: { en: "Do you provide materials?", hi: "क्या आप सामग्री प्रदान करते हैं?", kn: "ನೀವು ವಸ್ತುಗಳನ್ನು ಒದಗಿಸುತ್ತೀರಾ?" }, answer: { en: "Yes, we can provide paint and consumables, or use yours.", hi: "हाँ, हम पेंट और उपभोग्य सामग्री प्रदान कर सकते हैं, या आप अपना उपयोग कर सकते हैं।", kn: "ಹೌದು, ನಾವು ಬಣ್ಣ ಮತ್ತು ವಸ್ತುಗಳನ್ನು ಒದಗಿಸಬಹುದು, ಅಥವಾ ನಿಮ್ಮದನ್ನು ಬಳಸಬಹುದು." } },
+            { question: { en: "Is site visit free?", hi: "क्या साइट का दौरा मुफ्त है?", kn: "ಸೈಟ್ ಭೇಟಿ ಉಚಿತವೇ?" }, answer: { en: "Yes, initial measurement and quotation visit is free.", hi: "हाँ, प्रारंभिक माप और उद्धरण यात्रा मुफ्त है।", kn: "ಹೌದು, ಆರಂಭಿಕ ಅಳತೆ ಮತ್ತು ಉಲ್ಲೇಖ ಭೇಟಿ ಉಚಿತ." } }
+        ]
+    },
+    "mechanics": {
+        title: { en: "Expert Mechanics", hi: "विशेषज्ञ मैकेनिक", kn: "ಪರಿಣಿತ ಮೆಕ್ಯಾನಿಕ್ಸ್" },
+        heroSubtext: { en: "Car and bike repairs at your doorstep. Breakdown assistance.", hi: "आपके दरवाजे पर कार और बाइक की मरम्मत। ब्रेकडाउन सहायता।", kn: "ನಿಮ್ಮ ಮನೆಯ ಬಾಗಿಲಲ್ಲಿ ಕಾರ್ ಮತ್ತು ಬೈಕ್ ದುರಸ್ತಿ. ಬ್ರೇಕ್‌ಡೌನ್ ಸಹಾಯ." },
+        coverages: [
+            { en: "General bike service", hi: "सामान्य बाइक सेवा", kn: "ಸಾಮಾನ್ಯ ಬೈಕ್ ಸೇವೆ" },
+            { en: "Car wash & detailing", hi: "कार वॉश और डिटेलिंग", kn: "ಕಾರ್ ವಾಶ್ ಮತ್ತು ಡೀಟೇಲಿಂಗ್" },
+            { en: "Breakdown assistance", hi: "ब्रेकडाउन सहायता", kn: "ಬ್ರೇಕ್‌ಡೌನ್ ಸಹಾಯ" },
+            { en: "Battery jumpstart", hi: "बैटरी जंपस्टार्ट", kn: "ಬ್ಯಾಟರಿ ಜಂಪ್‌ಸ್ಟಾರ್ಟ್" },
+            { en: "Puncture repair", hi: "पंचर मरम्मत", kn: "ಪಂಚರ್ ದುರಸ್ತಿ" },
+            { en: "Oil change", hi: "तेल परिवर्तन", kn: "ಆಯಿಲ್ ಬದಲಾವಣೆ" },
+            { en: "Engine diagnostics", hi: "इंजन निदान", kn: "ಎಂಜಿನ್ ರೋಗನಿರ್ಣಯ" }
+        ],
+        whyChoose: [
+            { title: { en: "Doorstep Service", hi: "डोरस्टेप सेवा", kn: "ಮನೆ ಬಾಗಿಲ ಸೇವೆ" }, desc: { en: "We come to you.", hi: "हम आपके पास आते हैं।", kn: "ನಾವು ನಿಮ್ಮ ಬಳಿಗೆ ಬರುತ್ತೇವೆ." } },
+            { title: { en: "Genuine Parts", hi: "असली पुर्जे", kn: "ಅಸಲಿ ಭಾಗಗಳು" }, desc: { en: "Warranty on parts.", hi: "पुर्जों पर वारंटी।", kn: "ಭಾಗಗಳ ಮೇಲೆ ಖಾತರಿ." } },
+            { title: { en: "Transparent Pricing", hi: "पारदर्शी मूल्य", kn: "ಪಾರದರ್ಶಕ ಬೆಲೆ" }, desc: { en: "No hidden costs.", hi: "कोई छिपी हुई लागत नहीं।", kn: "ಯಾವುದೇ ಗುಪ್ತ ವೆಚ್ಚಗಳಿಲ್ಲ." } },
+            { title: { en: "Experienced Mechanics", hi: "अनुभवी मैकेनिक", kn: "ಅನುಭವಿ ಮೆಕ್ಯಾನಿಕ್ಸ್" }, desc: { en: "Expert diagnosis.", hi: "विशेषज्ञ निदान।", kn: "ತಜ್ಞ ರೋಗನಿರ್ಣಯ." } }
+        ],
+        pricing: {
+            startPrice: "299",
+            notes: { en: "Visiting charge. Parts extra.", hi: "विज़िटिंग चार्ज। पुर्जे अतिरिक्त।", kn: "ಭೇಟಿ ಶುಲ್ಕ. ಭಾಗಗಳು ಹೆಚ್ಚುವರಿ." }
+        },
+        faqs: [
+            { question: { en: "Do you service all brands?", hi: "क्या आप सभी ब्रांडों की सेवा करते हैं?", kn: "ನೀವು ಎಲ್ಲಾ ಬ್ರ್ಯಾಂಡ್‌ಗಳನ್ನು ಸರ್ವಿಸ್ ಮಾಡುತ್ತೀರಾ?" }, answer: { en: "We support major car and bike brands available in India.", hi: "हम भारत में उपलब्ध प्रमुख कार और बाइक ब्रांडों का समर्थन करते हैं।", kn: "ಭಾರತದಲ್ಲಿ ಲಭ್ಯವಿರುವ ಪ್ರಮುಖ ಕಾರ್ ಮತ್ತು ಬೈಕ್ ಬ್ರ್ಯಾಂಡ್‌ಗಳನ್ನು ನಾವು ಬೆಂಬಲಿಸುತ್ತೇವೆ." } },
+            { question: { en: "Is towing available?", hi: "क्या टोइंग उपलब्ध है?", kn: "ಟೋಯಿಂಗ್ ಲಭ್ಯವಿದೆಯೇ?" }, answer: { en: "Yes, we can arrange towing if onsite repair isn't possible.", hi: "हाँ, यदि ऑनसाइट मरम्मत संभव नहीं है तो हम टोइंग की व्यवस्था कर सकते हैं।", kn: "ಹೌದು, ಆನ್‌ಸೈಟ್ ದುರಸ್ತಿ ಸಾಧ್ಯವಾಗದಿದ್ದರೆ ನಾವು ಟೋಯಿಂಗ್ ವ್ಯವಸ್ಥೆ ಮಾಡಬಹುದು." } }
         ]
     }
 };

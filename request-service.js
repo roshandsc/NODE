@@ -28,11 +28,25 @@ const SERVICE_OPTIONS = {
         { id: 'painting', label: { en: 'Touch-up Painting', hi: 'टच-अप पेंटिंग', kn: 'ಟಚ್-ಅಪ್ ಪೇಂಟಿಂಗ್' } },
         { id: 'plaster', label: { en: 'Plaster Repair', hi: 'प्लास्टर मरम्मत', kn: 'ಪ್ಲಾಸ್ಟರ್ ದುರಸ್ತಿ' } }
     ],
-    'cleaning': [
-        { id: 'deep_clean', label: { en: 'Deep Home Cleaning', hi: 'गहरी घर की सफाई', kn: 'ಮನೆ ಆಳವಾದ ಶುಚಿಗೊಳಿಸುವಿಕೆ' } },
-        { id: 'kitchen', label: { en: 'Kitchen Deep Clean', hi: 'रसोई की गहरी सफाई', kn: 'ಅಡುಗೆಮನೆ ಆಳವಾದ ಶುಚಿಗೊಳಿಸುವಿಕೆ' } },
-        { id: 'bathroom', label: { en: 'Bathroom Cleaning', hi: 'बाथरूम की सफाई', kn: 'ಬಾತ್ ರೂಮ್ ಶುಚಿಗೊಳಿಸುವಿಕೆ' } },
-        { id: 'sofa', label: { en: 'Sofa / Carpet Cleaning', hi: 'सोफा / कालीन सफाई', kn: 'ಸೋಫಾ / ಕಾರ್ಪೆಟ್ ಶುಚಿಗೊಳಿಸುವಿಕೆ' } }
+    'domestic_help': [
+        { id: 'daily_maid', label: { en: 'Maid (Daily / One-time)', hi: 'कामवाली (दैनिक)', kn: 'ಕೆಲಸದವರು (ದೈನಂದಿನ)' } },
+        { id: 'daily_houseboy', label: { en: 'Houseboy (Daily / One-time)', hi: 'हाउस बॉय (दैनिक)', kn: 'ಹೌಸ್‌ಬಾಯ್ (ದೈನಂದಿನ)' } },
+        { id: 'monthly_maid', label: { en: 'Maid (Monthly Tenure)', hi: 'कामवाली (मासिक)', kn: 'ಕೆಲಸದವರು (ಮಾಸಿಕ)' } },
+        { id: 'monthly_houseboy', label: { en: 'Houseboy (Monthly Tenure)', hi: 'हाउस बॉय (मासिक)', kn: 'ಹೌಸ್‌ಬಾಯ್ (ಮಾಸಿಕ)' } },
+        { id: 'cook', label: { en: 'Cook / Chef', hi: 'रसोइया', kn: 'ಅಡುಗೆಯವರು' } },
+        { id: 'babysitter', label: { en: 'Nanny / Babysitter', hi: 'आया / दाई', kn: 'ಮಗುವಿನ ಆರೈಕೆ' } }
+    ],
+    'painter': [
+        { id: 'interior', label: { en: 'Interior Wall Painting', hi: 'आंतरिक दीवार पेंटिंग', kn: 'ಒಳಾಂಗಣ ಗೋಡೆ ಪೇಂಟಿಂಗ್' } },
+        { id: 'exterior', label: { en: 'Exterior Wall Painting', hi: 'बाहरी दीवार पेंटिंग', kn: 'ಹೊರಾಂಗಣ ಗೋಡೆ ಪೇಂಟಿಂಗ್' } },
+        { id: 'waterproof', label: { en: 'Waterproofing', hi: 'वॉटरप्रूफिंग', kn: 'ವಾಟರ್ ಪ್ರೂಫಿಂಗ್' } },
+        { id: 'texture', label: { en: 'Texture / Stencil', hi: 'टेक्सचर / स्टेंसिल', kn: 'ಟೆಕ್ಸ್ಚರ್ / ಸ್ಟೆನ್ಸಿಲ್' } }
+    ],
+    'mechanics': [
+        { id: 'bike_service', label: { en: 'Bike Service', hi: 'बाइक सेवा', kn: 'ಬೈಕ್ ಸೇವೆ' } },
+        { id: 'car_service', label: { en: 'Car Service', hi: 'कार सेवा', kn: 'ಕಾರ್ ಸೇವೆ' } },
+        { id: 'breakdown', label: { en: 'Breakdown Assistance', hi: 'ब्रेकडाउन सहायता', kn: 'ಬ್ರೇಕ್‌ಡೌನ್ ಸಹಾಯ' } },
+        { id: 'car_wash', label: { en: 'Car Wash / Detailing', hi: 'कार वॉश / डिटेलिंग', kn: 'ಕಾರ್ ವಾಶ್ / ಡೀಟೇಲಿಂಗ್' } }
     ]
 };
 
@@ -55,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update Display
     const displayService = document.getElementById('display-service-type');
-    displayService.textContent = serviceType.charAt(0).toUpperCase() + serviceType.slice(1); // Capitalize
+    displayService.textContent = serviceType.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
     // Populate Dynamic Options
     const dynamicTasksContainer = document.getElementById('dynamic-tasks');

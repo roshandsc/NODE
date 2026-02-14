@@ -178,15 +178,15 @@ export const translations = {
         "hi": "छोटा निर्माण और नवीकरण कार्य",
         "kn": "ಸಣ್ಣ ನಿರ್ಮಾಣ ಮತ್ತು ನವೀಕರಣ ಕೆಲಸ"
     },
-    "service_cleaning_title": {
-        "en": "Cleaning",
-        "hi": "सफाई",
-        "kn": "ಸ್ವಚ್ಛತೆ"
+    "service_domestic_help_title": {
+        "en": "Domestic Help",
+        "hi": "घरेलू सहायता",
+        "kn": "ಗೃಹ ಸಹಾಯ"
     },
-    "service_cleaning_desc": {
-        "en": "Professional one-time cleaning services",
-        "hi": "पेशेवर वन-टाइम सफाई सेवाएं",
-        "kn": "ವೃತ್ತಿಪರ ಒಂದು ಬಾರಿ ಮಾಡುವ ಸ್ವಚ್ಛತಾ ಸೇವೆಗಳು"
+    "service_domestic_help_desc": {
+        "en": "Maids, houseboys, and cooks",
+        "hi": "नौकरानियाँ, हाउस बॉय और रसोइये",
+        "kn": "ಕೆಲಸದವರು, ಹೌಸ್‌ಬಾಯ್‌ಗಳು ಮತ್ತು ಅಡುಗೆಯವರು"
     },
 
     // Partners Section
@@ -513,25 +513,45 @@ export const translations = {
         "hi": "पेशेवरों द्वारा प्रबंधित नवीनीकरण, टाइल का काम और संरचनात्मक संशोधन।",
         "kn": "ವೃತ್ತಿಪರರಿಂದ ನಿರ್ವಹಿಸಲ್ಪಡುವ ನವೀಕರಣಗಳು, ಟೈಲ್ ಕೆಲಸ ಮತ್ತು ರಚನಾತ್ಮಕ ಬದಲಾವಣೆಗಳು."
     },
-    "svc_cleaning": {
-        "en": "Deep Cleaning",
-        "hi": "गहरी सफाई",
-        "kn": "ಆಳವಾದ ಶುಚಿಗೊಳಿಸುವಿಕೆ"
+    "svc_domestic_help": {
+        "en": "Domestic Help",
+        "hi": "घरेलू सहायता",
+        "kn": "ಗೃಹ ಸಹಾಯ"
     },
-    "svc_cleaning_desc": {
-        "en": "Full home sanitization, kitchen deep cleans, and floor polishing.",
-        "hi": "पूर्ण घर की स्वच्छता, रसोई की गहरी सफाई, और फर्श पालिश करना।",
-        "kn": "ಪೂರ್ಣ ಮನೆ ನೈರ್ಮಲ್ಯೀಕರಣ, ಅಡುಗೆಮನೆ ಆಳವಾದ ಶುಚಿಗೊಳಿಸುವಿಕೆ ಮತ್ತು ನೆಲದ ಹೊಳಪು."
+    "svc_domestic_help_desc": {
+        "en": "Maids, houseboys, and cooks for daily or monthly needs.",
+        "hi": "दैनिक या मासिक जरूरतों के लिए नौकरानियाँ, हाउस बॉय और रसोइये।",
+        "kn": "ದೈನಂದಿನ ಅಥವಾ ಮಾಸಿಕ ಅಗತ್ಯಗಳಿಗಾಗಿ ಕೆಲಸದವರು, ಹೌಸ್‌ಬಾಯ್‌ಗಳು ಮತ್ತು ಅಡುಗೆಯವರು."
     },
     "svc_painting": {
-        "en": "Painting (Coming Soon)",
-        "hi": "पेंटिंग (जल्द आ रहा है)",
-        "kn": "ಪೇಂಟಿಂಗ್ (ಶೀಘ್ರದಲ್ಲೇ ಬರಲಿದೆ)"
+        "en": "Painting",
+        "hi": "पेंटिंग",
+        "kn": "ಪೇಂಟಿಂಗ್"
     },
     "svc_painting_desc": {
         "en": "Interior and exterior painting with professional finishes.",
         "hi": "पेशेवर फिनिश के साथ आंतरिक और बाहरी पेंटिंग।",
         "kn": "ವೃತ್ತಿಪರ ಪೂರ್ಣಗೊಳಿಸುವಿಕೆಗಳೊಂದಿಗೆ ಆಂತರಿಕ ಮತ್ತು ಬಾಹ್ಯ ಪೇಂಟಿಂಗ್."
+    },
+    "svc_mechanics": {
+        "en": "Mechanics",
+        "hi": "मैकेनिक",
+        "kn": "ಮೆಕ್ಯಾನಿಕ್ಸ್"
+    },
+    "svc_mechanics_desc": {
+        "en": "Expert car and bike repairs at your doorstep.",
+        "hi": "आपके दरवाजे पर विशेषज्ञ कार और बाइक की मरम्मत।",
+        "kn": "ನಿಮ್ಮ ಮನೆ ಬಾಗಿಲಲ್ಲಿ ಕಾರ್ ಮತ್ತು ಬೈಕ್ ದುರಸ್ತಿ."
+    },
+    "svc_chef": {
+        "en": "Professional Chef (Coming Soon)",
+        "hi": "पेशेवर रसोइया (जल्द आ रहा है)",
+        "kn": "ವೃತ್ತಿಪರ ಬಾಣಸಿಗ (ಶೀಘ್ರದಲ್ಲೇ ಬರಲಿದೆ)"
+    },
+    "svc_chef_desc": {
+        "en": "Gourmet cooking services for events and parties.",
+        "hi": "घटनाओं और पार्टियों के लिए पेटू खाना पकाने की सेवाएं।",
+        "kn": "ಸಮಾರಂಭಗಳು ಮತ್ತು ಪಾರ್ಟಿಗಳಿಗಾಗಿ ಗೌರ್ಮೆಟ್ ಅಡುಗೆ ಸೇವೆಗಳು."
     },
     "link_view_details": {
         "en": "View Details →",
