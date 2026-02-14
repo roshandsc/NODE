@@ -143,10 +143,85 @@
         <!-- Hero -->
         <section class="services-hero">
             <div class="container">
-                <h1 data-i18n="services_page_title">Our Services</h1>
+                <h1 data-i18n="services_page_title" id="services-title">Our Services</h1>
                 <p data-i18n="services_page_sub">Comprehensive solutions for your home and office needs. Verified, professional, and reliable.</p>
             </div>
         </section>
+
+    <!-- Animation Styles -->
+    <style>
+        /* Dancing Text Animation */
+        #services-title {
+            display: inline-block; /* Keeps title together */
+        }
+        
+        .dancing-letter {
+            display: inline-block;
+            transition: color 0.3s ease;
+            animation: dance 3s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+
+        /* Hover Effect: Intensify */
+        #services-title:hover .dancing-letter {
+            animation-duration: 1.5s; /* Faster */
+            animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        @keyframes dance {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translateY(-4px) rotate(-2deg) scale(1.02);
+            }
+            50% {
+                transform: translateY(0) rotate(2deg) scale(1);
+            }
+            75% {
+                transform: translateY(-2px) rotate(-1deg) scale(0.98);
+            }
+        }
+    </style>
+
+    <!-- Script to Split Text for Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const title = document.getElementById('services-title');
+
+            const animateTitle = () => {
+                const text = title.innerText; // Get current text (translated or default)
+                title.innerHTML = ''; // Clear content
+                
+                // Split text and wrap letters
+                text.split('').forEach((char, index) => {
+                    const span = document.createElement('span');
+                    span.textContent = char;
+                    
+                    if (char === ' ') {
+                        span.style.width = '0.3em'; // Preserve space width
+                        span.style.display = 'inline-block';
+                    } else {
+                        span.classList.add('dancing-letter');
+                        // Staggered delays for wave effect
+                        span.style.animationDelay = `${index * 0.1}s`;
+                    }
+                    title.appendChild(span);
+                });
+            };
+
+            // Initial Animation
+            animateTitle();
+
+            // Re-apply on Language Change
+            window.addEventListener('languageChanged', () => {
+                 // Wait briefly for text update to complete
+                setTimeout(() => {
+                    animateTitle();
+                }, 50); 
+            });
+        });
+    </script>
 
         <!-- Services Grid -->
         <section class="services-grid-section">
