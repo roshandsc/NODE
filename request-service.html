@@ -14,55 +14,95 @@
   </head>
   <body>
     
-    <!-- Minimal Header for Form Page -->
-    <header class="form-header">
-        <div class="container form-header-container">
+    <!-- Full Global Header -->
+    <header class="header">
+      <div class="header-container">
+        
+        <!-- 1. LEFT: Brand Anchor & Language -->
+        <div class="brand-group">
             <a href="/" class="brand-anchor">
-              <img src="/logo.png" alt="NODE" class="brand-logo-small" />
+              <img src="/logo.png" alt="NODE" class="brand-logo" />
             </a>
             
-            <div class="header-right" style="display: flex; gap: 16px; align-items: center;">
-                <!-- Language Switcher -->
-                <div class="language-switcher">
-                    <button class="lang-btn" aria-label="Select Language">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="2" y1="12" x2="22" y2="12"></line>
-                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                        </svg>
-                        <span class="lang-current">EN</span>
-                    </button>
-                    <div class="lang-dropdown">
-                        <button class="lang-option active" data-lang="en">English</button>
-                        <button class="lang-option" data-lang="hi">Hindi (हिंदी)</button>
-                        <button class="lang-option" data-lang="kn">Kannada (ಕನ್ನಡ)</button>
-                    </div>
-                </div>
-
-                <!-- Theme Toggle -->
-                <button class="theme-toggle" aria-label="Toggle Dark Mode" style="margin-left: 0;">
-                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="lang-btn" aria-label="Select Language">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                     </svg>
-                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
+                    <span class="lang-current">EN</span>
                 </button>
-
-                <div class="secure-badge">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                    <span>Secure Request</span>
+                <div class="lang-dropdown">
+                    <button class="lang-option active" data-lang="en">English</button>
+                    <button class="lang-option" data-lang="hi">Hindi (हिंदी)</button>
+                    <button class="lang-option" data-lang="kn">Kannada (ಕನ್ನಡ)</button>
                 </div>
             </div>
         </div>
+
+        <!-- 2. CENTER-LEFT: Primary Navigation -->
+        <nav class="primary-nav">
+          <a href="/services.html" class="nav-item active" data-i18n="nav_services">Services</a>
+          <a href="/index.html#how-it-works" class="nav-item" data-i18n="nav_how_it_works">How It Works</a>
+          <a href="#" class="nav-item" data-i18n="nav_professionals">For Professionals</a>
+        </nav>
+
+        <!-- 3. CENTER: Location Selector -->
+        <div class="location-selector">
+          <span class="location-icon">📍</span>
+          <span class="location-text" data-i18n="location_bangalore">Bengaluru, KA</span>
+          <span class="location-arrow">▼</span>
+        </div>
+
+        <!-- 4. CENTER-RIGHT: Search Bar -->
+        <div class="search-bar">
+          <div class="search-input-wrapper">
+             <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+             </svg>
+            <input type="text" placeholder="Find a trusted professional near you" class="search-input" data-i18n="search_placeholder" />
+          </div>
+        </div>
+
+        <!-- 5. RIGHT: Utility Icon -->
+        <div class="utility-icon">
+            <a href="#" class="profile-link" aria-label="Profile">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </a>
+            
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" aria-label="Toggle Dark Mode">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            
+            <!-- Hamburger Menu (Mobile/Tablet) -->
+            <button class="hamburger-menu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+      </div>
     </header>
 
     <main class="form-main">
@@ -277,6 +317,7 @@
         </div>
     </main>
 
+    <script type="module" src="/main.js"></script>
     <script type="module" src="/request-service.js"></script>
   </body>
 </html>
