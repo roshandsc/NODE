@@ -13,9 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const greetings = [
-        "Hi", "Hello", "Namaste", "Hola", "Bonjour", 
-        "Ciao", "Konnichiwa", "Salaam"
-    ]; // Add more if needed
+        "Namaste", "Vanakkam", "Namaskara", "Sat Sri Akal", "Nomoshkar", 
+        "Kem Cho", "Kasa Kay", "Salaam", "Adaab", "Pranam", 
+        "Ram Ram", "Jai Jinendra", "Tashi Delek", "Juley",
+        "Hi", "Hello", "Hola", "Bonjour", "Ciao"
+    ];
 
     let currentIndex = 0;
     
