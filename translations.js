@@ -828,6 +828,53 @@ export const translations = {
         "kn": "ವಿನಂತಿಯನ್ನು ಕಳುಹಿಸಲಾಗಿದೆ!"
     },
 
+    // New Stepper Fields
+    "popup_prop_private": {
+        "en": "Private Home",
+        "hi": "निजी घर",
+        "kn": "ಖಾಸಗಿ ಮನೆ"
+    },
+    "popup_prop_commercial": {
+        "en": "Commercial",
+        "hi": "व्यावसायिक",
+        "kn": "ವಾಣಿಜ್ಯ"
+    },
+    "popup_lbl_date": {
+        "en": "Date",
+        "hi": "तारीख",
+        "kn": "ದಿನಾಂಕ"
+    },
+    "popup_err_date": {
+        "en": "Please select a date",
+        "hi": "कृपया एक तारीख चुनें",
+        "kn": "ದಯವಿಟ್ಟು ದಿನಾಂಕವನ್ನು ಆಯ್ಕೆಮಾಡಿ"
+    },
+    "popup_lbl_time": {
+        "en": "Time Slot",
+        "hi": "समय स्लॉट",
+        "kn": "ಸಮಯ ಸ್ಲಾಟ್"
+    },
+    "popup_time_morning": {
+        "en": "Morning (8AM - 12PM)",
+        "hi": "सुबह (8 बजे - 12 बजे)",
+        "kn": "ಬೆಳಿಗ್ಗೆ (ಬೆಳಿಗ್ಗೆ 8 - 12)"
+    },
+    "popup_time_afternoon": {
+        "en": "Afternoon (12PM - 4PM)",
+        "hi": "दोपहर (12 बजे - 4 बजे)",
+        "kn": "ಮಧ್ಯಾಹ್ನ (12 - 4)"
+    },
+    "popup_time_evening": {
+        "en": "Evening (4PM - 8PM)",
+        "hi": "शाम (4 बजे - 8 बजे)",
+        "kn": "ಸಂಜೆ (4 - 8)"
+    },
+    "popup_err_time": {
+        "en": "Please select a time",
+        "hi": "कृपया एक समय चुनें",
+        "kn": "ದಯವಿಟ್ಟು ಸಮಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ"
+    },
+
     // Popup Issues - Plumbing
     "issue_plumb_pipe": { "en": "Pipe leakage", "hi": "पाइप लीकेज", "kn": "ಪೈಪ್ ಸೋರಿಕೆ" },
     "issue_plumb_tap": { "en": "Tap repair", "hi": "नल की मरम्मत", "kn": "ಟ್ಯಾಪ್ ದುರಸ್ತಿ" },

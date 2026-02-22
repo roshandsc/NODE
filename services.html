@@ -875,6 +875,194 @@
                 transform: translateY(-2px) rotate(-1deg) scale(0.98);
             }
         }
+
+        /* --- Stepper UI --- */
+        .stepper-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .stepper-progress-line {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            right: 10px;
+            height: 2px;
+            background: rgba(255,255,255,0.1);
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+
+        .stepper-progress-fill {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            height: 2px;
+            background: rgba(212, 175, 55, 0.9);
+            z-index: 2;
+            transform: translateY(-50%);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%; /* Dynamic */
+        }
+
+        .step-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #141414;
+            border: 2px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            position: relative;
+            z-index: 3;
+            transition: all 0.4s ease;
+        }
+
+        .step-dot.active {
+            border-color: rgba(212, 175, 55, 0.9);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .step-dot.completed {
+            background: rgba(212, 175, 55, 0.9);
+            border-color: rgba(212, 175, 55, 0.9);
+            color: #1a1a1a;
+        }
+
+        .form-step {
+            display: none;
+            opacity: 0;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeInStep 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        
+        @keyframes fadeInStep {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Form Navigation Buttons */
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .btn-form-nav {
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-nav-back {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .btn-nav-back:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .btn-nav-next {
+            background: #fff;
+            color: #000;
+            border: none;
+        }
+
+        .btn-nav-next:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+        
+        .btn-nav-next:active {
+            transform: translateY(0);
+        }
+        
+        /* Radio Cards (Property Type) */
+        .radio-cards-group {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .radio-card {
+            flex: 1;
+            position: relative;
+        }
+
+        .radio-card input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .radio-card label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 10px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            color: rgba(255,255,255,0.7);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            gap: 12px;
+            font-size: 14px;
+            height: 100%;
+        }
+
+        .radio-card input:checked + label {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.5);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+
+        .radio-card label svg {
+            color: rgba(255,255,255,0.5);
+            transition: color 0.3s;
+            width: 24px;
+            height: 24px;
+        }
+        
+        .radio-card input:checked + label svg {
+            color: rgba(212, 175, 55, 0.9);
+        }
+        
+        /* Time Input layout */
+        .time-inputs {
+            display: flex;
+            gap: 16px;
+        }
+        .time-inputs > div {
+            flex: 1;
+        }
+
     </style>
 
     <!-- Script to Split Text for Animation -->
@@ -1019,86 +1207,151 @@
                     <p data-i18n="popup_match_expert">We'll match you with a verified expert shortly.</p>
                 </div>
                 <form id="premiumRequestForm" novalidate>
-                    <div class="location-prompt-bar" id="locPromptBar">
-                        <p>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
-                            </svg>
-                            <span data-i18n="popup_use_loc">Use your current location for faster service?</span>
-                        </p>
-                        <button type="button" class="btn-prompt-allow" id="btnPromptAllow" data-i18n="popup_allow">Allow</button>
+                    <!-- Stepper Header -->
+                    <div class="stepper-header" id="stepperHeader">
+                        <div class="stepper-progress-line"></div>
+                        <div class="stepper-progress-fill" id="stepperProgress"></div>
+                        <div class="step-dot active" data-step="1">1</div>
+                        <div class="step-dot" data-step="2">2</div>
+                        <div class="step-dot" data-step="3">3</div>
                     </div>
 
-                    <div class="premium-form-group has-icon">
-                        <svg class="location-icon-input" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                        <input type="text" id="reqLocation" placeholder=" " required />
-                        <label for="reqLocation" data-i18n="popup_loc_manual">Enter your location manually</label>
-                        <button type="button" class="btn-detect-location" id="btnDetectLoc" aria-label="Detect Location" title="Auto-detect location">
-                            <span class="spinner" style="display:none;"></span>
-                            <span class="btn-text" data-i18n="popup_loc_detect">Detect</span>
-                        </button>
-                        <div class="inline-error" data-i18n="popup_err_loc">Please provide a service location</div>
-                    </div>
-
-                    <div class="premium-form-group">
-                        <input type="text" id="reqName" placeholder=" " required />
-                        <label for="reqName" data-i18n="popup_lbl_name">Full Name</label>
-                        <div class="inline-error" data-i18n="popup_err_name">Name is required</div>
-                    </div>
-                    <div class="premium-form-group">
-                        <input type="tel" id="reqPhone" placeholder=" " required />
-                        <label for="reqPhone" data-i18n="popup_lbl_phone">Phone Number</label>
-                        <div class="inline-error" data-i18n="popup_err_phone">Valid phone number required</div>
-                    </div>
-                    <div class="premium-form-group">
-                        <select id="reqService" required>
-                            <option value="" disabled selected hidden data-i18n="popup_lbl_service">Select Service Type</option>
-                            <option value="plumbing" data-i18n="svc_plumbing">Plumbing</option>
-                            <option value="electrical" data-i18n="svc_electrical">Electrical</option>
-                            <option value="repairs" data-i18n="svc_repairs">General Repairs</option>
-                            <option value="construction" data-i18n="svc_construction">Construction</option>
-                            <option value="domestic_help" data-i18n="svc_domestic_help">Domestic Help</option>
-                            <option value="painter" data-i18n="svc_painting">Painting</option>
-                            <option value="mechanics" data-i18n="svc_mechanics">Mechanics</option>
-                        </select>
-                        <div class="inline-error" data-i18n="popup_err_service">Please select a service type</div>
-                    </div>
-                    
-                    <span class="microcopy" data-i18n="popup_microcopy">This helps us assign the right professional faster.</span>
-                    
-                    <div class="premium-form-group smart-dropdown-wrapper">
-                        <!-- Custom Select implementation for smart options -->
-                        <div class="custom-select-trigger" id="reqIssueTrigger" tabindex="0">
-                            <div class="chips-container" id="issueChipsContainer"></div>
-                            <label id="reqIssueLabel" data-i18n="popup_lbl_issues">Select Your Issues</label>
-                            <!-- Fake dropdown arrow -->
-                            <div style="position:absolute; right:16px; top:50%; transform:translateY(-50%); pointer-events:none;">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    <!-- Step 1: Service Details -->
+                    <div class="form-step active" id="step1">
+                        <div class="radio-cards-group">
+                            <div class="radio-card">
+                                <input type="radio" name="reqPropertyType" id="propPrivate" value="private" checked>
+                                <label for="propPrivate">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                    <span data-i18n="popup_prop_private">Private Home</span>
+                                </label>
+                            </div>
+                            <div class="radio-card">
+                                <input type="radio" name="reqPropertyType" id="propCommercial" value="commercial">
+                                <label for="propCommercial">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>
+                                    <span data-i18n="popup_prop_commercial">Commercial</span>
+                                </label>
                             </div>
                         </div>
-                        <div class="smart-dropdown-list" id="reqIssueList">
-                            <!-- Populated dynamically -->
+
+                        <div class="premium-form-group">
+                            <select id="reqService" required>
+                                <option value="" disabled selected hidden data-i18n="popup_lbl_service">Select Service Type</option>
+                                <option value="plumbing" data-i18n="svc_plumbing">Plumbing</option>
+                                <option value="electrical" data-i18n="svc_electrical">Electrical</option>
+                                <option value="repairs" data-i18n="svc_repairs">General Repairs</option>
+                                <option value="construction" data-i18n="svc_construction">Construction</option>
+                                <option value="domestic_help" data-i18n="svc_domestic_help">Domestic Help</option>
+                                <option value="painter" data-i18n="svc_painting">Painting</option>
+                                <option value="mechanics" data-i18n="svc_mechanics">Mechanics</option>
+                            </select>
+                            <div class="inline-error" data-i18n="popup_err_service">Please select a service type</div>
                         </div>
-                        <div class="inline-error" id="issueError" data-i18n="popup_err_issues">Please select at least one issue</div>
                         
-                        <div class="custom-issue-input" id="customIssueWrapper">
-                            <textarea id="reqCustomIssue" placeholder=" "></textarea>
-                            <label for="reqCustomIssue" data-i18n="popup_lbl_custom_issue">Describe your custom issue</label>
+                        <span class="microcopy" data-i18n="popup_microcopy">This helps us assign the right professional faster.</span>
+                        
+                        <div class="premium-form-group smart-dropdown-wrapper">
+                            <!-- Custom Select implementation for smart options -->
+                            <div class="custom-select-trigger" id="reqIssueTrigger" tabindex="0">
+                                <div class="chips-container" id="issueChipsContainer"></div>
+                                <label id="reqIssueLabel" data-i18n="popup_lbl_issues">Select Your Issues</label>
+                                <!-- Fake dropdown arrow -->
+                                <div style="position:absolute; right:16px; top:50%; transform:translateY(-50%); pointer-events:none;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </div>
+                            </div>
+                            <div class="smart-dropdown-list" id="reqIssueList">
+                                <!-- Populated dynamically -->
+                            </div>
+                            <div class="inline-error" id="issueError" data-i18n="popup_err_issues">Please select at least one issue</div>
+                            
+                            <div class="custom-issue-input" id="customIssueWrapper">
+                                <textarea id="reqCustomIssue" placeholder=" "></textarea>
+                                <label for="reqCustomIssue" data-i18n="popup_lbl_custom_issue">Describe your custom issue</label>
+                            </div>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn-submit-request" id="submitRequestBtn">
-                        <span class="btn-text-content">
-                            <span data-i18n="popup_btn_send">Send Request</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="22" y1="2" x2="11" y2="13"></line>
-                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    <!-- Step 2: Location & Time -->
+                    <div class="form-step" id="step2">
+                        <div class="location-prompt-bar" id="locPromptBar">
+                            <p>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                                </svg>
+                                <span data-i18n="popup_use_loc">Use your current location for faster service?</span>
+                            </p>
+                            <button type="button" class="btn-prompt-allow" id="btnPromptAllow" data-i18n="popup_allow">Allow</button>
+                        </div>
+
+                        <div class="premium-form-group has-icon">
+                            <svg class="location-icon-input" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
                             </svg>
-                        </span>
-                    </button>
+                            <input type="text" id="reqLocation" placeholder=" " required />
+                            <label for="reqLocation" data-i18n="popup_loc_manual">Enter your location manually</label>
+                            <button type="button" class="btn-detect-location" id="btnDetectLoc" aria-label="Detect Location" title="Auto-detect location">
+                                <span class="spinner" style="display:none;"></span>
+                                <span class="btn-text" data-i18n="popup_loc_detect">Detect</span>
+                            </button>
+                            <div class="inline-error" data-i18n="popup_err_loc">Please provide a service location</div>
+                        </div>
+
+                        <div class="time-inputs">
+                            <div class="premium-form-group">
+                                <input type="date" id="reqDate" required style="color-scheme: dark;" />
+                                <!-- Keep styling inline for quick layout -->
+                                <label for="reqDate" data-i18n="popup_lbl_date" style="background:#141414; padding: 0 6px; left:12px; top:-10px; font-size:12px; color:rgba(212, 175, 55, 0.9); border-radius:4px;">Date</label>
+                                <div class="inline-error" data-i18n="popup_err_date">Please select a date</div>
+                            </div>
+                            <div class="premium-form-group">
+                                <select id="reqTime" required>
+                                    <option value="" disabled selected hidden data-i18n="popup_lbl_time">Time Slot</option>
+                                    <option value="morning" data-i18n="popup_time_morning">Morning (8AM - 12PM)</option>
+                                    <option value="afternoon" data-i18n="popup_time_afternoon">Afternoon (12PM - 4PM)</option>
+                                    <option value="evening" data-i18n="popup_time_evening">Evening (4PM - 8PM)</option>
+                                </select>
+                                <div class="inline-error" data-i18n="popup_err_time">Please select a time</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Final Details -->
+                    <div class="form-step" id="step3">
+                        <div class="premium-form-group">
+                            <input type="text" id="reqName" placeholder=" " required />
+                            <label for="reqName" data-i18n="popup_lbl_name">Full Name</label>
+                            <div class="inline-error" data-i18n="popup_err_name">Name is required</div>
+                        </div>
+                        <div class="premium-form-group">
+                            <input type="tel" id="reqPhone" placeholder=" " required />
+                            <label for="reqPhone" data-i18n="popup_lbl_phone">Phone Number</label>
+                            <div class="inline-error" data-i18n="popup_err_phone">Valid phone number required</div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="form-navigation">
+                        <button type="button" class="btn-form-nav btn-nav-back" id="btnStepBack" style="display:none;" data-i18n="btn_back">Back</button>
+                        
+                        <button type="button" class="btn-form-nav btn-nav-next" id="btnStepNext">
+                            <span data-i18n="btn_continue">Continue</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                        
+                        <button type="submit" class="btn-submit-request" id="submitRequestBtn" style="display:none; flex:2; margin:0; width:auto; padding: 14px 24px;">
+                            <span class="btn-text-content">
+                                <span data-i18n="popup_btn_send">Send Request</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+
                 </form>
             </div>
         </div>
@@ -1129,6 +1382,17 @@
             const issueChipsContainer = document.getElementById('issueChipsContainer');
             const customIssueWrapper = document.getElementById('customIssueWrapper');
             const reqCustomIssue = document.getElementById('reqCustomIssue');
+
+            // Stepper Variables
+            let currentStep = 1;
+            const totalSteps = 3;
+            const stepperProgress = document.getElementById('stepperProgress');
+            const stepDots = document.querySelectorAll('.step-dot');
+            const formSteps = document.querySelectorAll('.form-step');
+            const btnStepNext = document.getElementById('btnStepNext');
+            const btnStepBack = document.getElementById('btnStepBack');
+            const reqTime = document.getElementById('reqTime');
+            const reqDate = document.getElementById('reqDate');
 
             let selectedIssues = []; // Track selected issues
 
@@ -1449,49 +1713,125 @@
                 });
             });
 
-            // Form Validation helper
-            function validateForm() {
+            // Form Validation helper per step
+            function validateStep(step) {
                 let isValid = true;
                 
-                const locFg = reqLocation.closest('.premium-form-group');
-                if (!reqLocation.value.trim()) {
-                    locFg.classList.add('has-error');
-                    isValid = false;
+                if (step === 1) {
+                    const servFg = serviceSelect.closest('.premium-form-group');
+                    if (!serviceSelect.value) {
+                        servFg.classList.add('has-error');
+                        const baseLang = localStorage.getItem('node-lang') || 'en';
+                        servFg.querySelector('.inline-error').textContent = translations['popup_err_service'] ? translations['popup_err_service'][baseLang] : 'Please select a service type';
+                        isValid = false;
+                    }
+
+                    const issueFg = reqIssueTrigger.closest('.premium-form-group');
+                    if (selectedIssues.length === 0) {
+                        issueFg.classList.add('has-error');
+                        isValid = false;
+                    } else if (selectedIssues.includes('issue_other') && !reqCustomIssue.value.trim()) {
+                        issueFg.classList.add('has-error');
+                        const baseLang = localStorage.getItem('node-lang') || 'en';
+                        document.getElementById('issueError').textContent = translations['popup_err_issues'] ? translations['popup_err_issues'][baseLang] : 'Please describe your custom issue';
+                        isValid = false;
+                    }
                 }
 
-                const nameFg = document.getElementById('reqName').closest('.premium-form-group');
-                if (!document.getElementById('reqName').value.trim()) {
-                    nameFg.classList.add('has-error');
-                    isValid = false;
+                if (step === 2) {
+                    const locFg = reqLocation.closest('.premium-form-group');
+                    if (!reqLocation.value.trim()) {
+                        locFg.classList.add('has-error');
+                        isValid = false;
+                    }
+
+                    const dateFg = reqDate.closest('.premium-form-group');
+                    if (!reqDate.value) {
+                        dateFg.classList.add('has-error');
+                        isValid = false;
+                    }
+
+                    const timeFg = reqTime.closest('.premium-form-group');
+                    if (!reqTime.value) {
+                        timeFg.classList.add('has-error');
+                        isValid = false;
+                    }
                 }
 
-                const phoneFg = document.getElementById('reqPhone').closest('.premium-form-group');
-                if (!document.getElementById('reqPhone').value.trim() || document.getElementById('reqPhone').value.length < 8) {
-                    phoneFg.classList.add('has-error');
-                    isValid = false;
-                }
+                if (step === 3) {
+                    const nameFg = document.getElementById('reqName').closest('.premium-form-group');
+                    if (!document.getElementById('reqName').value.trim()) {
+                        nameFg.classList.add('has-error');
+                        isValid = false;
+                    }
 
-                const servFg = serviceSelect.closest('.premium-form-group');
-                if (!serviceSelect.value) {
-                    servFg.classList.add('has-error');
-                    const baseLang = localStorage.getItem('node-lang') || 'en';
-                    servFg.querySelector('.inline-error').textContent = translations['popup_err_service'] ? translations['popup_err_service'][baseLang] : 'Please select a service type';
-                    isValid = false;
-                }
-
-                const issueFg = reqIssueTrigger.closest('.premium-form-group');
-                if (selectedIssues.length === 0) {
-                    issueFg.classList.add('has-error');
-                    isValid = false;
-                } else if (selectedIssues.includes('issue_other') && !reqCustomIssue.value.trim()) {
-                    issueFg.classList.add('has-error');
-                    const baseLang = localStorage.getItem('node-lang') || 'en';
-                    document.getElementById('issueError').textContent = translations['popup_err_issues'] ? translations['popup_err_issues'][baseLang] : 'Please describe your custom issue';
-                    isValid = false;
+                    const phoneFg = document.getElementById('reqPhone').closest('.premium-form-group');
+                    if (!document.getElementById('reqPhone').value.trim() || document.getElementById('reqPhone').value.length < 8) {
+                        phoneFg.classList.add('has-error');
+                        isValid = false;
+                    }
                 }
 
                 return isValid;
             }
+
+            function updateStepper() {
+                // Update Progress Bar
+                const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+                stepperProgress.style.width = `${progressPercentage}%`;
+
+                // Update Dots
+                stepDots.forEach(dot => {
+                    const stepNum = parseInt(dot.getAttribute('data-step'));
+                    dot.classList.remove('active', 'completed');
+                    if (stepNum === currentStep) {
+                        dot.classList.add('active');
+                    } else if (stepNum < currentStep) {
+                        dot.classList.add('completed');
+                    }
+                });
+
+                // Show/Hide Steps
+                formSteps.forEach(step => {
+                    step.classList.remove('active');
+                });
+                document.getElementById(`step${currentStep}`).classList.add('active');
+
+                // Buttons Logic
+                if (currentStep === 1) {
+                    btnStepBack.style.display = 'none';
+                    btnStepNext.style.display = 'flex';
+                    submitBtn.style.display = 'none';
+                } else if (currentStep === totalSteps) {
+                    btnStepBack.style.display = 'flex';
+                    btnStepNext.style.display = 'none';
+                    submitBtn.style.display = 'flex';
+                } else {
+                    btnStepBack.style.display = 'flex';
+                    btnStepNext.style.display = 'flex';
+                    submitBtn.style.display = 'none';
+                }
+            }
+
+            // Navigation Button Listeners
+            btnStepNext.addEventListener('click', () => {
+                if (validateStep(currentStep)) {
+                    currentStep++;
+                    updateStepper();
+                } else {
+                    popupContainer.style.transform = 'translateX(-10px)';
+                    setTimeout(() => popupContainer.style.transform = 'translateX(10px)', 50);
+                    setTimeout(() => popupContainer.style.transform = 'translateX(-5px)', 100);
+                    setTimeout(() => popupContainer.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)', 150);
+                }
+            });
+
+            btnStepBack.addEventListener('click', () => {
+                if (currentStep > 1) {
+                    currentStep--;
+                    updateStepper();
+                }
+            });
 
             function closePopup() {
                 popupOverlay.classList.add('closing');
@@ -1507,6 +1847,10 @@
                     customIssueWrapper.classList.remove('visible');
                     document.querySelectorAll('.premium-form-group.has-error').forEach(el => el.classList.remove('has-error'));
                     
+                    // Reset stepper
+                    currentStep = 1;
+                    updateStepper();
+
                     submitBtn.classList.remove('success');
                     const baseLang = localStorage.getItem('node-lang') || 'en';
                     const sendText = translations['popup_btn_send'] ? translations['popup_btn_send'][baseLang] : 'Send Request';
@@ -1557,7 +1901,7 @@
             requestForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 
-                if (!validateForm()) {
+                if (!validateStep(currentStep)) {
                     // Shake container to indicate error
                     popupContainer.style.transform = 'translateX(-10px)';
                     setTimeout(() => popupContainer.style.transform = 'translateX(10px)', 50);
