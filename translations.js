@@ -724,5 +724,153 @@ export const translations = {
         "en": "Request Service",
         "hi": "सेवा का अनुरोध करें",
         "kn": "ಸೇವೆಯನ್ನು ವಿನಂತಿಸಿ"
-    }
+    },
+
+    // --- Premium Popup Form ---
+    "popup_req_service": {
+        "en": "Request Service",
+        "hi": "सेवा का अनुरोध करें",
+        "kn": "ಸೇವೆಯನ್ನು ವಿನಂತಿಸಿ"
+    },
+    "popup_match_expert": {
+        "en": "We'll match you with a verified expert shortly.",
+        "hi": "हम आपको जल्द ही एक सत्यापित विशेषज्ञ के साथ मिलाएंगे।",
+        "kn": "ನಾವು ಶೀಘ್ರದಲ್ಲೇ ನಿಮ್ಮನ್ನು ಪರಿಶೀಲಿಸಿದ ತಜ್ಞರೊಂದಿಗೆ ಹೊಂದಿಸುತ್ತೇವೆ."
+    },
+    "popup_use_loc": {
+        "en": "Use your current location for faster service?",
+        "hi": "तेज सेवा के लिए अपने वर्तमान स्थान का उपयोग करें?",
+        "kn": "ವೇಗದ ಸೇವೆಗಾಗಿ ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಸ್ಥಳವನ್ನು ಬಳಸಬೇಕೇ?"
+    },
+    "popup_allow": {
+        "en": "Allow",
+        "hi": "अनुमति दें",
+        "kn": "ಅನುಮತಿಸಿ"
+    },
+    "popup_loc_manual": {
+        "en": "Enter your location manually",
+        "hi": "अपना स्थान मैन्युअल रूप से दर्ज करें",
+        "kn": "ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ಹಸ್ತಚಾಲಿತವಾಗಿ ನಮೂದಿಸಿ"
+    },
+    "popup_loc_detect": {
+        "en": "Detect",
+        "hi": "पता लगाएं",
+        "kn": "ಪತ್ತೆಹಚ್ಚಿ"
+    },
+    "popup_err_loc": {
+        "en": "Please provide a service location",
+        "hi": "कृपया सेवा स्थान प्रदान करें",
+        "kn": "ದಯವಿಟ್ಟು ಸೇವಾ ಸ್ಥಳವನ್ನು ಒದಗಿಸಿ"
+    },
+    "popup_lbl_name": {
+        "en": "Full Name",
+        "hi": "पूरा नाम",
+        "kn": "ಪೂರ್ಣ ಹೆಸರು"
+    },
+    "popup_err_name": {
+        "en": "Name is required",
+        "hi": "नाम आवश्यक है",
+        "kn": "ಹೆಸರು ಅಗತ್ಯವಿದೆ"
+    },
+    "popup_lbl_phone": {
+        "en": "Phone Number",
+        "hi": "फ़ोन नंबर",
+        "kn": "ದೂರವಾಣಿ ಸಂಖ್ಯೆ"
+    },
+    "popup_err_phone": {
+        "en": "Valid phone number required",
+        "hi": "मान्य फ़ोन नंबर आवश्यक है",
+        "kn": "ಮಾನ್ಯವಾದ ಫೋನ್ ಸಂಖ್ಯೆ ಅಗತ್ಯವಿದೆ"
+    },
+    "popup_lbl_service": {
+        "en": "Select Service Type",
+        "hi": "सेवा प्रकार चुनें",
+        "kn": "ಸೇವಾ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ"
+    },
+    "popup_err_service": {
+        "en": "Please select a service type",
+        "hi": "कृपया एक सेवा प्रकार चुनें",
+        "kn": "ದಯವಿಟ್ಟು ಸೇವಾ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ"
+    },
+    "popup_microcopy": {
+        "en": "This helps us assign the right professional faster.",
+        "hi": "इससे हमें सही पेशेवर को तेज़ी से सौंपने में मदद मिलती है।",
+        "kn": "ಇದು ಸರಿಯಾದ ವೃತ್ತಿಪರರನ್ನು ವೇಗವಾಗಿ ನಿಯೋಜಿಸಲು ನಮಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ."
+    },
+    "popup_lbl_issues": {
+        "en": "Select Your Issues",
+        "hi": "अपनी समस्याएं चुनें",
+        "kn": "ನಿಮ್ಮ ಸಮಸ್ಯೆಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ"
+    },
+    "popup_err_issues": {
+        "en": "Please select at least one issue",
+        "hi": "कृपया कम से कम एक समस्या चुनें",
+        "kn": "ದಯವಿಟ್ಟು ಕನಿಷ್ಠ ಒಂದು ಸಮಸ್ಯೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ"
+    },
+    "popup_lbl_custom_issue": {
+        "en": "Describe your custom issue",
+        "hi": "अपनी कस्टम समस्या का वर्णन करें",
+        "kn": "ನಿಮ್ಮ ಕಸ್ಟಮ್ ಸಮಸ್ಯೆಯನ್ನು ವಿವರಿಸಿ"
+    },
+    "popup_btn_send": {
+        "en": "Send Request",
+        "hi": "अनुरोध भेजें",
+        "kn": "ವಿನಂತಿಯನ್ನು ಕಳುಹಿಸಿ"
+    },
+    "popup_btn_sending": {
+        "en": "Sending...",
+        "hi": "भेजा जा रहा है...",
+        "kn": "ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ..."
+    },
+    "popup_btn_sent": {
+        "en": "Request Sent!",
+        "hi": "अनुरोध भेजा गया!",
+        "kn": "ವಿನಂತಿಯನ್ನು ಕಳುಹಿಸಲಾಗಿದೆ!"
+    },
+
+    // Popup Issues - Plumbing
+    "issue_plumb_pipe": { "en": "Pipe leakage", "hi": "पाइप लीकेज", "kn": "ಪೈಪ್ ಸೋರಿಕೆ" },
+    "issue_plumb_tap": { "en": "Tap repair", "hi": "नल की मरम्मत", "kn": "ಟ್ಯಾಪ್ ದುರಸ್ತಿ" },
+    "issue_plumb_drain": { "en": "Drain blockage", "hi": "नाली की रुकावट", "kn": "ಡ್ರೈನ್ ಬ್ಲಾಕೇಜ್" },
+    "issue_plumb_pressure": { "en": "Water pressure issue", "hi": "पानी के दबाव की समस्या", "kn": "ನೀರಿನ ಒತ್ತಡದ ಸಮಸ್ಯೆ" },
+    "issue_plumb_fittings": { "en": "Bathroom fitting issue", "hi": "बाथरूम फिटिंग की समस्या", "kn": "ಸ್ನಾನಗೃಹದ ಫಿಟ್ಟಿಂಗ್ ಸಮಸ್ಯೆ" },
+    
+    // Popup Issues - Electrical
+    "issue_elec_power": { "en": "Power outage", "hi": "बिजली कटौती", "kn": "ವಿದ್ಯುತ್ ಕಡಿತ" },
+    "issue_elec_switch": { "en": "Switch/socket issue", "hi": "स्विच/सॉकेट की समस्या", "kn": "ಸ್ವಿಚ್/ಸಾಕೆಟ್ ಸಮಸ್ಯೆ" },
+    "issue_elec_wiring": { "en": "Wiring problem", "hi": "वायरिंग की समस्या", "kn": "ವೈರಿಂಗ್ ಸಮಸ್ಯೆ" },
+    "issue_elec_fan": { "en": "Fan/light repair", "hi": "पंखे/लाइट की मरम्मत", "kn": "ಫ್ಯಾನ್/ಲೈಟ್ ದುರಸ್ತಿ" },
+
+    // Popup Issues - Repairs
+    "issue_rep_maint": { "en": "Maintenance", "hi": "रखरखाव", "kn": "ನಿರ್ವಹಣೆ" },
+    "issue_rep_install": { "en": "Installation", "hi": "स्थापना", "kn": "ಅಳವಡಿಕೆ" },
+    "issue_rep_inspect": { "en": "Inspection", "hi": "निरीक्षण", "kn": "ಪರಿಶೀಲನೆ" },
+    "issue_rep_furn": { "en": "Furniture assembly", "hi": "फर्नीचर असेंबली", "kn": "ಪೀಠೋಪಕರಣ ಜೋಡಣೆ" },
+
+    // Popup Issues - Construction
+    "issue_const_renov": { "en": "Renovation", "hi": "नवीनीकरण", "kn": "ನವೀಕರಣ" },
+    "issue_const_tile": { "en": "Tiling", "hi": "टाइलिंग", "kn": "ಟೈಲಿಂಗ್" },
+    "issue_const_struct": { "en": "Structural fix", "hi": "संरचनात्मक सुधार", "kn": "ರಚನಾತ್ಮಕ ಪರಿಹಾರ" },
+    "issue_const_ceil": { "en": "False ceiling", "hi": "फ़ॉल्स सीलिंग", "kn": "ಫಾಲ್ಸ್ ಸೀಲಿಂಗ್" },
+
+    // Popup Issues - Domestic Help
+    "issue_dom_maid": { "en": "Maid service", "hi": "नौकरानी सेवा", "kn": "ಕೆಲಸದವರ ಸೇವೆ" },
+    "issue_dom_cook": { "en": "Cooking", "hi": "खाना पकाना", "kn": "ಅಡುಗೆ" },
+    "issue_dom_clean": { "en": "Deep cleaning", "hi": "गहरी सफाई", "kn": "ಆಳವಾದ ಶುಚಿಗೊಳಿಸುವಿಕೆ" },
+    "issue_dom_month": { "en": "Monthly arrangement", "hi": "मासिक व्यवस्था", "kn": "ಮಾಸಿಕ ವ್ಯವಸ್ಥೆ" },
+
+    // Popup Issues - Painter
+    "issue_paint_int": { "en": "Interior painting", "hi": "आंतरिक पेंटिंग", "kn": "ಆಂತರಿಕ ಪೇಂಟಿಂಗ್" },
+    "issue_paint_ext": { "en": "Exterior painting", "hi": "बाहरी पेंटिंग", "kn": "ಹೊರಾಂಗಣ ಪೇಂಟಿಂಗ್" },
+    "issue_paint_touch": { "en": "Touchups", "hi": "टचअप", "kn": "ಟಚ್ಅಪ್ಗಳು" },
+    "issue_paint_water": { "en": "Waterproofing", "hi": "वाटरप्रूफिंग", "kn": "ವಾಟರ್ಫ್ರೂಫಿಂಗ್" },
+
+    // Popup Issues - Mechanics
+    "issue_mech_car": { "en": "Car repair", "hi": "कार की मरम्मत", "kn": "ಕಾರು ದುರಸ್ತಿ" },
+    "issue_mech_bike": { "en": "Bike repair", "hi": "बाइक की मरम्मत", "kn": "ಬೈಕ್ ದುರಸ್ತಿ" },
+    "issue_mech_oil": { "en": "Oil change", "hi": "तेल परिवर्तन", "kn": "ಆಯಿಲ್ ಬದಲಾವಣೆ" },
+    "issue_mech_batt": { "en": "Battery issue", "hi": "बैटरी की समस्या", "kn": "ಬ್ಯಾಟರಿ ಸಮಸ್ಯೆ" },
+
+    "issue_other": { "en": "Other (describe below)", "hi": "अन्य (नीचे वर्णन करें)", "kn": "ಇತರೆ (ಕೆಳಗೆ ವಿವರಿಸಿ)" },
+    "issue_other_short": { "en": "Other", "hi": "अन्य", "kn": "ಇತರೆ" }
 };

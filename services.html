@@ -540,6 +540,91 @@
             position: relative;
         }
 
+        .custom-select-trigger {
+            min-height: 54px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 16px 40px 16px 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .custom-select-trigger:focus, .custom-select-trigger.active-trigger {
+            border-color: rgba(212, 175, 55, 0.5);
+            background: rgba(0,0,0,0.4);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+        }
+
+        .custom-select-trigger label {
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            color: rgba(255,255,255,0.5);
+            font-size: 15px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        /* Floating label logic for custom trigger */
+        .custom-select-trigger.has-value label,
+        .custom-select-trigger.active-trigger label {
+            top: -10px;
+            left: 12px;
+            font-size: 12px;
+            background: #141414;
+            padding: 0 6px;
+            color: rgba(212, 175, 55, 0.9);
+            border-radius: 4px;
+        }
+
+        .chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            width: 100%;
+        }
+
+        .issue-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: rgba(255,255,255,0.9);
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-size: 13px;
+            line-height: 1;
+            transform: scale(0.95);
+            opacity: 0;
+            animation: chipEntry 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes chipEntry {
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .chip-remove {
+            color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+            padding: 2px;
+            margin-right: -4px;
+        }
+
+        .chip-remove:hover {
+            color: #fff;
+        }
+
         .smart-dropdown-list {
             position: absolute;
             top: 100%;
@@ -550,7 +635,7 @@
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            max-height: 200px;
+            max-height: 220px;
             overflow-y: auto;
             z-index: 10;
             opacity: 0;
@@ -566,13 +651,13 @@
         }
 
         .smart-option {
-            padding: 12px 16px;
+            padding: 14px 16px;
             color: rgba(255,255,255,0.8);
             cursor: pointer;
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
             font-size: 14px;
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
@@ -584,13 +669,42 @@
         .smart-option:hover {
             background: rgba(255,255,255,0.05);
             color: #fff;
-            padding-left: 20px; /* slight indent on hover */
+        }
+
+        .smart-option.selected {
+            background: rgba(212, 175, 55, 0.05);
+            color: rgba(212, 175, 55, 0.9);
+        }
+
+        .smart-option .opt-icon {
+            display: flex;
+            opacity: 0.6;
+            transition: all 0.2s ease;
+        }
+
+        .smart-option.selected .opt-icon {
+            opacity: 1;
+            color: rgba(212, 175, 55, 0.9);
+        }
+
+        /* Checkbox tick for selected options */
+        .smart-option-tick {
+            margin-left: auto;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+            color: rgba(212, 175, 55, 0.9);
+        }
+
+        .smart-option.selected .smart-option-tick {
+            opacity: 1;
+            transform: scale(1);
         }
 
         .custom-issue-input {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.3s ease;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.4s ease;
             margin-top: 0;
         }
 
@@ -901,8 +1015,8 @@
                     </svg>
                 </button>
                 <div class="popup-header">
-                    <h3>Request Service</h3>
-                    <p>We'll match you with a verified expert shortly.</p>
+                    <h3 data-i18n="popup_req_service">Request Service</h3>
+                    <p data-i18n="popup_match_expert">We'll match you with a verified expert shortly.</p>
                 </div>
                 <form id="premiumRequestForm" novalidate>
                     <div class="location-prompt-bar" id="locPromptBar">
@@ -910,9 +1024,9 @@
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
                             </svg>
-                            Use your current location for faster service?
+                            <span data-i18n="popup_use_loc">Use your current location for faster service?</span>
                         </p>
-                        <button type="button" class="btn-prompt-allow" id="btnPromptAllow">Allow</button>
+                        <button type="button" class="btn-prompt-allow" id="btnPromptAllow" data-i18n="popup_allow">Allow</button>
                     </div>
 
                     <div class="premium-form-group has-icon">
@@ -921,45 +1035,45 @@
                             <circle cx="12" cy="10" r="3"></circle>
                         </svg>
                         <input type="text" id="reqLocation" placeholder=" " required />
-                        <label for="reqLocation">Enter your location manually</label>
+                        <label for="reqLocation" data-i18n="popup_loc_manual">Enter your location manually</label>
                         <button type="button" class="btn-detect-location" id="btnDetectLoc" aria-label="Detect Location" title="Auto-detect location">
                             <span class="spinner" style="display:none;"></span>
-                            <span class="btn-text">Detect</span>
+                            <span class="btn-text" data-i18n="popup_loc_detect">Detect</span>
                         </button>
-                        <div class="inline-error">Please provide a service location</div>
+                        <div class="inline-error" data-i18n="popup_err_loc">Please provide a service location</div>
                     </div>
 
                     <div class="premium-form-group">
                         <input type="text" id="reqName" placeholder=" " required />
-                        <label for="reqName">Full Name</label>
-                        <div class="inline-error">Name is required</div>
+                        <label for="reqName" data-i18n="popup_lbl_name">Full Name</label>
+                        <div class="inline-error" data-i18n="popup_err_name">Name is required</div>
                     </div>
                     <div class="premium-form-group">
                         <input type="tel" id="reqPhone" placeholder=" " required />
-                        <label for="reqPhone">Phone Number</label>
-                        <div class="inline-error">Valid phone number required</div>
+                        <label for="reqPhone" data-i18n="popup_lbl_phone">Phone Number</label>
+                        <div class="inline-error" data-i18n="popup_err_phone">Valid phone number required</div>
                     </div>
                     <div class="premium-form-group">
                         <select id="reqService" required>
-                            <option value="" disabled selected hidden>Select Service Type</option>
-                            <option value="plumbing">Plumbing</option>
-                            <option value="electrical">Electrical</option>
-                            <option value="repairs">General Repairs</option>
-                            <option value="construction">Construction</option>
-                            <option value="domestic_help">Domestic Help</option>
-                            <option value="painter">Painting</option>
-                            <option value="mechanics">Mechanics</option>
+                            <option value="" disabled selected hidden data-i18n="popup_lbl_service">Select Service Type</option>
+                            <option value="plumbing" data-i18n="svc_plumbing">Plumbing</option>
+                            <option value="electrical" data-i18n="svc_electrical">Electrical</option>
+                            <option value="repairs" data-i18n="svc_repairs">General Repairs</option>
+                            <option value="construction" data-i18n="svc_construction">Construction</option>
+                            <option value="domestic_help" data-i18n="svc_domestic_help">Domestic Help</option>
+                            <option value="painter" data-i18n="svc_painting">Painting</option>
+                            <option value="mechanics" data-i18n="svc_mechanics">Mechanics</option>
                         </select>
-                        <div class="inline-error">Please select a service type</div>
+                        <div class="inline-error" data-i18n="popup_err_service">Please select a service type</div>
                     </div>
                     
-                    <span class="microcopy">This helps us assign the right professional faster.</span>
+                    <span class="microcopy" data-i18n="popup_microcopy">This helps us assign the right professional faster.</span>
                     
                     <div class="premium-form-group smart-dropdown-wrapper">
                         <!-- Custom Select implementation for smart options -->
-                        <div class="custom-select-trigger" id="reqIssueTrigger">
-                            <input type="text" id="reqIssueInput" placeholder=" " readonly required style="cursor: pointer;" />
-                            <label for="reqIssueInput">Select Your Issue</label>
+                        <div class="custom-select-trigger" id="reqIssueTrigger" tabindex="0">
+                            <div class="chips-container" id="issueChipsContainer"></div>
+                            <label id="reqIssueLabel" data-i18n="popup_lbl_issues">Select Your Issues</label>
                             <!-- Fake dropdown arrow -->
                             <div style="position:absolute; right:16px; top:50%; transform:translateY(-50%); pointer-events:none;">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -968,17 +1082,17 @@
                         <div class="smart-dropdown-list" id="reqIssueList">
                             <!-- Populated dynamically -->
                         </div>
-                        <div class="inline-error" id="issueError">Please select or describe your issue</div>
+                        <div class="inline-error" id="issueError" data-i18n="popup_err_issues">Please select at least one issue</div>
                         
                         <div class="custom-issue-input" id="customIssueWrapper">
                             <textarea id="reqCustomIssue" placeholder=" "></textarea>
-                            <label for="reqCustomIssue">Describe your issue</label>
+                            <label for="reqCustomIssue" data-i18n="popup_lbl_custom_issue">Describe your custom issue</label>
                         </div>
                     </div>
 
                     <button type="submit" class="btn-submit-request" id="submitRequestBtn">
                         <span class="btn-text-content">
-                            <span>Send Request</span>
+                            <span data-i18n="popup_btn_send">Send Request</span>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="22" y1="2" x2="11" y2="13"></line>
                                 <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -991,7 +1105,9 @@
     </div>
 
     <!-- Popup Logic -->
-    <script>
+    <script type="module">
+        import { translations } from './translations.js';
+
         document.addEventListener('DOMContentLoaded', () => {
             const popupOverlay = document.getElementById('premiumBookNowPopup');
             const popupContainer = document.getElementById('premiumPopupContainer');
@@ -1008,61 +1124,158 @@
             const btnDetectLoc = document.getElementById('btnDetectLoc');
             
             // Smart Dropdown Elements
-            const reqIssueInput = document.getElementById('reqIssueInput');
             const reqIssueTrigger = document.getElementById('reqIssueTrigger');
             const reqIssueList = document.getElementById('reqIssueList');
+            const issueChipsContainer = document.getElementById('issueChipsContainer');
             const customIssueWrapper = document.getElementById('customIssueWrapper');
             const reqCustomIssue = document.getElementById('reqCustomIssue');
 
+            let selectedIssues = []; // Track selected issues
+
             // Issues Dictionary
             const issueDict = {
-                'plumbing': ['Pipe leakage', 'Tap repair', 'Drain blockage', 'Water pressure issue', 'Bathroom fitting issue'],
-                'electrical': ['Power outage', 'Switch/socket issue', 'Wiring problem', 'Fan/light repair'],
-                'repairs': ['Maintenance', 'Installation', 'Inspection', 'Furniture assembly'],
-                'construction': ['Renovation', 'Tiling', 'Structural fix', 'False ceiling'],
-                'domestic_help': ['Maid service', 'Cooking', 'Deep cleaning', 'Monthly arrangement'],
-                'painter': ['Interior painting', 'Exterior painting', 'Touchups', 'Waterproofing'],
-                'mechanics': ['Car repair', 'Bike repair', 'Oil change', 'Battery issue']
+                'plumbing': ['issue_plumb_pipe', 'issue_plumb_tap', 'issue_plumb_drain', 'issue_plumb_pressure', 'issue_plumb_fittings'],
+                'electrical': ['issue_elec_power', 'issue_elec_switch', 'issue_elec_wiring', 'issue_elec_fan'],
+                'repairs': ['issue_rep_maint', 'issue_rep_install', 'issue_rep_inspect', 'issue_rep_furn'],
+                'construction': ['issue_const_renov', 'issue_const_tile', 'issue_const_struct', 'issue_const_ceil'],
+                'domestic_help': ['issue_dom_maid', 'issue_dom_cook', 'issue_dom_clean', 'issue_dom_month'],
+                'painter': ['issue_paint_int', 'issue_paint_ext', 'issue_paint_touch', 'issue_paint_water'],
+                'mechanics': ['issue_mech_car', 'issue_mech_bike', 'issue_mech_oil', 'issue_mech_batt']
             };
 
             function populateIssues(serviceType) {
                 reqIssueList.innerHTML = '';
-                const issues = issueDict[serviceType] || ['General inquiry', 'Maintenance', 'Consultation'];
+                const baseLang = localStorage.getItem('node-lang') || 'en';
+                const issues = issueDict[serviceType] || [];
                 
-                issues.forEach(issue => {
+                issues.forEach(issueKey => {
                     const div = document.createElement('div');
                     div.className = 'smart-option';
-                    div.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6"><polyline points="20 6 9 17 4 12"></polyline></svg> ${issue}`;
-                    div.addEventListener('click', () => selectIssue(issue));
+                    div.setAttribute('data-key', issueKey);
+                    if (selectedIssues.includes(issueKey)) {
+                        div.classList.add('selected');
+                    }
+                    const text = translations[issueKey] ? translations[issueKey][baseLang] : issueKey;
+                    div.innerHTML = `
+                        <span class="opt-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </span>
+                        ${text}
+                        <span class="smart-option-tick">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </span>
+                    `;
+                    div.addEventListener('click', (e) => {
+                        e.stopPropagation(); // Keep dropdown open
+                        toggleIssue(issueKey, div);
+                    });
                     reqIssueList.appendChild(div);
                 });
 
                 // Add "Other" option
                 const otherDiv = document.createElement('div');
                 otherDiv.className = 'smart-option';
-                otherDiv.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg> Other (describe below)`;
-                otherDiv.addEventListener('click', () => selectIssue('Other'));
+                otherDiv.setAttribute('data-key', 'issue_other');
+                if (selectedIssues.includes('issue_other')) {
+                    otherDiv.classList.add('selected');
+                }
+                const otherText = translations['issue_other'] ? translations['issue_other'][baseLang] : 'Other (describe below)';
+                otherDiv.innerHTML = `
+                    <span class="opt-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                    </span>
+                    ${otherText}
+                    <span class="smart-option-tick">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                `;
+                otherDiv.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleIssue('issue_other', otherDiv);
+                });
                 reqIssueList.appendChild(otherDiv);
             }
 
-            function selectIssue(issueText) {
-                reqIssueInput.value = issueText;
-                reqIssueList.classList.remove('open');
+            function toggleIssue(issueText, optionElement) {
+                const index = selectedIssues.indexOf(issueText);
+                if (index > -1) {
+                    selectedIssues.splice(index, 1);
+                    if (optionElement) optionElement.classList.remove('selected');
+                } else {
+                    selectedIssues.push(issueText);
+                    if (optionElement) optionElement.classList.add('selected');
+                }
+
+                renderChips();
                 
-                // Clear errors on select
+                // Clear errors on interact
                 const fg = reqIssueTrigger.closest('.premium-form-group');
                 if (fg) fg.classList.remove('has-error');
                 
-                if (issueText === 'Other') {
+                if (selectedIssues.includes('issue_other')) {
                     customIssueWrapper.classList.add('visible');
                     reqCustomIssue.setAttribute('required', 'true');
                     // Focus custom text area
-                    setTimeout(() => reqCustomIssue.focus(), 300);
+                    setTimeout(() => { if(document.activeElement !== reqCustomIssue) reqCustomIssue.focus(); }, 100);
                 } else {
                     customIssueWrapper.classList.remove('visible');
                     reqCustomIssue.removeAttribute('required');
-                    reqCustomIssue.value = ''; // clear it
+                    setTimeout(() => reqCustomIssue.value = '', 400); // clear after animation
                 }
+            }
+
+            function removeIssue(issueText, e) {
+                if(e) e.stopPropagation();
+                const index = selectedIssues.indexOf(issueText);
+                if (index > -1) {
+                    selectedIssues.splice(index, 1);
+                    renderChips();
+                    // update option in dropdown if open
+                    Array.from(reqIssueList.children).forEach(opt => {
+                        if (opt.getAttribute('data-key') === issueText) {
+                            opt.classList.remove('selected');
+                        }
+                    });
+
+                    // Hide custom text box if "Other" gets removed
+                    if (!selectedIssues.includes('issue_other')) {
+                        customIssueWrapper.classList.remove('visible');
+                        reqCustomIssue.removeAttribute('required');
+                        reqCustomIssue.value = '';
+                    }
+                }
+            }
+
+            function renderChips() {
+                issueChipsContainer.innerHTML = '';
+                const baseLang = localStorage.getItem('node-lang') || 'en';
+                
+                if (selectedIssues.length > 0) {
+                    reqIssueTrigger.classList.add('has-value');
+                } else {
+                    reqIssueTrigger.classList.remove('has-value');
+                }
+
+                selectedIssues.forEach(issueKey => {
+                    const chip = document.createElement('div');
+                    chip.className = 'issue-chip';
+                    
+                    let text = issueKey;
+                    if(issueKey === 'issue_other') {
+                        text = translations['issue_other_short'] ? translations['issue_other_short'][baseLang] : 'Other';
+                    } else if (translations[issueKey]) {
+                        text = translations[issueKey][baseLang];
+                    }
+
+                    chip.innerHTML = `
+                        <span>${text}</span>
+                        <span class="chip-remove" aria-label="Remove">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </span>
+                    `;
+                    chip.querySelector('.chip-remove').addEventListener('click', (e) => removeIssue(issueKey, e));
+                    issueChipsContainer.appendChild(chip);
+                });
             }
 
             // Detect Location Logic
@@ -1145,8 +1358,9 @@
                     e.stopPropagation(); // prevent a tag click redirect
                     
                     // Reset custom issue text 
+                    selectedIssues = [];
+                    renderChips();
                     customIssueWrapper.classList.remove('visible');
-                    reqIssueInput.value = '';
                     reqCustomIssue.value = '';
 
                     // Prompt reset 
@@ -1184,22 +1398,38 @@
 
             // Service select change updates the issue list
             serviceSelect.addEventListener('change', (e) => {
+                selectedIssues = [];
+                renderChips();
                 populateIssues(e.target.value);
-                reqIssueInput.value = '';
                 customIssueWrapper.classList.remove('visible');
+                reqCustomIssue.value = '';
                 
                 e.target.closest('.premium-form-group').classList.remove('has-error');
             });
 
             // Issue Trigger
             reqIssueTrigger.addEventListener('click', (e) => {
+                // Don't execute if clicking a chip's remove button
+                if (e.target.closest('.chip-remove')) return; 
+
                 if (serviceSelect.value) {
                     reqIssueList.classList.toggle('open');
+                    if(reqIssueList.classList.contains('open')) {
+                        reqIssueTrigger.classList.add('active-trigger');
+                    } else {
+                        reqIssueTrigger.classList.remove('active-trigger');
+                    }
                 } else {
                     // Show error on service select
                     const fg = serviceSelect.closest('.premium-form-group');
                     fg.classList.add('has-error');
-                    fg.querySelector('.inline-error').textContent = 'Please select a service type first';
+                    const baseLang = localStorage.getItem('node-lang') || 'en';
+                    fg.querySelector('.inline-error').textContent = translations['popup_err_service'] ? translations['popup_err_service'][baseLang] : 'Please select a service type first';
+                    
+                    // Flash animation
+                    fg.style.transform = 'translateX(-5px)';
+                    setTimeout(() => fg.style.transform = 'translateX(5px)', 50);
+                    setTimeout(() => fg.style.transform = 'translateX(0)', 100);
                 }
             });
 
@@ -1207,11 +1437,12 @@
             document.addEventListener('click', (e) => {
                 if (!reqIssueTrigger.contains(e.target) && !reqIssueList.contains(e.target)) {
                     reqIssueList.classList.remove('open');
+                    reqIssueTrigger.classList.remove('active-trigger');
                 }
             });
 
             // Clear inline errors on input
-            requestForm.querySelectorAll('input, textarea').forEach(input => {
+            requestForm.querySelectorAll('input, textarea, select').forEach(input => {
                 input.addEventListener('input', () => {
                     const fg = input.closest('.premium-form-group');
                     if(fg) fg.classList.remove('has-error');
@@ -1243,17 +1474,19 @@
                 const servFg = serviceSelect.closest('.premium-form-group');
                 if (!serviceSelect.value) {
                     servFg.classList.add('has-error');
-                    servFg.querySelector('.inline-error').textContent = 'Please select a service type';
+                    const baseLang = localStorage.getItem('node-lang') || 'en';
+                    servFg.querySelector('.inline-error').textContent = translations['popup_err_service'] ? translations['popup_err_service'][baseLang] : 'Please select a service type';
                     isValid = false;
                 }
 
                 const issueFg = reqIssueTrigger.closest('.premium-form-group');
-                if (!reqIssueInput.value) {
+                if (selectedIssues.length === 0) {
                     issueFg.classList.add('has-error');
                     isValid = false;
-                } else if (reqIssueInput.value === 'Other' && !reqCustomIssue.value.trim()) {
+                } else if (selectedIssues.includes('issue_other') && !reqCustomIssue.value.trim()) {
                     issueFg.classList.add('has-error');
-                    document.getElementById('issueError').textContent = 'Please describe your custom issue';
+                    const baseLang = localStorage.getItem('node-lang') || 'en';
+                    document.getElementById('issueError').textContent = translations['popup_err_issues'] ? translations['popup_err_issues'][baseLang] : 'Please describe your custom issue';
                     isValid = false;
                 }
 
@@ -1268,13 +1501,18 @@
                     // reset form and button state
                     requestForm.reset();
                     reqIssueList.classList.remove('open');
+                    reqIssueTrigger.classList.remove('active-trigger');
+                    selectedIssues = [];
+                    renderChips();
                     customIssueWrapper.classList.remove('visible');
                     document.querySelectorAll('.premium-form-group.has-error').forEach(el => el.classList.remove('has-error'));
                     
                     submitBtn.classList.remove('success');
+                    const baseLang = localStorage.getItem('node-lang') || 'en';
+                    const sendText = translations['popup_btn_send'] ? translations['popup_btn_send'][baseLang] : 'Send Request';
                     submitBtn.innerHTML = `
                         <span class="btn-text-content">
-                            <span>Send Request</span>
+                            <span>${sendText}</span>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="22" y1="2" x2="11" y2="13"></line>
                                 <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -1345,13 +1583,15 @@
                 
                 // Change to loading text
                 const textSpan = submitBtn.querySelector('.btn-text-content span');
-                if (textSpan) textSpan.textContent = 'Sending...';
+                const baseLang = localStorage.getItem('node-lang') || 'en';
+                if (textSpan) textSpan.textContent = translations['popup_btn_sending'] ? translations['popup_btn_sending'][baseLang] : 'Sending...';
 
                 setTimeout(() => {
                     submitBtn.classList.add('success');
+                    const sentText = translations['popup_btn_sent'] ? translations['popup_btn_sent'][baseLang] : 'Request Sent!';
                     submitBtn.innerHTML = `
                         <span class="btn-text-content">
-                            <span>Request Sent!</span>
+                            <span>${sentText}</span>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                                 <polyline points="22 4 12 14.01 9 11.01"></polyline>
@@ -1373,6 +1613,28 @@
                 setTimeout(() => {
                     if (ripple.parentNode) ripple.remove();
                 }, 600);
+            });
+
+            // Handle language change events to re-render dynamic items proactively
+            window.addEventListener('languageChanged', (e) => {
+                const baseLang = e.detail.lang || 'en';
+                
+                // Update dynamic chips / dropdown
+                renderChips();
+                if (serviceSelect.value) {
+                    populateIssues(serviceSelect.value);
+                }
+                
+                // Update detect logic placeholder if it failed previously
+                if (reqLocation.placeholder !== " ") {
+                    reqLocation.placeholder = translations['popup_loc_manual'] ? translations['popup_loc_manual'][baseLang] : "Enter your location manually";
+                }
+                
+                // Refresh button text safely if closed
+                if (!submitBtn.classList.contains('success') && submitBtn.style.pointerEvents !== 'none') {
+                    const textSpan = submitBtn.querySelector('.btn-text-content span');
+                    if(textSpan) textSpan.textContent = translations['popup_btn_send'] ? translations['popup_btn_send'][baseLang] : 'Send Request';
+                }
             });
         });
     </script>
