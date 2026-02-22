@@ -1109,68 +1109,68 @@
             <div class="container">
                 <div class="services-listing-grid">
                     <!-- Plumbing -->
-                    <a href="/service.html?type=plumbing" class="service-card">
+                    <div class="service-card book-now-trigger" data-type="plumbing" tabindex="0" role="button">
                         <img src="/icon-plumbing.png" alt="Plumbing" class="service-icon" />
                         <h3 data-i18n="svc_plumbing">Plumbing</h3>
                         <p data-i18n="svc_plumbing_desc">Leak repairs, fixture installation, and drainage solutions by expert plumbers.</p>
                         <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
-                    </a>
+                    </div>
 
                     <!-- Electrical -->
-                    <a href="/service.html?type=electrical" class="service-card">
+                    <div class="service-card book-now-trigger" data-type="electrical" tabindex="0" role="button">
                         <img src="/icon-electrical.png" alt="Electrical" class="service-icon" />
                         <h3 data-i18n="svc_electrical">Electrical</h3>
                         <p data-i18n="svc_electrical_desc">Safety-focused wiring, switch repairs, and appliance installation.</p>
                         <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
-                    </a>
+                    </div>
 
                     <!-- Repairs -->
-                    <a href="/service.html?type=repairs" class="service-card">
+                    <div class="service-card book-now-trigger" data-type="repairs" tabindex="0" role="button">
                         <img src="/icon-repairs.png" alt="Repairs" class="service-icon" />
                         <h3 data-i18n="svc_repairs">General Repairs</h3>
                         <p data-i18n="svc_repairs_desc">Furniture assembly, carpentry, and general home wear-and-tear fixes.</p>
                         <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
-                    </a>
+                    </div>
 
                     <!-- Construction -->
-                    <a href="/service.html?type=construction" class="service-card">
+                    <div class="service-card book-now-trigger" data-type="construction" tabindex="0" role="button">
                         <img src="/icon-construction.png" alt="Construction" class="service-icon" />
                         <h3 data-i18n="svc_construction">Construction</h3>
                         <p data-i18n="svc_construction_desc">Renovations, tile work, and structural modifications managed by pros.</p>
                         <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
-                    </a>
+                    </div>
 
                     <!-- Domestic Help -->
-                    <a href="/service.html?type=domestic_help" class="service-card">
+                    <div class="service-card book-now-trigger" data-type="domestic_help" tabindex="0" role="button">
                         <img src="/icon-domestic_help.png" alt="Domestic Help" class="service-icon" />
                         <h3 data-i18n="svc_domestic_help">Domestic Help</h3>
                         <p data-i18n="svc_domestic_help_desc">Maids, houseboys, and cooks for daily or monthly needs.</p>
                         <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
-                    </a>
+                    </div>
                 
                     <!-- Painting -->
-                    <a href="/service.html?type=painter" class="service-card">
+                    <div class="service-card book-now-trigger" data-type="painter" tabindex="0" role="button">
                         <img src="/icon-painter.png" alt="Painting" class="service-icon" />
                         <h3 data-i18n="svc_painting">Painting</h3>
                         <p data-i18n="svc_painting_desc">Interior and exterior painting with professional finishes.</p>
                         <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
-                    </a>
+                    </div>
 
                     <!-- Mechanics -->
-                    <a href="/service.html?type=mechanics" class="service-card">
+                    <div class="service-card book-now-trigger" data-type="mechanics" tabindex="0" role="button">
                         <img src="/icon-mechanics.png" alt="Mechanics" class="service-icon" />
                         <h3 data-i18n="svc_mechanics">Mechanics</h3>
                         <p data-i18n="svc_mechanics_desc">Expert car and bike repairs at your doorstep.</p>
                         <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
-                    </a>
+                    </div>
 
                     <!-- Chef (Coming Soon) -->
-                    <a href="#" class="service-card" style="opacity: 0.6; pointer-events: none;">
+                    <div class="service-card" style="opacity: 0.6; pointer-events: none;">
                         <img src="/icon-chef.png" alt="Professional Chef" class="service-icon" />
                         <h3 data-i18n="svc_chef">Professional Chef (Coming Soon)</h3>
                         <p data-i18n="svc_chef_desc">Gourmet cooking services for events and parties.</p>
                         <span class="service-link" data-i18n="link_coming_soon">Coming Soon</span>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1214,6 +1214,7 @@
                         <div class="step-dot active" data-step="1">1</div>
                         <div class="step-dot" data-step="2">2</div>
                         <div class="step-dot" data-step="3">3</div>
+                        <div class="step-dot" data-step="4">4</div>
                     </div>
 
                     <!-- Step 1: Service Details -->
@@ -1248,32 +1249,9 @@
                             </select>
                             <div class="inline-error" data-i18n="popup_err_service">Please select a service type</div>
                         </div>
-                        
-                        <span class="microcopy" data-i18n="popup_microcopy">This helps us assign the right professional faster.</span>
-                        
-                        <div class="premium-form-group smart-dropdown-wrapper">
-                            <!-- Custom Select implementation for smart options -->
-                            <div class="custom-select-trigger" id="reqIssueTrigger" tabindex="0">
-                                <div class="chips-container" id="issueChipsContainer"></div>
-                                <label id="reqIssueLabel" data-i18n="popup_lbl_issues">Select Your Issues</label>
-                                <!-- Fake dropdown arrow -->
-                                <div style="position:absolute; right:16px; top:50%; transform:translateY(-50%); pointer-events:none;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                                </div>
-                            </div>
-                            <div class="smart-dropdown-list" id="reqIssueList">
-                                <!-- Populated dynamically -->
-                            </div>
-                            <div class="inline-error" id="issueError" data-i18n="popup_err_issues">Please select at least one issue</div>
-                            
-                            <div class="custom-issue-input" id="customIssueWrapper">
-                                <textarea id="reqCustomIssue" placeholder=" "></textarea>
-                                <label for="reqCustomIssue" data-i18n="popup_lbl_custom_issue">Describe your custom issue</label>
-                            </div>
-                        </div>
                     </div>
 
-                    <!-- Step 2: Location & Time -->
+                    <!-- Step 2: Location -->
                     <div class="form-step" id="step2">
                         <div class="location-prompt-bar" id="locPromptBar">
                             <p>
@@ -1298,7 +1276,36 @@
                             </button>
                             <div class="inline-error" data-i18n="popup_err_loc">Please provide a service location</div>
                         </div>
+                    </div>
 
+                    <!-- Step 3: Special Issues -->
+                    <div class="form-step" id="step3">
+                        <span class="microcopy" data-i18n="popup_microcopy">This helps us assign the right professional faster.</span>
+                        
+                        <div class="premium-form-group smart-dropdown-wrapper">
+                            <!-- Custom Select implementation for smart options -->
+                            <div class="custom-select-trigger" id="reqIssueTrigger" tabindex="0">
+                                <div class="chips-container" id="issueChipsContainer"></div>
+                                <label id="reqIssueLabel" data-i18n="popup_lbl_issues">Select Your Issues</label>
+                                <!-- Fake dropdown arrow -->
+                                <div style="position:absolute; right:16px; top:50%; transform:translateY(-50%); pointer-events:none;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </div>
+                            </div>
+                            <div class="smart-dropdown-list" id="reqIssueList">
+                                <!-- Populated dynamically -->
+                            </div>
+                            <div class="inline-error" id="issueError" data-i18n="popup_err_issues">Please select at least one issue</div>
+                            
+                            <div class="custom-issue-input" id="customIssueWrapper">
+                                <textarea id="reqCustomIssue" placeholder=" "></textarea>
+                                <label for="reqCustomIssue" data-i18n="popup_lbl_custom_issue">Describe your custom issue</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Additional Details -->
+                    <div class="form-step" id="step4">
                         <div class="time-inputs">
                             <div class="premium-form-group">
                                 <input type="date" id="reqDate" required style="color-scheme: dark;" />
@@ -1316,10 +1323,7 @@
                                 <div class="inline-error" data-i18n="popup_err_time">Please select a time</div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Step 3: Final Details -->
-                    <div class="form-step" id="step3">
                         <div class="premium-form-group">
                             <input type="text" id="reqName" placeholder=" " required />
                             <label for="reqName" data-i18n="popup_lbl_name">Full Name</label>
@@ -1365,7 +1369,7 @@
             const popupOverlay = document.getElementById('premiumBookNowPopup');
             const popupContainer = document.getElementById('premiumPopupContainer');
             const closeBtn = document.getElementById('closePopupBtn');
-            const bookButtons = document.querySelectorAll('.service-card .btn-book-now');
+            const bookButtons = document.querySelectorAll('.book-now-trigger');
             const requestForm = document.getElementById('premiumRequestForm');
             const serviceSelect = document.getElementById('reqService');
             const submitBtn = document.getElementById('submitRequestBtn');
@@ -1385,7 +1389,7 @@
 
             // Stepper Variables
             let currentStep = 1;
-            const totalSteps = 3;
+            const totalSteps = 4;
             const stepperProgress = document.getElementById('stepperProgress');
             const stepDots = document.querySelectorAll('.step-dot');
             const formSteps = document.querySelectorAll('.form-step');
@@ -1619,7 +1623,7 @@
             bookButtons.forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    e.stopPropagation(); // prevent a tag click redirect
+                    e.stopPropagation(); // prevent accidental click bubbling
                     
                     // Reset custom issue text 
                     selectedIssues = [];
@@ -1634,20 +1638,19 @@
                         locPromptBar.style.display = 'none';
                     }
 
-                    // Parse service type from parent link
-                    const parentLink = btn.closest('a');
-                    let serviceType = "";
-                    if (parentLink) {
-                        const urlParams = new URLSearchParams(parentLink.search);
-                        serviceType = urlParams.get('type');
-                        if (serviceType) {
-                            serviceSelect.value = serviceType;
-                            populateIssues(serviceType);
-                        } else {
-                            serviceSelect.value = "";
-                            reqIssueList.innerHTML = '';
-                        }
+                    // Parse service type from data-type instead of href
+                    const serviceType = btn.getAttribute('data-type');
+                    if (serviceType) {
+                        serviceSelect.value = serviceType;
+                        populateIssues(serviceType);
+                    } else {
+                        serviceSelect.value = "";
+                        reqIssueList.innerHTML = '';
                     }
+
+                    // Go to step 1
+                    currentStep = 1;
+                    updateStepper();
 
                     popupOverlay.classList.remove('closing');
                     popupOverlay.classList.add('active');
@@ -1725,7 +1728,17 @@
                         servFg.querySelector('.inline-error').textContent = translations['popup_err_service'] ? translations['popup_err_service'][baseLang] : 'Please select a service type';
                         isValid = false;
                     }
+                }
 
+                if (step === 2) {
+                    const locFg = reqLocation.closest('.premium-form-group');
+                    if (!reqLocation.value.trim()) {
+                        locFg.classList.add('has-error');
+                        isValid = false;
+                    }
+                }
+
+                if (step === 3) {
                     const issueFg = reqIssueTrigger.closest('.premium-form-group');
                     if (selectedIssues.length === 0) {
                         issueFg.classList.add('has-error');
@@ -1738,13 +1751,7 @@
                     }
                 }
 
-                if (step === 2) {
-                    const locFg = reqLocation.closest('.premium-form-group');
-                    if (!reqLocation.value.trim()) {
-                        locFg.classList.add('has-error');
-                        isValid = false;
-                    }
-
+                if (step === 4) {
                     const dateFg = reqDate.closest('.premium-form-group');
                     if (!reqDate.value) {
                         dateFg.classList.add('has-error');
@@ -1756,9 +1763,7 @@
                         timeFg.classList.add('has-error');
                         isValid = false;
                     }
-                }
 
-                if (step === 3) {
                     const nameFg = document.getElementById('reqName').closest('.premium-form-group');
                     if (!document.getElementById('reqName').value.trim()) {
                         nameFg.classList.add('has-error');
