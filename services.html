@@ -96,6 +96,86 @@
             margin-top: auto;
         }
 
+        /* Premium "Book Now" Button */
+        .btn-book-now {
+            margin-top: auto;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a0a0a; /* Deep black base */
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 1px;
+            padding: 12px 32px;
+            border-radius: 50px;
+            border: 1px solid rgba(212, 175, 55, 0.3); /* Subtle gold border */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(212, 175, 55, 0.15); /* Soft shadow and glow */
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: breatheGlow 3s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        /* Glass matte/glossy finish */
+        .btn-book-now::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 50%);
+            border-radius: 50px;
+            z-index: -1;
+        }
+
+        /* Light sweep shimmer effect */
+        .btn-book-now::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: skewX(-20deg);
+            z-index: -1;
+        }
+
+        /* Subtle continuous idle animation (breathing glow) */
+        @keyframes breatheGlow {
+            0%, 100% {
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(212, 175, 55, 0.15);
+                border-color: rgba(212, 175, 55, 0.3);
+            }
+            50% {
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(212, 175, 55, 0.4);
+                border-color: rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        /* Hover interactions */
+        .service-card:hover .btn-book-now {
+            transform: scale(1.04);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 25px rgba(212, 175, 55, 0.6);
+            border-color: rgba(212, 175, 55, 0.8);
+            animation: none; /* Focus glow instead of breathing */
+        }
+        
+        .service-card:hover .btn-book-now::after {
+            animation: shimmerSweep 0.5s ease-out forwards;
+        }
+
+        @keyframes shimmerSweep {
+            100% {
+                left: 200%;
+            }
+        }
+
+        /* Click processing */
+        .service-card:active .btn-book-now {
+            transform: scale(0.97);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.9);
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
         /* Banner Section */
         .cta-banner {
             background: var(--bg-tertiary);
@@ -290,7 +370,7 @@
                         <img src="/icon-plumbing.png" alt="Plumbing" class="service-icon" />
                         <h3 data-i18n="svc_plumbing">Plumbing</h3>
                         <p data-i18n="svc_plumbing_desc">Leak repairs, fixture installation, and drainage solutions by expert plumbers.</p>
-                        <span class="service-link" data-i18n="link_view_details">View Details →</span>
+                        <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
                     </a>
 
                     <!-- Electrical -->
@@ -298,7 +378,7 @@
                         <img src="/icon-electrical.png" alt="Electrical" class="service-icon" />
                         <h3 data-i18n="svc_electrical">Electrical</h3>
                         <p data-i18n="svc_electrical_desc">Safety-focused wiring, switch repairs, and appliance installation.</p>
-                        <span class="service-link" data-i18n="link_view_details">View Details →</span>
+                        <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
                     </a>
 
                     <!-- Repairs -->
@@ -306,7 +386,7 @@
                         <img src="/icon-repairs.png" alt="Repairs" class="service-icon" />
                         <h3 data-i18n="svc_repairs">General Repairs</h3>
                         <p data-i18n="svc_repairs_desc">Furniture assembly, carpentry, and general home wear-and-tear fixes.</p>
-                        <span class="service-link" data-i18n="link_view_details">View Details →</span>
+                        <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
                     </a>
 
                     <!-- Construction -->
@@ -314,7 +394,7 @@
                         <img src="/icon-construction.png" alt="Construction" class="service-icon" />
                         <h3 data-i18n="svc_construction">Construction</h3>
                         <p data-i18n="svc_construction_desc">Renovations, tile work, and structural modifications managed by pros.</p>
-                        <span class="service-link" data-i18n="link_view_details">View Details →</span>
+                        <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
                     </a>
 
                     <!-- Domestic Help -->
@@ -322,7 +402,7 @@
                         <img src="/icon-domestic_help.png" alt="Domestic Help" class="service-icon" />
                         <h3 data-i18n="svc_domestic_help">Domestic Help</h3>
                         <p data-i18n="svc_domestic_help_desc">Maids, houseboys, and cooks for daily or monthly needs.</p>
-                        <span class="service-link" data-i18n="link_view_details">View Details →</span>
+                        <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
                     </a>
                 
                     <!-- Painting -->
@@ -330,7 +410,7 @@
                         <img src="/icon-painter.png" alt="Painting" class="service-icon" />
                         <h3 data-i18n="svc_painting">Painting</h3>
                         <p data-i18n="svc_painting_desc">Interior and exterior painting with professional finishes.</p>
-                        <span class="service-link" data-i18n="link_view_details">View Details →</span>
+                        <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
                     </a>
 
                     <!-- Mechanics -->
@@ -338,7 +418,7 @@
                         <img src="/icon-mechanics.png" alt="Mechanics" class="service-icon" />
                         <h3 data-i18n="svc_mechanics">Mechanics</h3>
                         <p data-i18n="svc_mechanics_desc">Expert car and bike repairs at your doorstep.</p>
-                        <span class="service-link" data-i18n="link_view_details">View Details →</span>
+                        <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
                     </a>
 
                     <!-- Chef (Coming Soon) -->
