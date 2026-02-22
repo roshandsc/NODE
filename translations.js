@@ -1,5 +1,4 @@
-// Expose globally to bypass local file CORS policy without needing a server
-const translations = {
+export const translations = {
     // Navigation
     "nav_services": {
         "en": "Services",

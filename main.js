@@ -1,5 +1,5 @@
 import './style.css'
-// Note: translations.js is now loaded via a standard <script> tag before main.js to bypass local CORS policy limitations.
+import { translations } from './translations.js';
 // Loader Logic
 document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');

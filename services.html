@@ -1362,7 +1362,9 @@
     </div>
 
     <!-- Popup Logic -->
-    <script>
+    <script type="module">
+        import { translations } from './translations.js';
+
         document.addEventListener('DOMContentLoaded', () => {
             const popupOverlay = document.getElementById('premiumBookNowPopup');
             const popupContainer = document.getElementById('premiumPopupContainer');
