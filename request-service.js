@@ -49,8 +49,6 @@ const SERVICE_OPTIONS = {
         { id: 'car_wash', label: { en: 'Car Wash / Detailing', hi: 'कार वॉश / डिटेलिंग', kn: 'ಕಾರ್ ವಾಶ್ / ಡೀಟೇಲಿಂಗ್' } }
     ]
 };
-
-document.addEventListener('DOMContentLoaded', () => {
     console.log("Service Request Form Loaded");
     
     // --- 1. SETUP & SERVICE DETECTION ---
@@ -420,5 +418,3 @@ document.addEventListener('DOMContentLoaded', () => {
             if(moonIcon) moonIcon.style.display = 'none';
         }
     }
-
-});

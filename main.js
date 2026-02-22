@@ -1,9 +1,8 @@
 import './style.css'
 import { translations } from './translations.js';
 // Loader Logic
-document.addEventListener('DOMContentLoaded', () => {
-    const loader = document.getElementById('loader');
-    const greetingElement = document.getElementById('greeting-text');
+const loader = document.getElementById('loader');
+const greetingElement = document.getElementById('greeting-text');
     
     // session storage check
     if (sessionStorage.getItem('node_loader_shown')) {
@@ -74,17 +73,15 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         showGreeting(0);
     }, 100);
-});
 
 // Main Content Area Logic - removed to prevent clearing static HTML
 
 // Header Utilities Logic
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Language Switcher
-    const langBtn = document.querySelector('.lang-btn');
-    const langDropdown = document.querySelector('.lang-dropdown');
+// 1. Language Switcher
+const langBtn = document.querySelector('.lang-btn');
+const langDropdown = document.querySelector('.lang-dropdown');
     const langOptions = document.querySelectorAll('.lang-option');
     const langCurrent = document.querySelector('.lang-current');
 
@@ -186,7 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
             moonIcon.style.display = 'none';
         }
     }
-});
 
 // Mobile Menu Logic
 const hamburger = document.querySelector('.hamburger-menu');

@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <title>NODE</title>
+    <script type="module" crossorigin src="/assets/main-CEC0avNE.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-UIrRi9Rr.css">
+  </head>
+  <body>
+    <!-- Full-screen Premium Loader -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <h1 id="greeting-text" class="greeting-text">Hi</h1>
+        </div>
+    </div>
+    <header class="header">
+      <div class="header-container">
+        
+        <!-- 1. LEFT: Brand Anchor & Language -->
+        <div class="brand-group">
+            <a href="/" class="brand-anchor">
+              <img src="/logo.png" alt="NODE" class="brand-logo" />
+            </a>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="lang-btn" aria-label="Select Language">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <span class="lang-current">EN</span>
+                </button>
+                <div class="lang-dropdown">
+                    <button class="lang-option active" data-lang="en">English</button>
+                    <button class="lang-option" data-lang="hi">Hindi (हिंदी)</button>
+                    <button class="lang-option" data-lang="kn">Kannada (ಕನ್ನಡ)</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. CENTER-LEFT: Primary Navigation -->
+        <nav class="primary-nav">
+          <a href="/services.html" class="nav-item" data-i18n="nav_services">Services</a>
+          <a href="#how-it-works" class="nav-item" data-i18n="nav_how_it_works">How It Works</a>
+          <a href="#" class="nav-item" data-i18n="nav_professionals">For Professionals</a>
+        </nav>
+
+        <!-- 3. CENTER: Location Selector -->
+        <div class="location-selector">
+          <span class="location-icon">📍</span>
+          <span class="location-text" data-i18n="location_bangalore">Bengaluru, KA</span>
+          <span class="location-arrow">▼</span>
+        </div>
+
+        <!-- 4. CENTER-RIGHT: Search Bar -->
+        <div class="search-bar">
+          <div class="search-input-wrapper">
+             <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+             </svg>
+            <input type="text" placeholder="Find a trusted professional near you" class="search-input" data-i18n="search_placeholder" />
+          </div>
+        </div>
+
+        <!-- 5. RIGHT: Utility Icon -->
+        <div class="utility-icon">
+            <a href="#" class="profile-link" aria-label="Profile">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </a>
+            
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" aria-label="Toggle Dark Mode">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            
+            <!-- Hamburger Menu (Mobile/Tablet) -->
+            <button class="hamburger-menu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+      </div>
+    </header>
+    
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-overlay"></div>
+    <div class="mobile-nav-drawer">
+        <nav class="mobile-nav">
+            <a href="/services.html" class="mobile-nav-item" data-i18n="nav_services">Services</a>
+            <a href="#how-it-works" class="mobile-nav-item" data-i18n="nav_how_it_works">How It Works</a>
+            <a href="#" class="mobile-nav-item" data-i18n="nav_professionals">For Professionals</a>
+            <!-- Mobile Location Selector could go here too if needed, keeping it simple for now -->
+            <div class="mobile-location">
+                <span>📍 <span data-i18n="location_bangalore">Bengaluru, KA</span></span>
+            </div>
+        </nav>
+    </div>
+
+    <main id="app">
+      <!-- 1. HERO SECTION -->
+      <section class="hero-section fade-in-up">
+        <div class="container hero-container">
+          <div class="hero-content">
+            <h1 class="hero-headline" data-i18n="hero_headline">The trusted connection for local work</h1>
+            <p class="hero-subheadline" data-i18n="hero_subheadline">Verified firms. Transparent pricing. Work done with accountability.</p>
+            <div class="hero-actions">
+              <a href="/services.html" class="btn btn-primary" data-i18n="btn_find_service">Find a Trusted Service</a>
+              <a href="#how-it-works" class="link-secondary" data-i18n="link_how_node_works">How NODE Works →</a>
+            </div>
+          </div>
+          <div class="hero-image-wrapper">
+             <div class="hero-card">
+               <img src="/hero_section.png" alt="NODE Hero" class="hero-img" />
+             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. TRUST SIGNAL STRIP (Kept as is, assuming correct) -->
+      <section class="trust-strip fade-in-up">
+        <div class="container trust-container">
+          <div class="trust-item">
+            <!-- Verified firms: Badge Check -->
+            <svg class="trust-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.78 4.78 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.78 4 4 0 0 1 0-6.74Z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+            </svg>
+            <span class="trust-text" data-i18n="trust_verified">Verified firms & professionals</span>
+          </div>
+          <div class="trust-item">
+             <!-- Local experts: Map Pin -->
+             <svg class="trust-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+             </svg>
+            <span class="trust-text" data-i18n="trust_local">Local experts near you</span>
+          </div>
+          <div class="trust-item">
+             <!-- Transparent pricing: Tag -->
+             <svg class="trust-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"></path>
+                <path d="M7 7h.01"></path>
+             </svg>
+            <span class="trust-text" data-i18n="trust_pricing">Transparent pricing</span>
+          </div>
+          <div class="trust-item">
+             <!-- Safety: Shield Check -->
+             <svg class="trust-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+             </svg>
+            <span class="trust-text" data-i18n="trust_safety">Safety & quality assured</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. HOW IT WORKS (Restored Premium Design) -->
+      <section id="how-it-works" class="how-it-works section-padding fade-in-up">
+        <div class="container">
+            <h2 class="section-headline text-center mb-large" data-i18n="hiw_headline">How it works</h2>
+            
+            <div class="workflow-container">
+            
+                <!-- Step 1: Request (User) -->
+                <div class="workflow-step user-step">
+                    <div class="workflow-icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                    <div class="workflow-content">
+                        <span class="workflow-label" data-i18n="step_label_1">Step 01</span>
+                        <h3 class="workflow-title" data-i18n="step_post">Post a Request</h3>
+                        <p class="workflow-desc" data-i18n="step_post_desc">Tell us what you need.</p>
+                    </div>
+                </div>
+
+                <!-- Connector 1 -->
+                <div class="workflow-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-dot"></div>
+                </div>
+
+                <!-- Step 2: Processing (System) -->
+                <div class="workflow-step system-step">
+                    <div class="workflow-icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path>
+                            <path d="M8.5 8.5v.01"></path>
+                            <path d="M16 16v.01"></path>
+                            <path d="M12 12v.01"></path>
+                        </svg>
+                    </div>
+                    <div class="workflow-content">
+                        <span class="workflow-label" data-i18n="step_label_system">System</span>
+                        <h3 class="workflow-title" data-i18n="step_match">We Match You</h3>
+                        <p class="workflow-desc" data-i18n="step_match_desc">Finding the best local pros.</p>
+                    </div>
+                </div>
+
+                <!-- Connector 2 -->
+                <div class="workflow-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-dot"></div>
+                </div>
+
+                <!-- Step 3: Action (Communication) -->
+                <div class="workflow-step action-step">
+                    <div class="workflow-icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            <line x1="9" y1="10" x2="15" y2="10"></line>
+                        </svg>
+                    </div>
+                    <div class="workflow-content">
+                        <span class="workflow-label" data-i18n="step_label_2">Step 02</span>
+                        <h3 class="workflow-title" data-i18n="step_approve">Approve & Hire</h3>
+                        <p class="workflow-desc" data-i18n="step_approve_desc">Check the price and book.</p>
+                    </div>
+                </div>
+
+                <!-- Connector 3 -->
+                <div class="workflow-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-dot"></div>
+                </div>
+
+                <!-- Step 4: Result (Assurance) -->
+                <div class="workflow-step result-step">
+                    <div class="workflow-icon-wrapper">
+                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="m9 12 2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <div class="workflow-content">
+                        <span class="workflow-label" data-i18n="step_label_completion">Completion</span>
+                        <h3 class="workflow-title" data-i18n="step_done">Work Done</h3>
+                        <p class="workflow-desc" data-i18n="step_done_desc">Completed with guarantee.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+      </section>
+
+      <!-- 4. SERVICES (Circular Node Network) -->
+      <section id="services" class="services section-padding fade-in-up">
+        <div class="services-node-wrapper">
+            <!-- Central Node -->
+            <div class="node-center">
+                <div class="node-center-content">
+                    <!-- Central Logo or Symbol -->
+                    <img src="/logo.png" alt="NODE" class="node-logo" />
+                </div>
+            </div>
+
+            <!-- Connectors (Radiants) -->
+            <div class="connector-radiant c1"></div>
+            <div class="connector-radiant c2"></div>
+            <div class="connector-radiant c3"></div>
+            <div class="connector-radiant c4"></div>
+            <div class="connector-radiant c5"></div>
+
+
+            <!-- Node 1: Plumbing (Top Left) -->
+            <!-- Node 1: Plumbing (Top Left) -->
+            <div class="service-node node-1">
+                <div class="node-icon">🔧</div>
+                <h3 class="node-title" data-i18n="service_plumbing_title">Plumbing</h3>
+                <p class="node-desc" data-i18n="service_plumbing_desc">Leaks, fittings, and water system repairs</p>
+            </div>
+
+            <!-- Node 2: Electrical (Top Right) -->
+            <!-- Node 2: Electrical (Top Right) -->
+            <div class="service-node node-2">
+                <div class="node-icon">⚡</div>
+                <h3 class="node-title" data-i18n="service_electrical_title">Electrical</h3>
+                <p class="node-desc" data-i18n="service_electrical_desc">Wiring, switches, and electrical fixes</p>
+            </div>
+
+            <!-- Node 3: Repairs (Right) -->
+            <!-- Node 3: Repairs (Right) -->
+            <div class="service-node node-3">
+                <div class="node-icon">🛠️</div>
+                <h3 class="node-title" data-i18n="service_repairs_title">Repairs</h3>
+                <p class="node-desc" data-i18n="service_repairs_desc">Everyday home and utility repairs</p>
+            </div>
+
+            <!-- Node 4: Construction (Bottom Right) -->
+            <!-- Node 4: Construction (Bottom Right) -->
+            <div class="service-node node-4">
+                <div class="node-icon">🏗️</div>
+                <h3 class="node-title" data-i18n="service_construction_title">Construction</h3>
+                <p class="node-desc" data-i18n="service_construction_desc">Small construction and renovation work</p>
+            </div>
+
+            <!-- Node 5: Domestic Help (Bottom Left) -->
+            <!-- Node 5: Domestic Help (Bottom Left) -->
+            <div class="service-node node-5">
+                <div class="node-icon">🧹</div>
+                <h3 class="node-title" data-i18n="service_domestic_help_title">Domestic Help</h3>
+                <p class="node-desc" data-i18n="service_domestic_help_desc">Maids, houseboys, and cooks</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- 6. FOR FIRMS & PARTNERS -->
+      <section class="partners section-padding fade-in-up">
+        <div class="container partners-container">
+          <div class="partners-content">
+            <h2 class="partners-headline" data-i18n="partners_headline">“Work with consistency.<br>Grow with <span class="highlight-text">trust</span>.”</h2>
+            
+            <div class="partners-list">
+                <div class="partner-item">
+                    <span class="partner-dot"></span>
+                    <span data-i18n="partner_item_1">More job visibility</span>
+                </div>
+                <div class="partner-item">
+                    <span class="partner-dot"></span>
+                    <span data-i18n="partner_item_2">Fair, transparent payouts</span>
+                </div>
+                <div class="partner-item">
+                    <span class="partner-dot"></span>
+                    <span data-i18n="partner_item_3">Platform credibility</span>
+                </div>
+                <div class="partner-item">
+                    <span class="partner-dot"></span>
+                    <span data-i18n="partner_item_4">Reduced marketing effort</span>
+                </div>
+            </div>
+
+            <a href="#" class="btn btn-partner">
+                <span data-i18n="btn_partner_node">Partner with NODE</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon-right">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. ABOUT NODE & FINAL CTA -->
+      <section class="about section-padding text-center fade-in-up">
+        <div class="container about-container">
+          <p class="about-text" data-i18n="about_text">NODE is being built to organise local work in India with trust, professionalism, and dignity — the way it should be.</p>
+          <div class="spacer-large"></div>
+          <h2 class="final-cta-headline" data-i18n="final_cta_headline">Looking for reliable local services?</h2>
+          <div class="final-cta-wrapper">
+             <a href="#" class="btn btn-primary" data-i18n="btn_find_service">Find a Trusted Service</a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container footer-container">
+           <div class="footer-column">
+               <strong data-i18n="footer_company">Company</strong>
+               <a href="#" data-i18n="footer_about">About Us</a>
+               <a href="#" data-i18n="footer_careers">Careers</a>
+               <a href="#" data-i18n="footer_contact">Contact</a>
+           </div>
+           <div class="footer-column">
+               <strong data-i18n="footer_legal">Legal</strong>
+               <a href="#" data-i18n="footer_terms">Terms</a>
+               <a href="#" data-i18n="footer_privacy">Privacy</a>
+           </div>
+           <div class="footer-column">
+               <strong data-i18n="footer_social">Social</strong>
+               <div class="social-links">
+                   <!-- Icons/Links -->
+               </div>
+           </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p data-i18n="footer_copyright">© 2026 NODE Industries within India. All rights reserved.</p>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

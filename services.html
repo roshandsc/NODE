@@ -1365,8 +1365,7 @@
     <script type="module">
         import { translations } from './translations.js';
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const popupOverlay = document.getElementById('premiumBookNowPopup');
+        const popupOverlay = document.getElementById('premiumBookNowPopup');
             const popupContainer = document.getElementById('premiumPopupContainer');
             const closeBtn = document.getElementById('closePopupBtn');
             const bookButtons = document.querySelectorAll('.book-now-trigger');
@@ -1985,7 +1984,6 @@
                     if(textSpan) textSpan.textContent = translations['popup_btn_send'] ? translations['popup_btn_send'][baseLang] : 'Send Request';
                 }
             });
-        });
     </script>
   </body>
 </html>

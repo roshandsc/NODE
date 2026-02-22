@@ -1,7 +1,5 @@
 import { servicesData } from './services-data.js';
 import { translations } from './translations.js';
-
-document.addEventListener('DOMContentLoaded', () => {
     // 1. Get Service Type from URL
     const params = new URLSearchParams(window.location.search);
     const serviceType = params.get('type'); // e.g., 'plumbing'
@@ -156,8 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
             el.classList.add('visible');
         });
     }, 100);
-
-});
 
 // Helper Functions
 function setText(id, text) {
