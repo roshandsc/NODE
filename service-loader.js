@@ -14,8 +14,7 @@ import { translations } from './translations.js';
                 <a href="/" class="btn btn-primary" style="margin-top: 20px;">Go Home</a>
             </div>
         `;
-        return;
-    }
+    } else {
 
     const data = servicesData[serviceType];
     const currentLang = localStorage.getItem('node-lang') || 'en';
@@ -154,6 +153,7 @@ import { translations } from './translations.js';
             el.classList.add('visible');
         });
     }, 100);
+    } // End of else block
 
 // Helper Functions
 function setText(id, text) {

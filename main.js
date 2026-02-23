@@ -4,12 +4,10 @@ import { translations } from './translations.js';
 const loader = document.getElementById('loader');
 const greetingElement = document.getElementById('greeting-text');
     
-    // session storage check
-    if (sessionStorage.getItem('node_loader_shown')) {
-        if (loader) loader.style.display = 'none';
-        return;
-    }
-
+// session storage check
+if (sessionStorage.getItem('node_loader_shown')) {
+    if (loader) loader.style.display = 'none';
+} else {
     const greetings = [
         "Hi", "Hello","Namaste", "Vanakkam", "Namaskara", "Sat Sri Akal", "Nomoshkar", 
         "Kem Cho", "Kasa Kay", "Salaam", "Adaab", "Pranam", 
@@ -73,6 +71,7 @@ const greetingElement = document.getElementById('greeting-text');
     setTimeout(() => {
         showGreeting(0);
     }, 100);
+}
 
 // Main Content Area Logic - removed to prevent clearing static HTML
 
