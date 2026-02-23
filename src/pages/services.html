@@ -1,0 +1,1991 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <title>Services - NODE</title>
+    <!-- Reuse Global Styles -->
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <style>
+        /* Specific Styles for Services Listing Page */
+        .services-hero {
+            padding: 120px 0 60px;
+            background-color: var(--bg-secondary);
+            text-align: center;
+        }
+        .services-hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+        .services-hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid-section {
+            padding: 80px 0;
+        }
+
+        .services-listing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-color: var(--border-hover);
+        }
+
+        .service-icon {
+            width: 72px;
+            height: 72px;
+            margin-bottom: 24px;
+            display: block;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.05);
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--text-main);
+            width: 100%;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.5;
+            width: 100%;
+        }
+
+        .service-link {
+            color: var(--accent-color);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        /* Premium "Book Now" Button */
+        .btn-book-now {
+            margin-top: auto;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a0a0a; /* Deep black base */
+            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 1px;
+            padding: 12px 32px;
+            border-radius: 50px;
+            border: 1px solid rgba(212, 175, 55, 0.3); /* Subtle gold border */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(212, 175, 55, 0.15); /* Soft shadow and glow */
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: breatheGlow 3s infinite ease-in-out;
+            z-index: 1;
+        }
+
+        /* Glass matte/glossy finish */
+        .btn-book-now::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 50%);
+            border-radius: 50px;
+            z-index: -1;
+        }
+
+        /* Light sweep shimmer effect */
+        .btn-book-now::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: skewX(-20deg);
+            z-index: -1;
+        }
+
+        /* Subtle continuous idle animation (breathing glow) */
+        @keyframes breatheGlow {
+            0%, 100% {
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(212, 175, 55, 0.15);
+                border-color: rgba(212, 175, 55, 0.3);
+            }
+            50% {
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(212, 175, 55, 0.4);
+                border-color: rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        /* Hover interactions */
+        .service-card:hover .btn-book-now {
+            transform: scale(1.04);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 25px rgba(212, 175, 55, 0.6);
+            border-color: rgba(212, 175, 55, 0.8);
+            animation: none; /* Focus glow instead of breathing */
+        }
+        
+        .service-card:hover .btn-book-now::after {
+            animation: shimmerSweep 0.5s ease-out forwards;
+        }
+
+        @keyframes shimmerSweep {
+            100% {
+                left: 200%;
+            }
+        }
+
+        /* Click processing */
+        .service-card:active .btn-book-now {
+            transform: scale(0.97);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.9);
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        /* Banner Section */
+        .cta-banner {
+            background: var(--bg-tertiary);
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        /* --- Premium CTA Popup --- */
+        .premium-popup-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .premium-popup-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .premium-popup-animator {
+            transform: translateY(-100vh) rotate(-10deg) scale(0.8);
+            opacity: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .premium-popup-overlay.active .premium-popup-animator {
+            animation: popupEntry 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .premium-popup-overlay.closing .premium-popup-animator {
+            animation: popupExit 0.5s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes popupEntry {
+            0% { transform: translateY(-100vh) rotate(-10deg) scale(0.8); opacity: 0; }
+            70% { transform: translateY(15px) rotate(2deg) scale(1.02); opacity: 1; }
+            100% { transform: translateY(0) rotate(0) scale(1); opacity: 1; }
+        }
+
+        @keyframes popupExit {
+            0% { transform: translateY(0) rotate(0) scale(1); opacity: 1; }
+            100% { transform: translateY(50px) rotate(5deg) scale(0.9); opacity: 0; }
+        }
+
+        .premium-popup-container {
+            position: relative;
+            background: rgba(20, 20, 20, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            width: 90%;
+            max-width: 480px;
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.05);
+            /* Paper texture grain */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .popup-close:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(90deg);
+        }
+
+        .popup-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .popup-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .popup-header p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .premium-form-group {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .premium-form-group input, 
+        .premium-form-group select, 
+        .premium-form-group textarea {
+            width: 100%;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 16px;
+            color: #fff;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            outline: none;
+            appearance: none;
+        }
+
+        .premium-form-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 48px;
+        }
+
+        .premium-form-group select option {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .premium-form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Focus glow effect */
+        .premium-form-group input:focus,
+        .premium-form-group select:focus,
+        .premium-form-group textarea:focus {
+            border-color: rgba(212, 175, 55, 0.5);
+            background: rgba(0,0,0,0.4);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+        }
+
+        .premium-form-group label {
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            color: rgba(255,255,255,0.5);
+            font-size: 15px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        /* Floating label logic */
+        .premium-form-group input:focus ~ label,
+        .premium-form-group input:not(:placeholder-shown) ~ label,
+        .premium-form-group textarea:focus ~ label,
+        .premium-form-group textarea:not(:placeholder-shown) ~ label {
+            top: -10px;
+            left: 12px;
+            font-size: 12px;
+            background: #141414; /* Match container approx background to cover border */
+            padding: 0 6px;
+            color: rgba(212, 175, 55, 0.9);
+            border-radius: 4px;
+        }
+
+        .btn-submit-request {
+            width: 100%;
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+            font-family: inherit;
+        }
+
+        .btn-submit-request:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255,255,255,0.2);
+            background: #f0f0f0;
+        }
+
+        .btn-submit-request:active {
+            transform: translateY(1px);
+            box-shadow: 0 5px 10px rgba(255,255,255,0.1);
+        }
+
+        /* Success state */
+        .btn-submit-request.success {
+            background: #4caf50;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-submit-request .btn-text-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Subtle Ripple */
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.1);
+            transform: scale(0);
+            animation: ripple 0.6s linear forwards;
+            pointer-events: none;
+        }
+        
+        .btn-submit-request.success .ripple-effect {
+            background: rgba(255,255,255,0.2);
+        }
+
+        @keyframes ripple {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+        /* --- New Smart UX Enhancements --- */
+        .location-wrapper {
+            position: relative;
+        }
+
+        .location-icon-input {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.4);
+            pointer-events: none;
+            transition: color 0.3s ease;
+            z-index: 2;
+        }
+
+        .premium-form-group.has-icon input {
+            padding-left: 44px;
+        }
+
+        .premium-form-group.has-icon input:focus ~ .location-icon-input,
+        .premium-form-group.has-icon input:not(:placeholder-shown) ~ .location-icon-input {
+            color: rgba(212, 175, 55, 0.9);
+        }
+        
+        .premium-form-group.has-icon label {
+            left: 44px;
+        }
+
+        .premium-form-group.has-icon input:focus ~ label,
+        .premium-form-group.has-icon input:not(:placeholder-shown) ~ label {
+            left: 12px; /* Move back to normal floating spot */
+        }
+
+        .btn-detect-location {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(212, 175, 55, 0.1);
+            color: rgba(212, 175, 55, 0.9);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 6px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-detect-location:hover {
+            background: rgba(212, 175, 55, 0.2);
+            color: #fff;
+        }
+
+        .btn-detect-location.loading .spinner {
+            display: inline-block;
+            width: 12px; height: 12px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-top-color: rgba(212, 175, 55, 0.9);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        .btn-detect-location.loading span {
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Location Prompt Bar */
+        .location-prompt-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(40, 40, 50, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-prompt-bar p {
+            font-size: 13px;
+            color: #fff;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .location-prompt-bar .btn-prompt-allow {
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .location-prompt-bar .btn-prompt-allow:hover {
+            background: #e0e0e0;
+        }
+
+        /* Smart Dropdown */
+        .smart-dropdown-wrapper {
+            position: relative;
+        }
+
+        .custom-select-trigger {
+            min-height: 54px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 16px 40px 16px 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .custom-select-trigger:focus, .custom-select-trigger.active-trigger {
+            border-color: rgba(212, 175, 55, 0.5);
+            background: rgba(0,0,0,0.4);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+        }
+
+        .custom-select-trigger label {
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            color: rgba(255,255,255,0.5);
+            font-size: 15px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        /* Floating label logic for custom trigger */
+        .custom-select-trigger.has-value label,
+        .custom-select-trigger.active-trigger label {
+            top: -10px;
+            left: 12px;
+            font-size: 12px;
+            background: #141414;
+            padding: 0 6px;
+            color: rgba(212, 175, 55, 0.9);
+            border-radius: 4px;
+        }
+
+        .chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            width: 100%;
+        }
+
+        .issue-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: rgba(255,255,255,0.9);
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-size: 13px;
+            line-height: 1;
+            transform: scale(0.95);
+            opacity: 0;
+            animation: chipEntry 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes chipEntry {
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .chip-remove {
+            color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+            padding: 2px;
+            margin-right: -4px;
+        }
+
+        .chip-remove:hover {
+            color: #fff;
+        }
+
+        .smart-dropdown-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            margin-top: 8px;
+            background: #1a1a1a;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            max-height: 220px;
+            overflow-y: auto;
+            z-index: 10;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-5px);
+            transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .smart-dropdown-list.open {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .smart-option {
+            padding: 14px 16px;
+            color: rgba(255,255,255,0.8);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .smart-option:last-child {
+            border-bottom: none;
+        }
+
+        .smart-option:hover {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+        }
+
+        .smart-option.selected {
+            background: rgba(212, 175, 55, 0.05);
+            color: rgba(212, 175, 55, 0.9);
+        }
+
+        .smart-option .opt-icon {
+            display: flex;
+            opacity: 0.6;
+            transition: all 0.2s ease;
+        }
+
+        .smart-option.selected .opt-icon {
+            opacity: 1;
+            color: rgba(212, 175, 55, 0.9);
+        }
+
+        /* Checkbox tick for selected options */
+        .smart-option-tick {
+            margin-left: auto;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+            color: rgba(212, 175, 55, 0.9);
+        }
+
+        .smart-option.selected .smart-option-tick {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .custom-issue-input {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.4s ease;
+            margin-top: 0;
+        }
+
+        .custom-issue-input.visible {
+            max-height: 100px;
+            margin-top: 12px;
+        }
+
+        .inline-error {
+            color: #ff4d4f;
+            font-size: 12px;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .premium-form-group.has-error input,
+        .premium-form-group.has-error select,
+        .premium-form-group.has-error textarea {
+            border-color: #ff4d4f;
+            box-shadow: 0 0 0 1px rgba(255, 77, 79, 0.2);
+        }
+
+        .premium-form-group.has-error .inline-error {
+            display: block;
+        }
+
+        .microcopy {
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+            margin-top: -12px;
+            margin-bottom: 16px;
+            display: block;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Reuse Header Structure (Static duplication for template) -->
+    <header class="header">
+      <div class="header-container">
+        
+        <!-- 1. LEFT: Brand Anchor & Language -->
+        <div class="brand-group">
+            <a href="/" class="brand-anchor">
+              <img src="/logo.png" alt="NODE" class="brand-logo" />
+            </a>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="lang-btn" aria-label="Select Language">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <span class="lang-current">EN</span>
+                </button>
+                <div class="lang-dropdown">
+                    <button class="lang-option active" data-lang="en">English</button>
+                    <button class="lang-option" data-lang="hi">Hindi (हिंदी)</button>
+                    <button class="lang-option" data-lang="kn">Kannada (ಕನ್ನಡ)</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. CENTER-LEFT: Primary Navigation -->
+        <nav class="primary-nav">
+          <a href="/src/pages/services.html" class="nav-item active" data-i18n="nav_services">Services</a>
+          <a href="/index.html#how-it-works" class="nav-item" data-i18n="nav_how_it_works">How It Works</a>
+          <a href="#" class="nav-item" data-i18n="nav_professionals">For Professionals</a>
+        </nav>
+
+        <!-- 3. CENTER: Location Selector -->
+        <div class="location-selector">
+          <span class="location-icon">📍</span>
+          <span class="location-text" data-i18n="location_bangalore">Bengaluru, KA</span>
+          <span class="location-arrow">▼</span>
+        </div>
+
+        <!-- 4. CENTER-RIGHT: Search Bar -->
+        <div class="search-bar">
+          <div class="search-input-wrapper">
+             <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+             </svg>
+            <input type="text" placeholder="Find a trusted professional near you" class="search-input" data-i18n="search_placeholder" />
+          </div>
+        </div>
+
+        <!-- 5. RIGHT: Utility Icon -->
+        <div class="utility-icon">
+            <a href="#" class="profile-link" aria-label="Profile">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </a>
+            
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" aria-label="Toggle Dark Mode">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            
+            <!-- Hamburger Menu (Mobile/Tablet) -->
+            <button class="hamburger-menu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+      </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="services-hero">
+            <div class="container">
+                <h1 data-i18n="services_page_title" id="services-title">Our Services</h1>
+                <p data-i18n="services_page_sub">Comprehensive solutions for your home and office needs. Verified, professional, and reliable.</p>
+            </div>
+        </section>
+
+    <!-- Animation Styles -->
+    <style>
+        /* Dancing Text Animation */
+        #services-title {
+            display: inline-block; /* Keeps title together */
+        }
+        
+        .dancing-letter {
+            display: inline-block;
+            transition: color 0.3s ease;
+            animation: dance 3s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+
+        /* Hover Effect: Intensify */
+        #services-title:hover .dancing-letter {
+            animation-duration: 1.5s; /* Faster */
+            animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        @keyframes dance {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translateY(-4px) rotate(-2deg) scale(1.02);
+            }
+            50% {
+                transform: translateY(0) rotate(2deg) scale(1);
+            }
+            75% {
+                transform: translateY(-2px) rotate(-1deg) scale(0.98);
+            }
+        }
+
+        /* --- Stepper UI --- */
+        .stepper-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .stepper-progress-line {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            right: 10px;
+            height: 2px;
+            background: rgba(255,255,255,0.1);
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+
+        .stepper-progress-fill {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            height: 2px;
+            background: rgba(212, 175, 55, 0.9);
+            z-index: 2;
+            transform: translateY(-50%);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%; /* Dynamic */
+        }
+
+        .step-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #141414;
+            border: 2px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            position: relative;
+            z-index: 3;
+            transition: all 0.4s ease;
+        }
+
+        .step-dot.active {
+            border-color: rgba(212, 175, 55, 0.9);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .step-dot.completed {
+            background: rgba(212, 175, 55, 0.9);
+            border-color: rgba(212, 175, 55, 0.9);
+            color: #1a1a1a;
+        }
+
+        .form-step {
+            display: none;
+            opacity: 0;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeInStep 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        
+        @keyframes fadeInStep {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Form Navigation Buttons */
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .btn-form-nav {
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-nav-back {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .btn-nav-back:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .btn-nav-next {
+            background: #fff;
+            color: #000;
+            border: none;
+        }
+
+        .btn-nav-next:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+        
+        .btn-nav-next:active {
+            transform: translateY(0);
+        }
+        
+        /* Radio Cards (Property Type) */
+        .radio-cards-group {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .radio-card {
+            flex: 1;
+            position: relative;
+        }
+
+        .radio-card input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .radio-card label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 10px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            color: rgba(255,255,255,0.7);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            gap: 12px;
+            font-size: 14px;
+            height: 100%;
+        }
+
+        .radio-card input:checked + label {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.5);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+
+        .radio-card label svg {
+            color: rgba(255,255,255,0.5);
+            transition: color 0.3s;
+            width: 24px;
+            height: 24px;
+        }
+        
+        .radio-card input:checked + label svg {
+            color: rgba(212, 175, 55, 0.9);
+        }
+        
+        /* Time Input layout */
+        .time-inputs {
+            display: flex;
+            gap: 16px;
+        }
+        .time-inputs > div {
+            flex: 1;
+        }
+
+    </style>
+
+    <!-- Script to Split Text for Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const title = document.getElementById('services-title');
+
+            const animateTitle = () => {
+                const text = title.innerText; // Get current text (translated or default)
+                title.innerHTML = ''; // Clear content
+                
+                // Split text and wrap letters
+                text.split('').forEach((char, index) => {
+                    const span = document.createElement('span');
+                    span.textContent = char;
+                    
+                    if (char === ' ') {
+                        span.style.width = '0.3em'; // Preserve space width
+                        span.style.display = 'inline-block';
+                    } else {
+                        span.classList.add('dancing-letter');
+                        // Staggered delays for wave effect
+                        span.style.animationDelay = `${index * 0.1}s`;
+                    }
+                    title.appendChild(span);
+                });
+            };
+
+            // Initial Animation
+            animateTitle();
+
+            // Re-apply on Language Change
+            window.addEventListener('languageChanged', () => {
+                 // Wait briefly for text update to complete
+                setTimeout(() => {
+                    animateTitle();
+                }, 50); 
+            });
+        });
+    </script>
+
+        <!-- Services Grid -->
+        <section class="services-grid-section" id="services-grid-section">
+            <div class="container">
+                <div class="services-listing-grid">
+                    <!-- Plumbing -->
+                    <div class="service-card book-now-trigger" data-type="plumbing" tabindex="0" role="button">
+                        <img src="/icon-plumbing.png" alt="Plumbing" class="service-icon" />
+                        <h3 data-i18n="svc_plumbing">Plumbing</h3>
+                        <p data-i18n="svc_plumbing_desc">Leak repairs, fixture installation, and drainage solutions by expert plumbers.</p>
+                        <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
+                    </div>
+
+                    <!-- Electrical -->
+                    <div class="service-card book-now-trigger" data-type="electrical" tabindex="0" role="button">
+                        <img src="/icon-electrical.png" alt="Electrical" class="service-icon" />
+                        <h3 data-i18n="svc_electrical">Electrical</h3>
+                        <p data-i18n="svc_electrical_desc">Safety-focused wiring, switch repairs, and appliance installation.</p>
+                        <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
+                    </div>
+
+                    <!-- Repairs -->
+                    <div class="service-card book-now-trigger" data-type="repairs" tabindex="0" role="button">
+                        <img src="/icon-repairs.png" alt="Repairs" class="service-icon" />
+                        <h3 data-i18n="svc_repairs">General Repairs</h3>
+                        <p data-i18n="svc_repairs_desc">Furniture assembly, carpentry, and general home wear-and-tear fixes.</p>
+                        <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
+                    </div>
+
+                    <!-- Construction -->
+                    <div class="service-card book-now-trigger" data-type="construction" tabindex="0" role="button">
+                        <img src="/icon-construction.png" alt="Construction" class="service-icon" />
+                        <h3 data-i18n="svc_construction">Construction</h3>
+                        <p data-i18n="svc_construction_desc">Renovations, tile work, and structural modifications managed by pros.</p>
+                        <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
+                    </div>
+
+                    <!-- Domestic Help -->
+                    <div class="service-card book-now-trigger" data-type="domestic_help" tabindex="0" role="button">
+                        <img src="/icon-domestic_help.png" alt="Domestic Help" class="service-icon" />
+                        <h3 data-i18n="svc_domestic_help">Domestic Help</h3>
+                        <p data-i18n="svc_domestic_help_desc">Maids, houseboys, and cooks for daily or monthly needs.</p>
+                        <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
+                    </div>
+                
+                    <!-- Painting -->
+                    <div class="service-card book-now-trigger" data-type="painter" tabindex="0" role="button">
+                        <img src="/icon-painter.png" alt="Painting" class="service-icon" />
+                        <h3 data-i18n="svc_painting">Painting</h3>
+                        <p data-i18n="svc_painting_desc">Interior and exterior painting with professional finishes.</p>
+                        <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
+                    </div>
+
+                    <!-- Mechanics -->
+                    <div class="service-card book-now-trigger" data-type="mechanics" tabindex="0" role="button">
+                        <img src="/icon-mechanics.png" alt="Mechanics" class="service-icon" />
+                        <h3 data-i18n="svc_mechanics">Mechanics</h3>
+                        <p data-i18n="svc_mechanics_desc">Expert car and bike repairs at your doorstep.</p>
+                        <span class="btn-book-now" data-i18n="link_book_now">Book Now</span>
+                    </div>
+
+                    <!-- Chef (Coming Soon) -->
+                    <div class="service-card" style="opacity: 0.6; pointer-events: none;">
+                        <img src="/icon-chef.png" alt="Professional Chef" class="service-icon" />
+                        <h3 data-i18n="svc_chef">Professional Chef (Coming Soon)</h3>
+                        <p data-i18n="svc_chef_desc">Gourmet cooking services for events and parties.</p>
+                        <span class="service-link" data-i18n="link_coming_soon">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner -->
+        <section class="cta-banner">
+            <div class="container">
+                <h2 style="font-size: 32px; margin-bottom: 24px; color: var(--text-main);" data-i18n="banner_title">Verified quality you can trust.</h2>
+                <a href="#services-grid-section" class="btn btn-primary btn-large" data-i18n="btn_choose_service">Choose a Service</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+         <p class="copyright">© 2026 NODE Platform. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+    <!-- Premium Book Now Popup -->
+    <div class="premium-popup-overlay" id="premiumBookNowPopup">
+        <div class="premium-popup-animator">
+            <div class="premium-popup-container" id="premiumPopupContainer">
+                <button class="popup-close" id="closePopupBtn" aria-label="Close form">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="popup-header">
+                    <h3 data-i18n="popup_req_service">Request Service</h3>
+                    <p data-i18n="popup_match_expert">We'll match you with a verified expert shortly.</p>
+                </div>
+                <form id="premiumRequestForm" novalidate>
+                    <!-- Stepper Header -->
+                    <div class="stepper-header" id="stepperHeader">
+                        <div class="stepper-progress-line"></div>
+                        <div class="stepper-progress-fill" id="stepperProgress"></div>
+                        <div class="step-dot active" data-step="1">1</div>
+                        <div class="step-dot" data-step="2">2</div>
+                        <div class="step-dot" data-step="3">3</div>
+                        <div class="step-dot" data-step="4">4</div>
+                    </div>
+
+                    <!-- Step 1: Service Details -->
+                    <div class="form-step active" id="step1">
+                        <div class="radio-cards-group">
+                            <div class="radio-card">
+                                <input type="radio" name="reqPropertyType" id="propPrivate" value="private" checked>
+                                <label for="propPrivate">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                    <span data-i18n="popup_prop_private">Private Home</span>
+                                </label>
+                            </div>
+                            <div class="radio-card">
+                                <input type="radio" name="reqPropertyType" id="propCommercial" value="commercial">
+                                <label for="propCommercial">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>
+                                    <span data-i18n="popup_prop_commercial">Commercial</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="premium-form-group">
+                            <select id="reqService" required>
+                                <option value="" disabled selected hidden data-i18n="popup_lbl_service">Select Service Type</option>
+                                <option value="plumbing" data-i18n="svc_plumbing">Plumbing</option>
+                                <option value="electrical" data-i18n="svc_electrical">Electrical</option>
+                                <option value="repairs" data-i18n="svc_repairs">General Repairs</option>
+                                <option value="construction" data-i18n="svc_construction">Construction</option>
+                                <option value="domestic_help" data-i18n="svc_domestic_help">Domestic Help</option>
+                                <option value="painter" data-i18n="svc_painting">Painting</option>
+                                <option value="mechanics" data-i18n="svc_mechanics">Mechanics</option>
+                            </select>
+                            <div class="inline-error" data-i18n="popup_err_service">Please select a service type</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Location -->
+                    <div class="form-step" id="step2">
+                        <div class="location-prompt-bar" id="locPromptBar">
+                            <p>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                                </svg>
+                                <span data-i18n="popup_use_loc">Use your current location for faster service?</span>
+                            </p>
+                            <button type="button" class="btn-prompt-allow" id="btnPromptAllow" data-i18n="popup_allow">Allow</button>
+                        </div>
+
+                        <div class="premium-form-group has-icon">
+                            <svg class="location-icon-input" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <input type="text" id="reqLocation" placeholder=" " required />
+                            <label for="reqLocation" data-i18n="popup_loc_manual">Enter your location manually</label>
+                            <button type="button" class="btn-detect-location" id="btnDetectLoc" aria-label="Detect Location" title="Auto-detect location">
+                                <span class="spinner" style="display:none;"></span>
+                                <span class="btn-text" data-i18n="popup_loc_detect">Detect</span>
+                            </button>
+                            <div class="inline-error" data-i18n="popup_err_loc">Please provide a service location</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Special Issues -->
+                    <div class="form-step" id="step3">
+                        <span class="microcopy" data-i18n="popup_microcopy">This helps us assign the right professional faster.</span>
+                        
+                        <div class="premium-form-group smart-dropdown-wrapper">
+                            <!-- Custom Select implementation for smart options -->
+                            <div class="custom-select-trigger" id="reqIssueTrigger" tabindex="0">
+                                <div class="chips-container" id="issueChipsContainer"></div>
+                                <label id="reqIssueLabel" data-i18n="popup_lbl_issues">Select Your Issues</label>
+                                <!-- Fake dropdown arrow -->
+                                <div style="position:absolute; right:16px; top:50%; transform:translateY(-50%); pointer-events:none;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </div>
+                            </div>
+                            <div class="smart-dropdown-list" id="reqIssueList">
+                                <!-- Populated dynamically -->
+                            </div>
+                            <div class="inline-error" id="issueError" data-i18n="popup_err_issues">Please select at least one issue</div>
+                            
+                            <div class="custom-issue-input" id="customIssueWrapper">
+                                <textarea id="reqCustomIssue" placeholder=" "></textarea>
+                                <label for="reqCustomIssue" data-i18n="popup_lbl_custom_issue">Describe your custom issue</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Additional Details -->
+                    <div class="form-step" id="step4">
+                        <div class="time-inputs">
+                            <div class="premium-form-group">
+                                <input type="date" id="reqDate" required style="color-scheme: dark;" />
+                                <!-- Keep styling inline for quick layout -->
+                                <label for="reqDate" data-i18n="popup_lbl_date" style="background:#141414; padding: 0 6px; left:12px; top:-10px; font-size:12px; color:rgba(212, 175, 55, 0.9); border-radius:4px;">Date</label>
+                                <div class="inline-error" data-i18n="popup_err_date">Please select a date</div>
+                            </div>
+                            <div class="premium-form-group">
+                                <select id="reqTime" required>
+                                    <option value="" disabled selected hidden data-i18n="popup_lbl_time">Time Slot</option>
+                                    <option value="morning" data-i18n="popup_time_morning">Morning (8AM - 12PM)</option>
+                                    <option value="afternoon" data-i18n="popup_time_afternoon">Afternoon (12PM - 4PM)</option>
+                                    <option value="evening" data-i18n="popup_time_evening">Evening (4PM - 8PM)</option>
+                                </select>
+                                <div class="inline-error" data-i18n="popup_err_time">Please select a time</div>
+                            </div>
+                        </div>
+
+                        <div class="premium-form-group">
+                            <input type="text" id="reqName" placeholder=" " required />
+                            <label for="reqName" data-i18n="popup_lbl_name">Full Name</label>
+                            <div class="inline-error" data-i18n="popup_err_name">Name is required</div>
+                        </div>
+                        <div class="premium-form-group">
+                            <input type="tel" id="reqPhone" placeholder=" " required />
+                            <label for="reqPhone" data-i18n="popup_lbl_phone">Phone Number</label>
+                            <div class="inline-error" data-i18n="popup_err_phone">Valid phone number required</div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="form-navigation">
+                        <button type="button" class="btn-form-nav btn-nav-back" id="btnStepBack" style="display:none;" data-i18n="btn_back">Back</button>
+                        
+                        <button type="button" class="btn-form-nav btn-nav-next" id="btnStepNext">
+                            <span data-i18n="btn_continue">Continue</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                        
+                        <button type="submit" class="btn-submit-request" id="submitRequestBtn" style="display:none; flex:2; margin:0; width:auto; padding: 14px 24px;">
+                            <span class="btn-text-content">
+                                <span data-i18n="popup_btn_send">Send Request</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Logic -->
+    <script type="module">
+        import { translations } from '../utils/translations.js';
+        console.log("Popup module started loading! Buttons found:", document.querySelectorAll('.book-now-trigger').length);
+
+        const popupOverlay = document.getElementById('premiumBookNowPopup');
+            const popupContainer = document.getElementById('premiumPopupContainer');
+            const closeBtn = document.getElementById('closePopupBtn');
+            const bookButtons = document.querySelectorAll('.book-now-trigger');
+            const requestForm = document.getElementById('premiumRequestForm');
+            const serviceSelect = document.getElementById('reqService');
+            const submitBtn = document.getElementById('submitRequestBtn');
+
+            // Location Elements
+            const locPromptBar = document.getElementById('locPromptBar');
+            const btnPromptAllow = document.getElementById('btnPromptAllow');
+            const reqLocation = document.getElementById('reqLocation');
+            const btnDetectLoc = document.getElementById('btnDetectLoc');
+            
+            // Smart Dropdown Elements
+            const reqIssueTrigger = document.getElementById('reqIssueTrigger');
+            const reqIssueList = document.getElementById('reqIssueList');
+            const issueChipsContainer = document.getElementById('issueChipsContainer');
+            const customIssueWrapper = document.getElementById('customIssueWrapper');
+            const reqCustomIssue = document.getElementById('reqCustomIssue');
+
+            // Stepper Variables
+            let currentStep = 1;
+            const totalSteps = 4;
+            const stepperProgress = document.getElementById('stepperProgress');
+            const stepDots = document.querySelectorAll('.step-dot');
+            const formSteps = document.querySelectorAll('.form-step');
+            const btnStepNext = document.getElementById('btnStepNext');
+            const btnStepBack = document.getElementById('btnStepBack');
+            const reqTime = document.getElementById('reqTime');
+            const reqDate = document.getElementById('reqDate');
+
+            let selectedIssues = []; // Track selected issues
+
+            // Issues Dictionary
+            const issueDict = {
+                'plumbing': ['issue_plumb_pipe', 'issue_plumb_tap', 'issue_plumb_drain', 'issue_plumb_pressure', 'issue_plumb_fittings'],
+                'electrical': ['issue_elec_power', 'issue_elec_switch', 'issue_elec_wiring', 'issue_elec_fan'],
+                'repairs': ['issue_rep_maint', 'issue_rep_install', 'issue_rep_inspect', 'issue_rep_furn'],
+                'construction': ['issue_const_renov', 'issue_const_tile', 'issue_const_struct', 'issue_const_ceil'],
+                'domestic_help': ['issue_dom_maid', 'issue_dom_cook', 'issue_dom_clean', 'issue_dom_month'],
+                'painter': ['issue_paint_int', 'issue_paint_ext', 'issue_paint_touch', 'issue_paint_water'],
+                'mechanics': ['issue_mech_car', 'issue_mech_bike', 'issue_mech_oil', 'issue_mech_batt']
+            };
+
+            function populateIssues(serviceType) {
+                reqIssueList.innerHTML = '';
+                const baseLang = localStorage.getItem('node-lang') || 'en';
+                const issues = issueDict[serviceType] || [];
+                
+                issues.forEach(issueKey => {
+                    const div = document.createElement('div');
+                    div.className = 'smart-option';
+                    div.setAttribute('data-key', issueKey);
+                    if (selectedIssues.includes(issueKey)) {
+                        div.classList.add('selected');
+                    }
+                    const text = translations[issueKey] ? translations[issueKey][baseLang] : issueKey;
+                    div.innerHTML = `
+                        <span class="opt-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </span>
+                        ${text}
+                        <span class="smart-option-tick">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </span>
+                    `;
+                    div.addEventListener('click', (e) => {
+                        e.stopPropagation(); // Keep dropdown open
+                        toggleIssue(issueKey, div);
+                    });
+                    reqIssueList.appendChild(div);
+                });
+
+                // Add "Other" option
+                const otherDiv = document.createElement('div');
+                otherDiv.className = 'smart-option';
+                otherDiv.setAttribute('data-key', 'issue_other');
+                if (selectedIssues.includes('issue_other')) {
+                    otherDiv.classList.add('selected');
+                }
+                const otherText = translations['issue_other'] ? translations['issue_other'][baseLang] : 'Other (describe below)';
+                otherDiv.innerHTML = `
+                    <span class="opt-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                    </span>
+                    ${otherText}
+                    <span class="smart-option-tick">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                `;
+                otherDiv.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleIssue('issue_other', otherDiv);
+                });
+                reqIssueList.appendChild(otherDiv);
+            }
+
+            function toggleIssue(issueText, optionElement) {
+                const index = selectedIssues.indexOf(issueText);
+                if (index > -1) {
+                    selectedIssues.splice(index, 1);
+                    if (optionElement) optionElement.classList.remove('selected');
+                } else {
+                    selectedIssues.push(issueText);
+                    if (optionElement) optionElement.classList.add('selected');
+                }
+
+                renderChips();
+                
+                // Clear errors on interact
+                const fg = reqIssueTrigger.closest('.premium-form-group');
+                if (fg) fg.classList.remove('has-error');
+                
+                if (selectedIssues.includes('issue_other')) {
+                    customIssueWrapper.classList.add('visible');
+                    reqCustomIssue.setAttribute('required', 'true');
+                    // Focus custom text area
+                    setTimeout(() => { if(document.activeElement !== reqCustomIssue) reqCustomIssue.focus(); }, 100);
+                } else {
+                    customIssueWrapper.classList.remove('visible');
+                    reqCustomIssue.removeAttribute('required');
+                    setTimeout(() => reqCustomIssue.value = '', 400); // clear after animation
+                }
+            }
+
+            function removeIssue(issueText, e) {
+                if(e) e.stopPropagation();
+                const index = selectedIssues.indexOf(issueText);
+                if (index > -1) {
+                    selectedIssues.splice(index, 1);
+                    renderChips();
+                    // update option in dropdown if open
+                    Array.from(reqIssueList.children).forEach(opt => {
+                        if (opt.getAttribute('data-key') === issueText) {
+                            opt.classList.remove('selected');
+                        }
+                    });
+
+                    // Hide custom text box if "Other" gets removed
+                    if (!selectedIssues.includes('issue_other')) {
+                        customIssueWrapper.classList.remove('visible');
+                        reqCustomIssue.removeAttribute('required');
+                        reqCustomIssue.value = '';
+                    }
+                }
+            }
+
+            function renderChips() {
+                issueChipsContainer.innerHTML = '';
+                const baseLang = localStorage.getItem('node-lang') || 'en';
+                
+                if (selectedIssues.length > 0) {
+                    reqIssueTrigger.classList.add('has-value');
+                } else {
+                    reqIssueTrigger.classList.remove('has-value');
+                }
+
+                selectedIssues.forEach(issueKey => {
+                    const chip = document.createElement('div');
+                    chip.className = 'issue-chip';
+                    
+                    let text = issueKey;
+                    if(issueKey === 'issue_other') {
+                        text = translations['issue_other_short'] ? translations['issue_other_short'][baseLang] : 'Other';
+                    } else if (translations[issueKey]) {
+                        text = translations[issueKey][baseLang];
+                    }
+
+                    chip.innerHTML = `
+                        <span>${text}</span>
+                        <span class="chip-remove" aria-label="Remove">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </span>
+                    `;
+                    chip.querySelector('.chip-remove').addEventListener('click', (e) => removeIssue(issueKey, e));
+                    issueChipsContainer.appendChild(chip);
+                });
+            }
+
+            // Detect Location Logic
+            async function detectLocation() {
+                // Show loading
+                btnDetectLoc.classList.add('loading');
+                btnDetectLoc.querySelector('.spinner').style.display = 'inline-block';
+                
+                if (!navigator.geolocation) {
+                    locFail('Geolocation not supported');
+                    return;
+                }
+
+                navigator.geolocation.getCurrentPosition(
+                    async (position) => {
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
+                        
+                        try {
+                            // Reverse geocoding using Nominatim (Free, no API key needed but needs User-Agent usually, browser fetch works)
+                            const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`);
+                            const data = await res.json();
+                            
+                            if (data && data.display_name) {
+                                // Extract simple readable portion if possible, or just use full
+                                const addr = data.address;
+                                const shortAddr = [
+                                    addr.road || addr.neighbourhood || addr.suburb,
+                                    addr.city || addr.town || addr.county
+                                ].filter(Boolean).join(', ');
+                                
+                                reqLocation.value = shortAddr || data.display_name;
+                                locSuccess();
+                            } else {
+                                locFail('Could not resolve address');
+                            }
+                        } catch(e) {
+                            // Fallback to coords if API fails
+                            reqLocation.value = `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+                            locSuccess();
+                        }
+                    },
+                    (error) => {
+                        console.error(error);
+                        locFail('Permission denied or timeout');
+                    },
+                    { enableHighAccuracy: false, timeout: 8000, maximumAge: 0 }
+                );
+            }
+
+            function locSuccess() {
+                btnDetectLoc.classList.remove('loading');
+                btnDetectLoc.querySelector('.spinner').style.display = 'none';
+                locPromptBar.style.display = 'none';
+                
+                // Trigger focus/blur to ensure label floats properly in CSS
+                reqLocation.focus();
+                reqLocation.blur();
+                
+                // Remove error state if any
+                reqLocation.closest('.premium-form-group').classList.remove('has-error');
+            }
+
+            function locFail(reason) {
+                btnDetectLoc.classList.remove('loading');
+                btnDetectLoc.querySelector('.spinner').style.display = 'none';
+                locPromptBar.style.display = 'none';
+                reqLocation.placeholder = "Enter your location manually";
+                reqLocation.focus();
+                console.log("Location detect fail: " + reason);
+            }
+
+            btnPromptAllow.addEventListener('click', detectLocation);
+            btnDetectLoc.addEventListener('click', detectLocation);
+
+            // Open popup logic update
+            bookButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                console.log("Book Now button clicked! Type:", btn.getAttribute('data-type'));
+                e.preventDefault();
+                e.stopPropagation(); // prevent accidental click bubbling
+                    
+                    // Reset custom issue text 
+                    selectedIssues = [];
+                    renderChips();
+                    customIssueWrapper.classList.remove('visible');
+                    reqCustomIssue.value = '';
+
+                    // Prompt reset 
+                    if (!reqLocation.value) {
+                        locPromptBar.style.display = 'flex';
+                    } else {
+                        locPromptBar.style.display = 'none';
+                    }
+
+                    // Parse service type from data-type instead of href
+                    const serviceType = btn.getAttribute('data-type');
+                    if (serviceType) {
+                        serviceSelect.value = serviceType;
+                        populateIssues(serviceType);
+                    } else {
+                        serviceSelect.value = "";
+                        reqIssueList.innerHTML = '';
+                    }
+
+                    // Go to step 1
+                    currentStep = 1;
+                    updateStepper();
+
+                    popupOverlay.classList.remove('closing');
+                    popupOverlay.classList.add('active');
+                    
+                    // Reset errors
+                    document.querySelectorAll('.premium-form-group.has-error').forEach(el => el.classList.remove('has-error'));
+
+                    // Reset container transform just in case
+                    popupContainer.style.transform = 'translateY(0) scale(1) perspective(1000px) rotateX(0deg) rotateY(0deg)';
+                });
+            });
+
+            // Service select change updates the issue list
+            serviceSelect.addEventListener('change', (e) => {
+                selectedIssues = [];
+                renderChips();
+                populateIssues(e.target.value);
+                customIssueWrapper.classList.remove('visible');
+                reqCustomIssue.value = '';
+                
+                e.target.closest('.premium-form-group').classList.remove('has-error');
+            });
+
+            // Issue Trigger
+            reqIssueTrigger.addEventListener('click', (e) => {
+                // Don't execute if clicking a chip's remove button
+                if (e.target.closest('.chip-remove')) return; 
+
+                if (serviceSelect.value) {
+                    reqIssueList.classList.toggle('open');
+                    if(reqIssueList.classList.contains('open')) {
+                        reqIssueTrigger.classList.add('active-trigger');
+                    } else {
+                        reqIssueTrigger.classList.remove('active-trigger');
+                    }
+                } else {
+                    // Show error on service select
+                    const fg = serviceSelect.closest('.premium-form-group');
+                    fg.classList.add('has-error');
+                    const baseLang = localStorage.getItem('node-lang') || 'en';
+                    fg.querySelector('.inline-error').textContent = translations['popup_err_service'] ? translations['popup_err_service'][baseLang] : 'Please select a service type first';
+                    
+                    // Flash animation
+                    fg.style.transform = 'translateX(-5px)';
+                    setTimeout(() => fg.style.transform = 'translateX(5px)', 50);
+                    setTimeout(() => fg.style.transform = 'translateX(0)', 100);
+                }
+            });
+
+            // Close dropdown if clicked outside
+            document.addEventListener('click', (e) => {
+                if (!reqIssueTrigger.contains(e.target) && !reqIssueList.contains(e.target)) {
+                    reqIssueList.classList.remove('open');
+                    reqIssueTrigger.classList.remove('active-trigger');
+                }
+            });
+
+            // Clear inline errors on input
+            requestForm.querySelectorAll('input, textarea, select').forEach(input => {
+                input.addEventListener('input', () => {
+                    const fg = input.closest('.premium-form-group');
+                    if(fg) fg.classList.remove('has-error');
+                });
+            });
+
+            // Form Validation helper per step
+            function validateStep(step) {
+                let isValid = true;
+                
+                if (step === 1) {
+                    const servFg = serviceSelect.closest('.premium-form-group');
+                    if (!serviceSelect.value) {
+                        servFg.classList.add('has-error');
+                        const baseLang = localStorage.getItem('node-lang') || 'en';
+                        servFg.querySelector('.inline-error').textContent = translations['popup_err_service'] ? translations['popup_err_service'][baseLang] : 'Please select a service type';
+                        isValid = false;
+                    }
+                }
+
+                if (step === 2) {
+                    const locFg = reqLocation.closest('.premium-form-group');
+                    if (!reqLocation.value.trim()) {
+                        locFg.classList.add('has-error');
+                        isValid = false;
+                    }
+                }
+
+                if (step === 3) {
+                    const issueFg = reqIssueTrigger.closest('.premium-form-group');
+                    if (selectedIssues.length === 0) {
+                        issueFg.classList.add('has-error');
+                        isValid = false;
+                    } else if (selectedIssues.includes('issue_other') && !reqCustomIssue.value.trim()) {
+                        issueFg.classList.add('has-error');
+                        const baseLang = localStorage.getItem('node-lang') || 'en';
+                        document.getElementById('issueError').textContent = translations['popup_err_issues'] ? translations['popup_err_issues'][baseLang] : 'Please describe your custom issue';
+                        isValid = false;
+                    }
+                }
+
+                if (step === 4) {
+                    const dateFg = reqDate.closest('.premium-form-group');
+                    if (!reqDate.value) {
+                        dateFg.classList.add('has-error');
+                        isValid = false;
+                    }
+
+                    const timeFg = reqTime.closest('.premium-form-group');
+                    if (!reqTime.value) {
+                        timeFg.classList.add('has-error');
+                        isValid = false;
+                    }
+
+                    const nameFg = document.getElementById('reqName').closest('.premium-form-group');
+                    if (!document.getElementById('reqName').value.trim()) {
+                        nameFg.classList.add('has-error');
+                        isValid = false;
+                    }
+
+                    const phoneFg = document.getElementById('reqPhone').closest('.premium-form-group');
+                    if (!document.getElementById('reqPhone').value.trim() || document.getElementById('reqPhone').value.length < 8) {
+                        phoneFg.classList.add('has-error');
+                        isValid = false;
+                    }
+                }
+
+                return isValid;
+            }
+
+            function updateStepper() {
+                // Update Progress Bar
+                const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+                stepperProgress.style.width = `${progressPercentage}%`;
+
+                // Update Dots
+                stepDots.forEach(dot => {
+                    const stepNum = parseInt(dot.getAttribute('data-step'));
+                    dot.classList.remove('active', 'completed');
+                    if (stepNum === currentStep) {
+                        dot.classList.add('active');
+                    } else if (stepNum < currentStep) {
+                        dot.classList.add('completed');
+                    }
+                });
+
+                // Show/Hide Steps
+                formSteps.forEach(step => {
+                    step.classList.remove('active');
+                });
+                document.getElementById(`step${currentStep}`).classList.add('active');
+
+                // Buttons Logic
+                if (currentStep === 1) {
+                    btnStepBack.style.display = 'none';
+                    btnStepNext.style.display = 'flex';
+                    submitBtn.style.display = 'none';
+                } else if (currentStep === totalSteps) {
+                    btnStepBack.style.display = 'flex';
+                    btnStepNext.style.display = 'none';
+                    submitBtn.style.display = 'flex';
+                } else {
+                    btnStepBack.style.display = 'flex';
+                    btnStepNext.style.display = 'flex';
+                    submitBtn.style.display = 'none';
+                }
+            }
+
+            // Navigation Button Listeners
+            btnStepNext.addEventListener('click', () => {
+                if (validateStep(currentStep)) {
+                    currentStep++;
+                    updateStepper();
+                } else {
+                    popupContainer.style.transform = 'translateX(-10px)';
+                    setTimeout(() => popupContainer.style.transform = 'translateX(10px)', 50);
+                    setTimeout(() => popupContainer.style.transform = 'translateX(-5px)', 100);
+                    setTimeout(() => popupContainer.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)', 150);
+                }
+            });
+
+            btnStepBack.addEventListener('click', () => {
+                if (currentStep > 1) {
+                    currentStep--;
+                    updateStepper();
+                }
+            });
+
+            function closePopup() {
+                popupOverlay.classList.add('closing');
+                setTimeout(() => {
+                    popupOverlay.classList.remove('active');
+                    popupOverlay.classList.remove('closing');
+                    // reset form and button state
+                    requestForm.reset();
+                    reqIssueList.classList.remove('open');
+                    reqIssueTrigger.classList.remove('active-trigger');
+                    selectedIssues = [];
+                    renderChips();
+                    customIssueWrapper.classList.remove('visible');
+                    document.querySelectorAll('.premium-form-group.has-error').forEach(el => el.classList.remove('has-error'));
+                    
+                    // Reset stepper
+                    currentStep = 1;
+                    updateStepper();
+
+                    submitBtn.classList.remove('success');
+                    const baseLang = localStorage.getItem('node-lang') || 'en';
+                    const sendText = translations['popup_btn_send'] ? translations['popup_btn_send'][baseLang] : 'Send Request';
+                    submitBtn.innerHTML = `
+                        <span class="btn-text-content">
+                            <span>${sendText}</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </span>
+                    `;
+                }, 500); // Wait for exit animation
+            }
+
+            closeBtn.addEventListener('click', closePopup);
+            popupOverlay.addEventListener('click', (e) => {
+                if (e.target === popupOverlay) {
+                    closePopup();
+                }
+            });
+
+            // Hover Parallax Effect for depth illusion
+            popupContainer.addEventListener('mousemove', (e) => {
+                const rect = popupContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left; // x position within the element
+                const y = e.clientY - rect.top;  // y position within the element
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -4; // Max 4 deg rot
+                const rotateY = ((x - centerX) / centerX) * 4;
+                
+                popupContainer.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            popupContainer.addEventListener('mouseleave', () => {
+                popupContainer.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+                popupContainer.style.transition = 'transform 0.5s ease';
+            });
+            
+            popupContainer.addEventListener('mouseenter', () => {
+                popupContainer.style.transition = 'none'; // remove transition for smooth follow
+            });
+
+            // Form Submit Logic
+            requestForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                if (!validateStep(currentStep)) {
+                    // Shake container to indicate error
+                    popupContainer.style.transform = 'translateX(-10px)';
+                    setTimeout(() => popupContainer.style.transform = 'translateX(10px)', 50);
+                    setTimeout(() => popupContainer.style.transform = 'translateX(-5px)', 100);
+                    setTimeout(() => popupContainer.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)', 150);
+                    return;
+                }
+
+                // Add ripple
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple-effect');
+                // Center of button
+                ripple.style.left = `50%`;
+                ripple.style.top = `50%`;
+                ripple.style.width = `200px`;
+                ripple.style.height = `200px`;
+                ripple.style.marginLeft = `-100px`;
+                ripple.style.marginTop = `-100px`;
+                submitBtn.appendChild(ripple);
+
+                // Simulate API call and success state
+                submitBtn.style.pointerEvents = 'none';
+                
+                // Change to loading text
+                const textSpan = submitBtn.querySelector('.btn-text-content span');
+                const baseLang = localStorage.getItem('node-lang') || 'en';
+                if (textSpan) textSpan.textContent = translations['popup_btn_sending'] ? translations['popup_btn_sending'][baseLang] : 'Sending...';
+
+                setTimeout(() => {
+                    submitBtn.classList.add('success');
+                    const sentText = translations['popup_btn_sent'] ? translations['popup_btn_sent'][baseLang] : 'Request Sent!';
+                    submitBtn.innerHTML = `
+                        <span class="btn-text-content">
+                            <span>${sentText}</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </span>
+                    `;
+                    
+                    // Close popup after a short delay so user sees success
+                    setTimeout(() => {
+                        closePopup();
+                        setTimeout(() => {
+                            submitBtn.style.pointerEvents = 'all';
+                        }, 500);
+                    }, 1500);
+
+                }, 1000);
+                
+                // clean up ripple
+                setTimeout(() => {
+                    if (ripple.parentNode) ripple.remove();
+                }, 600);
+            });
+
+            // Handle language change events to re-render dynamic items proactively
+            window.addEventListener('languageChanged', (e) => {
+                const baseLang = e.detail.lang || 'en';
+                
+                // Update dynamic chips / dropdown
+                renderChips();
+                if (serviceSelect.value) {
+                    populateIssues(serviceSelect.value);
+                }
+                
+                // Update detect logic placeholder if it failed previously
+                if (reqLocation.placeholder !== " ") {
+                    reqLocation.placeholder = translations['popup_loc_manual'] ? translations['popup_loc_manual'][baseLang] : "Enter your location manually";
+                }
+                
+                // Refresh button text safely if closed
+                if (!submitBtn.classList.contains('success') && submitBtn.style.pointerEvents !== 'none') {
+                    const textSpan = submitBtn.querySelector('.btn-text-content span');
+                    if(textSpan) textSpan.textContent = translations['popup_btn_send'] ? translations['popup_btn_send'][baseLang] : 'Send Request';
+                }
+            });
+    </script>
+  </body>
+</html>

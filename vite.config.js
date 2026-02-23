@@ -6,10 +6,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        services: resolve(__dirname, 'services.html'),
-        service: resolve(__dirname, 'service.html'),
-        requestService: resolve(__dirname, 'request-service.html'),
+        services: resolve(__dirname, 'src/pages/services.html'),
       },
     },
   },
 });
+
