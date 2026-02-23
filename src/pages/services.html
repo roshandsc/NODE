@@ -538,10 +538,12 @@
         /* Smart Dropdown */
         .smart-dropdown-wrapper {
             position: relative;
+            width: 100%;
         }
 
         .custom-select-trigger {
             min-height: 54px;
+            width: 100%;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -701,17 +703,7 @@
             transform: scale(1);
         }
 
-        .custom-issue-input {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.4s ease;
-            margin-top: 0;
-        }
 
-        .custom-issue-input.visible {
-            max-height: 100px;
-            margin-top: 12px;
-        }
 
         .inline-error {
             color: #ff4d4f;
@@ -1297,10 +1289,7 @@
                             </div>
                             <div class="inline-error" id="issueError" data-i18n="popup_err_issues">Please select at least one issue</div>
                             
-                            <div class="custom-issue-input" id="customIssueWrapper">
-                                <textarea id="reqCustomIssue" placeholder=" "></textarea>
-                                <label for="reqCustomIssue" data-i18n="popup_lbl_custom_issue">Describe your custom issue</label>
-                            </div>
+
                         </div>
                     </div>
 
@@ -1384,8 +1373,6 @@
             const reqIssueTrigger = document.getElementById('reqIssueTrigger');
             const reqIssueList = document.getElementById('reqIssueList');
             const issueChipsContainer = document.getElementById('issueChipsContainer');
-            const customIssueWrapper = document.getElementById('customIssueWrapper');
-            const reqCustomIssue = document.getElementById('reqCustomIssue');
 
             // Stepper Variables
             let currentStep = 1;
@@ -1480,16 +1467,7 @@
                 const fg = reqIssueTrigger.closest('.premium-form-group');
                 if (fg) fg.classList.remove('has-error');
                 
-                if (selectedIssues.includes('issue_other')) {
-                    customIssueWrapper.classList.add('visible');
-                    reqCustomIssue.setAttribute('required', 'true');
-                    // Focus custom text area
-                    setTimeout(() => { if(document.activeElement !== reqCustomIssue) reqCustomIssue.focus(); }, 100);
-                } else {
-                    customIssueWrapper.classList.remove('visible');
-                    reqCustomIssue.removeAttribute('required');
-                    setTimeout(() => reqCustomIssue.value = '', 400); // clear after animation
-                }
+
             }
 
             function removeIssue(issueText, e) {
@@ -1505,12 +1483,7 @@
                         }
                     });
 
-                    // Hide custom text box if "Other" gets removed
-                    if (!selectedIssues.includes('issue_other')) {
-                        customIssueWrapper.classList.remove('visible');
-                        reqCustomIssue.removeAttribute('required');
-                        reqCustomIssue.value = '';
-                    }
+
                 }
             }
 
@@ -1629,8 +1602,6 @@
                     // Reset custom issue text 
                     selectedIssues = [];
                     renderChips();
-                    customIssueWrapper.classList.remove('visible');
-                    reqCustomIssue.value = '';
 
                     // Prompt reset 
                     if (!reqLocation.value) {
@@ -1669,8 +1640,6 @@
                 selectedIssues = [];
                 renderChips();
                 populateIssues(e.target.value);
-                customIssueWrapper.classList.remove('visible');
-                reqCustomIssue.value = '';
                 
                 e.target.closest('.premium-form-group').classList.remove('has-error');
             });
@@ -1743,11 +1712,6 @@
                     const issueFg = reqIssueTrigger.closest('.premium-form-group');
                     if (selectedIssues.length === 0) {
                         issueFg.classList.add('has-error');
-                        isValid = false;
-                    } else if (selectedIssues.includes('issue_other') && !reqCustomIssue.value.trim()) {
-                        issueFg.classList.add('has-error');
-                        const baseLang = localStorage.getItem('node-lang') || 'en';
-                        document.getElementById('issueError').textContent = translations['popup_err_issues'] ? translations['popup_err_issues'][baseLang] : 'Please describe your custom issue';
                         isValid = false;
                     }
                 }
