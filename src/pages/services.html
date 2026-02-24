@@ -1300,7 +1300,7 @@
                                 <input type="date" id="reqDate" required style="color-scheme: dark;" />
                                 <!-- Keep styling inline for quick layout -->
                                 <label for="reqDate" data-i18n="popup_lbl_date" style="background:#141414; padding: 0 6px; left:12px; top:-10px; font-size:12px; color:rgba(212, 175, 55, 0.9); border-radius:4px;">Date</label>
-                                <div class="inline-error" data-i18n="popup_err_date">Please select a date</div>
+                                <div class="inline-error" id="dateError" data-i18n="popup_err_date">Please select a date</div>
                             </div>
                             <div class="premium-form-group">
                                 <select id="reqTime" required>
@@ -1384,6 +1384,16 @@
             const btnStepBack = document.getElementById('btnStepBack');
             const reqTime = document.getElementById('reqTime');
             const reqDate = document.getElementById('reqDate');
+
+            // Set minimum date to today dynamically
+            const setMinDate = () => {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                reqDate.min = `${year}-${month}-${day}`;
+            };
+            setMinDate();
 
             let selectedIssues = []; // Track selected issues
 
@@ -1718,8 +1728,17 @@
 
                 if (step === 4) {
                     const dateFg = reqDate.closest('.premium-form-group');
+                    const errEl = document.getElementById('dateError');
+                    const baseLang = localStorage.getItem('node-lang') || 'en';
+                    
                     if (!reqDate.value) {
                         dateFg.classList.add('has-error');
+                        if (errEl) errEl.textContent = translations['popup_err_date'] ? translations['popup_err_date'][baseLang] : 'Please select a date';
+                        isValid = false;
+                    } else if (reqDate.value < reqDate.min) {
+                        // Compare YYYY-MM-DD strings directly. Any requested date before today is invalid.
+                        dateFg.classList.add('has-error');
+                        if (errEl) errEl.textContent = translations['popup_err_date_past'] ? translations['popup_err_date_past'][baseLang] : 'Please select a valid date (today or a future date only)';
                         isValid = false;
                     }
 

@@ -849,6 +849,11 @@ export const translations = {
         "hi": "कृपया एक तारीख चुनें",
         "kn": "ದಯವಿಟ್ಟು ದಿನಾಂಕವನ್ನು ಆಯ್ಕೆಮಾಡಿ"
     },
+    "popup_err_date_past": {
+        "en": "Please select a valid date (today or a future date only)",
+        "hi": "कृपया एक मान्य तिथि चुनें (केवल आज या भविष्य की तिथि)",
+        "kn": "ದಯವಿಟ್ಟು ಮಾನ್ಯವಾದ ದಿನಾಂಕವನ್ನು ಆಯ್ಕೆಮಾಡಿ (ಇಂದು ಅಥವಾ ಭವಿಷ್ಯದ ದಿನಾಂಕ ಮಾತ್ರ)"
+    },
     "popup_lbl_time": {
         "en": "Time Slot",
         "hi": "समय स्लॉट",
