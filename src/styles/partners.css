@@ -39,29 +39,7 @@
 .clear-bg { background-color: transparent; }
 .full-width { grid-column: 1 / -1; }
 
-/* Buttons */
-.partners-page .btn-primary {
-  background-color: var(--partner-primary);
-  color: #fff;
-  padding: 14px 32px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 500;
-  display: inline-block;
-  transition: background-color 0.2s ease-out;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.partners-page .btn-primary:hover {
-  background-color: var(--partner-secondary);
-}
-
-.partners-page .btn-large {
-  font-size: 1.125rem;
-  padding: 16px 40px;
-}
+/* Buttons are now handled entirely by the global .btn and .btn-primary utility classes in style.css */
 
 /* Animation System (STRICT: Fade In, Upward, 150-250ms Ease-Out) */
 .animate-on-scroll {
@@ -116,14 +94,15 @@
 .feature-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  padding: 40px 30px;
-  border-radius: 8px;
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.3s ease, border-color 0.3s ease;
+  padding: 32px 24px;
+  border-radius: 20px; /* Aligned with service nodes */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03); /* Aligned with global shadow */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .feature-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); /* very subtle */
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08); /* Global hover shadow */
 }
 
 .feature-card h3 {
@@ -200,8 +179,8 @@
   margin: 0 auto;
   background: var(--bg-card);
   padding: 60px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
   border: 1px solid var(--border-subtle);
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
@@ -236,9 +215,9 @@
   margin: 0 auto;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
+  border-radius: 20px;
   padding: 60px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -269,13 +248,13 @@
 .form-group input, 
 .form-group select, 
 .form-group textarea {
-  padding: 14px 16px;
+  padding: 16px;
   border: 1px solid var(--border-subtle);
-  border-radius: 6px;
+  border-radius: 12px;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 15px;
   color: var(--input-text);
-  background-color: var(--input-bg);
+  background-color: var(--bg-secondary);
   transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -283,8 +262,9 @@
 .form-group select:focus, 
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--partner-secondary);
-  box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
+  background-color: var(--bg-main);
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
 }
 
 /* Inline Error Styling mimicking the popup format */
@@ -311,7 +291,7 @@
   margin-top: 16px;
   background-color: var(--bg-secondary);
   padding: 24px;
-  border-radius: 6px;
+  border-radius: 12px;
   border: 1px solid var(--border-subtle);
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
@@ -342,23 +322,15 @@
 /* 7. Final CTA */
 .partner-cta {
   padding: 100px 20px;
-  background-color: var(--partner-primary);
-  color: #fff;
+  background-color: var(--bg-secondary); /* Match trust strip */
+  color: var(--text-main);
 }
 
 .partner-cta h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
-  color: #fff;
-}
-
-.partner-cta .btn-primary {
-  background-color: #fff;
-  color: var(--partner-primary);
-}
-
-.partner-cta .btn-primary:hover {
-  background-color: var(--bg-secondary);
+  color: var(--text-main);
+  margin-bottom: 24px;
 }
 
 /* Responsive adjustments */
