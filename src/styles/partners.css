@@ -22,7 +22,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
   font-weight: 600;
-  color: var(--partner-primary);
+  color: var(--text-main);
   margin-bottom: 2rem;
 }
 
@@ -86,7 +86,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 4rem;
   font-weight: 700;
-  color: var(--partner-primary);
+  color: var(--text-main);
   margin-bottom: 1rem;
 }
 
@@ -129,7 +129,7 @@
 .feature-card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
-  color: var(--partner-primary);
+  color: var(--text-main);
   margin-bottom: 12px;
 }
 
