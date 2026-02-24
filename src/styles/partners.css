@@ -4,20 +4,17 @@
 @import url('./style.css'); /* Inherit base fonts, variables, and resets */
 
 :root {
-  --partner-primary: #1A365D; /* Deep authoritative blue */
+  --partner-primary: var(--accent-color, #0044cc); /* Keep authoritative blue, map to global accent */
   --partner-secondary: #2B6CB0;
-  --partner-bg-soft: #F7FAFC; /* Soft clean grey */
-  --partner-bg-lighter: #EDF2F7;
-  --text-dark: #1A202C;
-  --text-muted: #4A5568;
   --animation-curve: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* Ensure body override for partners page */
 .partners-page {
-  background-color: #FFFFFF;
-  color: var(--text-dark);
+  background-color: var(--bg-main);
+  color: var(--text-main);
   font-family: 'Outfit', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Typography Overrides */
@@ -31,14 +28,14 @@
 
 .partners-page .section-subtitle {
   font-size: 1.25rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   margin-bottom: 3rem;
 }
 
 /* Utilities */
 .text-center { text-align: center; }
-.bg-light-grey { background-color: var(--partner-bg-lighter); padding: 80px 0; }
-.bg-soft-grey { background-color: var(--partner-bg-soft); padding: 80px 0; }
+.bg-light-grey { background-color: var(--bg-tertiary); padding: 80px 0; transition: background-color 0.3s ease; }
+.bg-soft-grey { background-color: var(--bg-secondary); padding: 80px 0; transition: background-color 0.3s ease; }
 .clear-bg { background-color: transparent; }
 .full-width { grid-column: 1 / -1; }
 
@@ -81,7 +78,8 @@
 /* 1. Hero Section */
 .partner-hero {
   padding: 140px 20px 100px;
-  background: linear-gradient(180deg, rgba(247,250,252,0) 0%, rgba(247,250,252,0.6) 100%);
+  /* Very subtle gradient to bg-secondary */
+  background: linear-gradient(180deg, transparent 0%, var(--bg-secondary) 100%);
 }
 
 .partner-hero .hero-title {
@@ -94,7 +92,7 @@
 
 .partner-hero .hero-subtitle {
   font-size: 1.5rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   margin-bottom: 3rem;
   max-width: 600px;
   margin-left: auto;
@@ -116,17 +114,16 @@
 }
 
 .feature-card {
-  background: #fff;
-  border: 1px solid #E2E8F0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   padding: 40px 30px;
   border-radius: 8px;
-  /* Hover effect strictly minimal, no bouncing */
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .feature-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); /* very subtle */
 }
 
 .feature-card h3 {
@@ -137,7 +134,7 @@
 }
 
 .feature-card p {
-  color: var(--text-muted);
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -152,9 +149,10 @@
 
 .clean-list li {
   font-size: 1.125rem;
-  color: var(--text-dark);
+  color: var(--text-main);
   padding: 16px 0;
-  border-bottom: 1px solid #CBD5E0;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .clean-list li:last-child {
@@ -192,7 +190,7 @@
 .timeline-step h3 {
   font-size: 1.25rem;
   font-weight: 500;
-  color: var(--text-dark);
+  color: var(--text-main);
   margin: 0;
 }
 
@@ -200,11 +198,12 @@
 .standards-box {
   max-width: 800px;
   margin: 0 auto;
-  background: #fff;
+  background: var(--bg-card);
   padding: 60px;
   border-radius: 12px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  border: 1px solid #E2E8F0;
+  border: 1px solid var(--border-subtle);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .standards-list {
@@ -215,29 +214,32 @@
 }
 
 .std-chip {
-  background: var(--partner-bg-soft);
-  color: var(--partner-primary);
+  background: var(--bg-tertiary);
+  color: var(--text-main);
   padding: 10px 20px;
   border-radius: 30px;
   font-weight: 500;
   font-size: 0.95rem;
-  border: 1px solid #E2E8F0;
+  border: 1px solid var(--border-subtle);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 /* 6. Form */
 .partner-form-section {
   padding: 100px 20px;
-  background-color: #fff;
+  background-color: var(--bg-main);
+  transition: background-color 0.3s ease;
 }
 
 .form-card {
   max-width: 800px;
   margin: 0 auto;
-  background: #fff;
-  border: 1px solid #E2E8F0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
   padding: 60px;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .structured-form {
@@ -268,13 +270,13 @@
 .form-group select, 
 .form-group textarea {
   padding: 14px 16px;
-  border: 1px solid #CBD5E0;
+  border: 1px solid var(--border-subtle);
   border-radius: 6px;
   font-family: inherit;
   font-size: 1rem;
-  color: var(--text-dark);
-  background-color: #fff;
-  transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+  color: var(--input-text);
+  background-color: var(--input-bg);
+  transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.3s ease, color 0.3s ease;
 }
 
 .form-group input:focus, 
@@ -285,15 +287,33 @@
   box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
 }
 
+/* Inline Error Styling mimicking the popup format */
+.inline-error {
+    color: #ff4d4f;
+    font-size: 12px;
+    margin-top: 4px;
+    display: none;
+}
+.premium-group.has-error input,
+.premium-group.has-error select,
+.premium-group.has-error textarea {
+    border-color: #ff4d4f;
+    box-shadow: 0 0 0 1px rgba(255, 77, 79, 0.2);
+}
+.premium-group.has-error .inline-error {
+    display: block;
+}
+
 .form-checkboxes {
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin-top: 16px;
-  background-color: var(--partner-bg-soft);
+  background-color: var(--bg-secondary);
   padding: 24px;
   border-radius: 6px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid var(--border-subtle);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .custom-checkbox {
@@ -305,13 +325,13 @@
 
 .custom-checkbox input {
   margin-top: 4px;
-  zoom: 1.2; /* Quick sizing for native checkbox */
+  zoom: 1.2;
   cursor: pointer;
 }
 
 .box-label {
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   line-height: 1.5;
 }
 
@@ -338,7 +358,7 @@
 }
 
 .partner-cta .btn-primary:hover {
-  background-color: var(--partner-bg-soft);
+  background-color: var(--bg-secondary);
 }
 
 /* Responsive adjustments */

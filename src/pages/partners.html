@@ -49,29 +49,213 @@
             document.querySelectorAll('.animate-on-scroll').forEach((el) => {
                 observer.observe(el);
             });
+
+            // Form Validation Logic
+            const form = document.getElementById('applicationForm');
+            
+            const showError = (fieldId, errorKey) => {
+                const group = document.getElementById(`group-${fieldId}`);
+                const errorSpan = document.getElementById(`err-${fieldId}`);
+                if (group && errorSpan) {
+                    group.classList.add('has-error');
+                    errorSpan.textContent = translations[errorKey] ? translations[errorKey][currentLang] : 'Required field.';
+                }
+            };
+
+            const clearErrors = () => {
+                document.querySelectorAll('.premium-group').forEach(group => group.classList.remove('has-error'));
+                document.querySelectorAll('.inline-error').forEach(span => span.textContent = '');
+            };
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    clearErrors();
+                    let isValid = true;
+
+                    // Text inputs
+                    const textFields = [
+                        { id: 'bizName', key: 'err_req_bizName' },
+                        { id: 'contactPerson', key: 'err_req_contactPerson' },
+                        { id: 'opArea', key: 'err_req_opArea' },
+                        { id: 'shortDesc', key: 'err_req_shortDesc' }
+                    ];
+
+                    textFields.forEach(field => {
+                        const input = document.getElementById(field.id);
+                        if (!input.value.trim()) {
+                            showError(field.id, field.key);
+                            isValid = false;
+                        }
+                    });
+
+                    // Phone Validation (10 digits)
+                    const phone = document.getElementById('phoneNum');
+                    const phoneRegex = /^[0-9]{10}$/;
+                    if (!phoneRegex.test(phone.value.trim())) {
+                        showError('phoneNum', 'err_req_phoneNum');
+                        isValid = false;
+                    }
+
+                    // Select Validation
+                    const serviceType = document.getElementById('serviceType');
+                    if (!serviceType.value) {
+                        showError('serviceType', 'err_req_serviceType');
+                        isValid = false;
+                    }
+
+                    // Number Validation (Min 1)
+                    const teamSize = document.getElementById('teamSize');
+                    if (!teamSize.value || parseInt(teamSize.value, 10) < 1) {
+                        showError('teamSize', 'err_req_teamSize');
+                        isValid = false;
+                    }
+
+                    // Checkboxes
+                    const chkStandards = document.getElementById('chkStandards');
+                    if (!chkStandards.checked) {
+                        showError('chkStandards', 'err_req_chkStandards');
+                        isValid = false;
+                    }
+
+                    const chkAssignment = document.getElementById('chkAssignment');
+                    if (!chkAssignment.checked) {
+                        showError('chkAssignment', 'err_req_chkAssignment');
+                        isValid = false;
+                    }
+
+                    if (isValid) {
+                        const submitBtn = document.getElementById('submitBtn');
+                        const originalText = submitBtn.textContent;
+                        submitBtn.textContent = 'Submitting...';
+                        submitBtn.disabled = true;
+
+                        setTimeout(() => {
+                            alert('Application submitted successfully! We will contact you soon.');
+                            form.reset();
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                        }, 1000);
+                    }
+                });
+            }
         });
     </script>
 </head>
 <body>
+    <!-- Full-screen Premium Loader (Matches Index) -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <h1 id="greeting-text" class="greeting-text">Hi</h1>
+        </div>
+    </div>
 
-    <!-- Minimal Clean Header -->
-    <header class="app-header">
-        <div class="header-container">
-            <a href="/index.html" class="logo-link">
-                <span class="logo">NODE</span>
+    <!-- Match Exact Header from index.html -->
+    <header class="header">
+      <div class="header-container">
+        
+        <!-- 1. LEFT: Brand Anchor & Language -->
+        <div class="brand-group">
+            <a href="/" class="brand-anchor">
+              <img src="/logo.png" alt="NODE" class="brand-logo" />
             </a>
-            <nav class="primary-nav">
-                <a href="/src/pages/services.html" class="nav-item" data-i18n="nav_services">Services</a>
-                <a href="/index.html#how-it-works" class="nav-item" data-i18n="nav_how_it_works">How It Works</a>
-                <a href="/src/pages/partners.html" class="nav-item active" data-i18n="nav_professionals">Partners</a>
-            </nav>
-             <div class="header-right">
-                <a href="/src/pages/services.html" class="btn-primary" style="padding: 10px 20px; font-size: 14px;" data-i18n="nav_services">Explore Services</a>
+            
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="lang-btn" aria-label="Select Language">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <span class="lang-current">EN</span>
+                </button>
+                <div class="lang-dropdown">
+                    <button class="lang-option active" data-lang="en">English</button>
+                    <button class="lang-option" data-lang="hi">Hindi (हिंदी)</button>
+                    <button class="lang-option" data-lang="kn">Kannada (ಕನ್ನಡ)</button>
+                </div>
             </div>
         </div>
-    </header>
 
-    <main class="partners-page">
+        <!-- 2. CENTER-LEFT: Primary Navigation -->
+        <nav class="primary-nav">
+          <a href="/src/pages/services.html" class="nav-item" data-i18n="nav_services">Services</a>
+          <a href="/index.html#how-it-works" class="nav-item" data-i18n="nav_how_it_works">How It Works</a>
+          <a href="/src/pages/partners.html" class="nav-item active" data-i18n="nav_professionals">Partners</a>
+        </nav>
+
+        <!-- 3. CENTER: Location Selector -->
+        <div class="location-selector">
+          <span class="location-icon">📍</span>
+          <span class="location-text" data-i18n="location_bangalore">Bengaluru, KA</span>
+          <span class="location-arrow">▼</span>
+        </div>
+
+        <!-- 4. CENTER-RIGHT: Search Bar -->
+        <div class="search-bar">
+          <div class="search-input-wrapper">
+             <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+             </svg>
+            <input type="text" placeholder="Find a trusted professional near you" class="search-input" data-i18n="search_placeholder" />
+          </div>
+        </div>
+
+        <!-- 5. RIGHT: Utility Icon -->
+        <div class="utility-icon">
+            <a href="#" class="profile-link" aria-label="Profile">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </a>
+            
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" aria-label="Toggle Dark Mode">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            
+            <!-- Hamburger Menu (Mobile/Tablet) -->
+            <button class="hamburger-menu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+      </div>
+    </header>
+    
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-overlay"></div>
+    <div class="mobile-nav-drawer">
+        <nav class="mobile-nav">
+            <a href="/src/pages/services.html" class="mobile-nav-item" data-i18n="nav_services">Services</a>
+            <a href="/index.html#how-it-works" class="mobile-nav-item" data-i18n="nav_how_it_works">How It Works</a>
+            <a href="/src/pages/partners.html" class="mobile-nav-item" data-i18n="nav_professionals">Partners</a>
+            <!-- Mobile Location Selector -->
+            <div class="mobile-location">
+                <span>📍 <span data-i18n="location_bangalore">Bengaluru, KA</span></span>
+            </div>
+        </nav>
+    </div>
+
+    <main class="partners-page" id="app">
         <!-- 1. Hero Section -->
         <section class="partner-hero animate-on-scroll">
             <div class="container text-center">
@@ -164,25 +348,28 @@
                 <div class="form-card animate-on-scroll">
                     <h2 class="section-title text-center" data-i18n="partners_form_title" style="margin-bottom: 32px;">Partner Application</h2>
                     
-                    <form class="structured-form" id="applicationForm" onsubmit="event.preventDefault(); alert('Application submitted! We will contact you soon.'); this.reset();">
+                    <form class="structured-form" id="applicationForm" novalidate>
                         
                         <div class="form-row">
-                            <div class="form-group">
+                            <div class="form-group premium-group" id="group-bizName">
                                 <label for="bizName" data-i18n="partners_lbl_bizname">Business/Firm Name</label>
                                 <input type="text" id="bizName" required>
+                                <span class="inline-error" id="err-bizName"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group premium-group" id="group-contactPerson">
                                 <label for="contactPerson" data-i18n="partners_lbl_contact">Contact Person</label>
                                 <input type="text" id="contactPerson" required>
+                                <span class="inline-error" id="err-contactPerson"></span>
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group">
+                            <div class="form-group premium-group" id="group-phoneNum">
                                 <label for="phoneNum" data-i18n="partners_lbl_phone">Phone Number</label>
                                 <input type="tel" id="phoneNum" required>
+                                <span class="inline-error" id="err-phoneNum"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group premium-group" id="group-serviceType">
                                 <label for="serviceType" data-i18n="partners_lbl_service">Primary Service Type</label>
                                 <select id="serviceType" required>
                                     <option value="" disabled selected>Select Service...</option>
@@ -193,40 +380,50 @@
                                     <option value="cleaning">Domestic Help & Cleaning</option>
                                     <option value="other">Other</option>
                                 </select>
+                                <span class="inline-error" id="err-serviceType"></span>
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group">
+                            <div class="form-group premium-group" id="group-teamSize">
                                 <label for="teamSize" data-i18n="partners_lbl_team">Team Size</label>
                                 <input type="number" id="teamSize" min="1" max="100" placeholder="e.g. 5" required>
+                                <span class="inline-error" id="err-teamSize"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group premium-group" id="group-opArea">
                                 <label for="opArea" data-i18n="partners_lbl_area">Primary Area of Operation (City/Region)</label>
                                 <input type="text" id="opArea" required>
+                                <span class="inline-error" id="err-opArea"></span>
                             </div>
                         </div>
 
-                        <div class="form-group full-width">
+                        <div class="form-group premium-group full-width" id="group-shortDesc">
                             <label for="shortDesc" data-i18n="partners_lbl_desc">Short Description of Experience</label>
                             <textarea id="shortDesc" rows="3" required></textarea>
+                            <span class="inline-error" id="err-shortDesc"></span>
                         </div>
 
                         <div class="form-checkboxes">
-                            <label class="custom-checkbox">
-                                <input type="checkbox" required>
-                                <span class="checkmark"></span>
-                                <span class="box-label" data-i18n="partners_chk_standards">I agree to maintain NODE's professional standards of conduct and quality.</span>
-                            </label>
-                            <label class="custom-checkbox">
-                                <input type="checkbox" required>
-                                <span class="checkmark"></span>
-                                <span class="box-label" data-i18n="partners_chk_assignment">I understand NODE assigns work based on quality metrics and availability.</span>
-                            </label>
+                            <div class="premium-group" id="group-chkStandards">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" id="chkStandards" required>
+                                    <span class="checkmark"></span>
+                                    <span class="box-label" data-i18n="partners_chk_standards">I agree to maintain NODE's professional standards of conduct and quality.</span>
+                                </label>
+                                <span class="inline-error" id="err-chkStandards" style="margin-top: 8px;"></span>
+                            </div>
+                            <div class="premium-group" id="group-chkAssignment" style="margin-top: 12px;">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" id="chkAssignment" required>
+                                    <span class="checkmark"></span>
+                                    <span class="box-label" data-i18n="partners_chk_assignment">I understand NODE assigns work based on quality metrics and availability.</span>
+                                </label>
+                                <span class="inline-error" id="err-chkAssignment" style="margin-top: 8px;"></span>
+                            </div>
                         </div>
 
                         <div class="form-submit text-center">
-                            <button type="submit" class="btn-primary form-btn" data-i18n="partners_btn_submit">Submit Application</button>
+                            <button type="submit" class="btn-primary form-btn" id="submitBtn" data-i18n="partners_btn_submit">Submit Application</button>
                         </div>
                     </form>
                 </div>
@@ -247,5 +444,6 @@
              <p style="color: var(--text-tertiary); font-size: 13px;">© 2026 NODE Industries. Trust. Structure. Professionalism.</p>
         </div>
     </footer>
+    <script type="module" src="/src/main.js"></script>
 </body>
 </html>

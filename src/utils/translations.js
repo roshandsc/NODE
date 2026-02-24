@@ -11,9 +11,9 @@ export const translations = {
         "kn": "ಇದು ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ"
     },
     "nav_professionals": {
-        "en": "For Professionals",
-        "hi": "पेशेवरों के लिए",
-        "kn": "ವೃತ್ತಿಪರರಿಗಾಗಿ"
+        "en": "Partners",
+        "hi": "भागीदार",
+        "kn": "ಪಾಲುದಾರರು"
     },
     "location_bangalore": {
         "en": "Bengaluru, KA",
@@ -1131,5 +1131,51 @@ export const translations = {
         "en": "Ready to grow with structure?",
         "hi": "संरचना के साथ बढ़ने के लिए तैयार हैं?",
         "kn": "ರಚನೆಯೊಂದಿಗೆ ಬೆಳೆಯಲು ಸಿದ್ಧರಿದ್ದೀರಾ?"
+    },
+    // Pattern Matching Error Keys
+    "err_req_bizName": {
+        "en": "Please enter your business/firm name.",
+        "hi": "कृपया अपना व्यवसाय/फर्म नाम दर्ज करें।",
+        "kn": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ವ್ಯಾಪಾರ/ಸಂಸ್ಥೆಯ ಹೆಸರನ್ನು ನಮೂದಿಸಿ."
+    },
+    "err_req_contactPerson": {
+        "en": "Please enter a contact person.",
+        "hi": "कृपया एक संपर्क व्यक्ति दर्ज करें।",
+        "kn": "ದಯವಿಟ್ಟು ಸಂಪರ್ಕ ವ್ಯಕ್ತಿಯನ್ನು ನಮೂದಿಸಿ."
+    },
+    "err_req_phoneNum": {
+        "en": "Please enter a valid 10-digit phone number.",
+        "hi": "कृपया एक वैध 10-अंकीय फोन नंबर दर्ज करें।",
+        "kn": "ದಯವಿಟ್ಟು ಮಾನ್ಯವಾದ 10-ಅಂಕಿಯ ಫೋನ್ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ."
+    },
+    "err_req_serviceType": {
+        "en": "Please select a primary service type.",
+        "hi": "कृपया एक प्राथमिक सेवा प्रकार चुनें।",
+        "kn": "ದಯವಿಟ್ಟು ಪ್ರಾಥಮಿಕ ಸೇವಾ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ."
+    },
+    "err_req_teamSize": {
+        "en": "Please enter a valid team size (minimum 1).",
+        "hi": "कृपया एक वैध टीम आकार दर्ज करें (न्यूनतम 1)।",
+        "kn": "ದಯವಿಟ್ಟು ಮಾನ್ಯವಾದ ತಂಡದ ಗಾತ್ರವನ್ನು ನಮೂದಿಸಿ (ಕನಿಷ್ಠ 1)."
+    },
+    "err_req_opArea": {
+        "en": "Please enter your primary area of operation.",
+        "hi": "कृपया अपने संचालन का प्राथमिक क्षेत्र दर्ज करें।",
+        "kn": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಆದ್ಯತೆಯ ಕಾರ್ಯಾಚರಣೆಯ ಪ್ರದೇಶವನ್ನು ನಮೂದಿಸಿ."
+    },
+    "err_req_shortDesc": {
+        "en": "Please provide a short description of your experience.",
+        "hi": "कृपया अपने अनुभव का संक्षिप्त विवरण प्रदान करें।",
+        "kn": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಅನುಭವದ ಸಂಕ್ಷಿಪ್ತ ವಿವರಣೆಯನ್ನು ಒದಗಿಸಿ."
+    },
+    "err_req_chkStandards": {
+        "en": "You must agree to maintain NODE's standards to proceed.",
+        "hi": "आगे बढ़ने के लिए आपको NODE के मानकों को बनाए रखने के लिए सहमत होना होगा।",
+        "kn": "ಮುಂದುವರೆಯಲು ನೀವು NODE ನ ಮಾನದಂಡಗಳನ್ನು ಕಾಪಾಡಿಕೊಳ್ಳಲು ಒಪ್ಪಿಕೊಳ್ಳಬೇಕು."
+    },
+    "err_req_chkAssignment": {
+        "en": "You must understand how work is assigned to proceed.",
+        "hi": "आगे बढ़ने के लिए आपको यह समझना होगा कि काम कैसे सौंपा जाता है।",
+        "kn": "ಮುಂದುವರೆಯಲು ಕೆಲಸವನ್ನು ಹೇಗೆ ನಿಯೋಜಿಸಲಾಗಿದೆ ಎಂಬುದನ್ನು ನೀವು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಬೇಕು."
     }
 };
