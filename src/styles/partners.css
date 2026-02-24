@@ -1,0 +1,358 @@
+/* partners.css - Premium, Calm, Structured styles for NODE Partners */
+
+/* --- Variables & Imports --- */
+@import url('./style.css'); /* Inherit base fonts, variables, and resets */
+
+:root {
+  --partner-primary: #1A365D; /* Deep authoritative blue */
+  --partner-secondary: #2B6CB0;
+  --partner-bg-soft: #F7FAFC; /* Soft clean grey */
+  --partner-bg-lighter: #EDF2F7;
+  --text-dark: #1A202C;
+  --text-muted: #4A5568;
+  --animation-curve: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Ensure body override for partners page */
+.partners-page {
+  background-color: #FFFFFF;
+  color: var(--text-dark);
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Typography Overrides */
+.partners-page .section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--partner-primary);
+  margin-bottom: 2rem;
+}
+
+.partners-page .section-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.bg-light-grey { background-color: var(--partner-bg-lighter); padding: 80px 0; }
+.bg-soft-grey { background-color: var(--partner-bg-soft); padding: 80px 0; }
+.clear-bg { background-color: transparent; }
+.full-width { grid-column: 1 / -1; }
+
+/* Buttons */
+.partners-page .btn-primary {
+  background-color: var(--partner-primary);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  transition: background-color 0.2s ease-out;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.partners-page .btn-primary:hover {
+  background-color: var(--partner-secondary);
+}
+
+.partners-page .btn-large {
+  font-size: 1.125rem;
+  padding: 16px 40px;
+}
+
+/* Animation System (STRICT: Fade In, Upward, 150-250ms Ease-Out) */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 250ms ease-out, transform 250ms ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 1. Hero Section */
+.partner-hero {
+  padding: 140px 20px 100px;
+  background: linear-gradient(180deg, rgba(247,250,252,0) 0%, rgba(247,250,252,0.6) 100%);
+}
+
+.partner-hero .hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--partner-primary);
+  margin-bottom: 1rem;
+}
+
+.partner-hero .hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+}
+
+/* 2. Why Partner (Grid) */
+.partner-why {
+  padding: 80px 20px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  padding: 40px 30px;
+  border-radius: 8px;
+  /* Hover effect strictly minimal, no bouncing */
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--partner-primary);
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* 3. Who This Is For */
+.clean-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 500px;
+  text-align: left;
+}
+
+.clean-list li {
+  font-size: 1.125rem;
+  color: var(--text-dark);
+  padding: 16px 0;
+  border-bottom: 1px solid #CBD5E0;
+}
+
+.clean-list li:last-child {
+  border-bottom: none;
+}
+
+/* 4. How It Works */
+.partner-how {
+  padding: 100px 20px;
+}
+
+.timeline-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.timeline-step {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.step-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--partner-secondary);
+  opacity: 0.3;
+  width: 60px;
+}
+
+.timeline-step h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+/* 5. Standards */
+.standards-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 60px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #E2E8F0;
+}
+
+.standards-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.std-chip {
+  background: var(--partner-bg-soft);
+  color: var(--partner-primary);
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 1px solid #E2E8F0;
+}
+
+/* 6. Form */
+.partner-form-section {
+  padding: 100px 20px;
+  background-color: #fff;
+}
+
+.form-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 60px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.structured-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--partner-primary);
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+  padding: 14px 16px;
+  border: 1px solid #CBD5E0;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-dark);
+  background-color: #fff;
+  transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--partner-secondary);
+  box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
+}
+
+.form-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+  background-color: var(--partner-bg-soft);
+  padding: 24px;
+  border-radius: 6px;
+  border: 1px solid #E2E8F0;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.custom-checkbox input {
+  margin-top: 4px;
+  zoom: 1.2; /* Quick sizing for native checkbox */
+  cursor: pointer;
+}
+
+.box-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.form-submit {
+  margin-top: 32px;
+}
+
+/* 7. Final CTA */
+.partner-cta {
+  padding: 100px 20px;
+  background-color: var(--partner-primary);
+  color: #fff;
+}
+
+.partner-cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.partner-cta .btn-primary {
+  background-color: #fff;
+  color: var(--partner-primary);
+}
+
+.partner-cta .btn-primary:hover {
+  background-color: var(--partner-bg-soft);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .partner-hero .hero-title {
+    font-size: 2.5rem;
+  }
+  .form-card {
+    padding: 30px;
+  }
+  .standards-box {
+    padding: 30px;
+  }
+}

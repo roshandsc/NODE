@@ -924,5 +924,212 @@ export const translations = {
     "issue_mech_batt": { "en": "Battery issue", "hi": "बैटरी की समस्या", "kn": "ಬ್ಯಾಟರಿ ಸಮಸ್ಯೆ" },
 
     "issue_other": { "en": "Other (describe below)", "hi": "अन्य (नीचे वर्णन करें)", "kn": "ಇತರೆ (ಕೆಳಗೆ ವಿವರಿಸಿ)" },
-    "issue_other_short": { "en": "Other", "hi": "अन्य", "kn": "ಇತರೆ" }
+    "issue_other_short": { "en": "Other", "hi": "अन्य", "kn": "ಇತರೆ" },
+
+    // --- Partners Page ---
+    "partners_hero_title": {
+        "en": "Work with NODE",
+        "hi": "NODE के साथ काम करें",
+        "kn": "NODE ಜೊತೆಗೆ ಕೆಲಸ ಮಾಡಿ"
+    },
+    "partners_hero_sub": {
+        "en": "Build consistent demand. Operate with structure. Deliver with professionalism.",
+        "hi": "निरंतर मांग बनाएँ। संरचना के साथ काम करें। व्यावसायिकता के साथ सेवाएं दें।",
+        "kn": "ಸ್ಥಿರ ಬೇಡಿಕೆಯನ್ನು ನಿರ್ಮಿಸಿ. ರಚನಾತ್ಮಕವಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸಿ. ವೃತ್ತಿಪರತೆಯೊಂದಿಗೆ ವಿತರಿಸಿ."
+    },
+    "partners_btn_cta": {
+        "en": "Become a Partner",
+        "hi": "साझेदार बनें",
+        "kn": "ಪಾಲುದಾರರಾಗಿ"
+    },
+    "partners_sec_why": {
+        "en": "Why Partner with NODE",
+        "hi": "NODE के साथ साझेदारी क्यों",
+        "kn": "NODE ಜೊತೆ ಪಾಲುದಾರಿಕೆ ಏಕೆ"
+    },
+    "partners_why_1_title": {
+        "en": "Consistent Work Flow",
+        "hi": "लगातार काम का प्रवाह",
+        "kn": "ಸ್ಥಿರ ಕೆಲಸದ ಹರಿವು"
+    },
+    "partners_why_1_desc": {
+        "en": "Get structured and reliable service requests",
+        "hi": "संरचित और विश्वसनीय सेवा अनुरोध प्राप्त करें",
+        "kn": "ರಚನಾತ್ಮಕ ಮತ್ತು ವಿಶ್ವಾಸಾರ್ಹ ಸೇವಾ ವಿನಂತಿಗಳನ್ನು ಪಡೆಯಿರಿ"
+    },
+    "partners_why_2_title": {
+        "en": "Professional Positioning",
+        "hi": "पेशेवर स्थिति",
+        "kn": "ವೃತ್ತಿಪರ ಸ್ಥಾನ"
+    },
+    "partners_why_2_desc": {
+        "en": "Work under a platform that values standards",
+        "hi": "एक ऐसे प्लेटफॉर्म के तहत काम करें जो मानकों को महत्व देता है",
+        "kn": "ಮಾನದಂಡಗಳನ್ನು ಮೌಲ್ಯೀಕರಿಸುವ ವೇದಿಕೆಯ ಅಡಿಯಲ್ಲಿ ಕೆಲಸ ಮಾಡಿ"
+    },
+    "partners_why_3_title": {
+        "en": "Clear Communication",
+        "hi": "स्पष्ट संचार",
+        "kn": "ಸ್ಪಷ್ಟ ಸಂವಹನ"
+    },
+    "partners_why_3_desc": {
+        "en": "Defined scope and expectations",
+        "hi": "पारिभाषित दायरा और अपेक्षाएं",
+        "kn": "ನಿರ್ದಿಷ್ಟ ವ್ಯಾಪ್ತಿ ಮತ್ತು ನಿರೀಕ್ಷೆಗಳು"
+    },
+    "partners_why_4_title": {
+        "en": "Growth with Structure",
+        "hi": "संरचना के साथ विकास",
+        "kn": "ರಚನೆಯೊಂದಿಗೆ ಬೆಳವಣಿಗೆ"
+    },
+    "partners_why_4_desc": {
+        "en": "Build long-term credibility and demand",
+        "hi": "दीर्घकालिक विश्वसनीयता और मांग का निर्माण करें",
+        "kn": "ದೀರ್ಘಕಾಲೀನ ವಿಶ್ವಾಸಾರ್ಹತೆ ಮತ್ತು ಬೇಡಿಕೆಯನ್ನು ನಿರ್ಮಿಸಿ"
+    },
+    "partners_sec_who": {
+        "en": "Who This Is For",
+        "hi": "यह किसके लिए है",
+        "kn": "ಇದು ಯಾರಿಗಾಗಿ"
+    },
+    "partners_who_sub": {
+        "en": "NODE partners with:",
+        "hi": "NODE इनके साथ साझेदारी करता है:",
+        "kn": "NODE ಇವರೊಂದಿಗೆ ಪಾಲುದಾರಿಕೆ ಮಾಡುತ್ತದೆ:"
+    },
+    "partners_who_1": {
+        "en": "Service firms",
+        "hi": "सेवा कंपनियाँ",
+        "kn": "ಸೇವಾ ಸಂಸ್ಥೆಗಳು"
+    },
+    "partners_who_2": {
+        "en": "Contractors",
+        "hi": "ठेकेदार",
+        "kn": "ಗುತ್ತಿಗೆದಾರರು"
+    },
+    "partners_who_3": {
+        "en": "Small teams (2–15 members)",
+        "hi": "छोटी टीमें (2-15 सदस्य)",
+        "kn": "ಸಣ್ಣ ತಂಡಗಳು (2–15 ಸದಸ್ಯರು)"
+    },
+    "partners_who_4": {
+        "en": "Skilled operators with consistent quality",
+        "hi": "लगातार गुणवत्ता वाले कुशल संचालक",
+        "kn": "ಸ್ಥಿರ ಗುಣಮಟ್ಟ ಹೊಂದಿರುವ ನುರಿತ ನಿರ್ವಾಹಕರು"
+    },
+    "partners_sec_how": {
+        "en": "How It Works",
+        "hi": "यह कैसे काम करता है",
+        "kn": "ಇದು ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ"
+    },
+    "partners_how_1": {
+        "en": "Apply to become a partner",
+        "hi": "साझेदार बनने के लिए आवेदन करें",
+        "kn": "ಪಾಲುದಾರರಾಗಲು ಅರ್ಜಿ ಸಲ್ಲಿಸಿ"
+    },
+    "partners_how_2": {
+        "en": "Get verified and onboarded",
+        "hi": "सत्यापित और ऑनबोर्ड हों",
+        "kn": "ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಆನ್‌ಬೋರ್ಡ್ ಆಗಿ"
+    },
+    "partners_how_3": {
+        "en": "Start receiving structured work requests",
+        "hi": "संरचित कार्य अनुरोध प्राप्त करना शुरू करें",
+        "kn": "ರಚನಾತ್ಮಕ ಕಾರ್ಯ ವಿನಂತಿಗಳನ್ನು ಸ್ವೀಕರಿಸಲು ಪ್ರಾರಂಭಿಸಿ"
+    },
+    "partners_sec_standards": {
+        "en": "Standards & Expectations",
+        "hi": "मानक और अपेक्षाएं",
+        "kn": "ಮಾನದಂಡಗಳು ಮತ್ತು ನಿರೀಕ್ಷೆಗಳು"
+    },
+    "partners_standards_sub": {
+        "en": "NODE maintains professional standards across all partners:",
+        "hi": "NODE सभी भागीदारों में पेशेवर मानकों को बनाए रखता है:",
+        "kn": "NODE ಎಲ್ಲಾ ಪಾಲುದಾರರಲ್ಲಿ ವೃತ್ತಿಪರ ಮಾನದಂಡಗಳನ್ನು ಕಾಯ್ದುಕೊಳ್ಳುತ್ತದೆ:"
+    },
+    "partners_std_1": {
+        "en": "Timely service",
+        "hi": "समय पर सेवा",
+        "kn": "ಸಕಾಲಿಕ ಸೇವೆ"
+    },
+    "partners_std_2": {
+        "en": "Respectful conduct",
+        "hi": "सम्मानजनक आचरण",
+        "kn": "ಗೌರವಾನ್ವಿತ ನಡವಳಿಕೆ"
+    },
+    "partners_std_3": {
+        "en": "Clean work execution",
+        "hi": "स्वच्छ कार्य निष्पादन",
+        "kn": "ಸ್ವಚ್ಛ ಕೆಲಸದ ನಿರ್ವಹಣೆ"
+    },
+    "partners_std_4": {
+        "en": "Clear communication",
+        "hi": "स्पष्ट संचार",
+        "kn": "ಸ್ಪಷ್ಟ ಸಂವಹನ"
+    },
+    "partners_std_5": {
+        "en": "Accountability for work",
+        "hi": "काम के लिए जवाबदेही",
+        "kn": "ಕೆಲಸಕ್ಕೆ ಹೊಣೆಗಾರಿಕೆ"
+    },
+    "partners_form_title": {
+        "en": "Partner Application",
+        "hi": "साझेदार आवेदन",
+        "kn": "ಪಾಲುದಾರರ ಅರ್ಜಿ"
+    },
+    "partners_lbl_bizname": {
+        "en": "Business/Firm Name",
+        "hi": "व्यवसाय/फर्म का नाम",
+        "kn": "ವ್ಯವಹಾರ/ಸಂಸ್ಥೆಯ ಹೆಸರು"
+    },
+    "partners_lbl_contact": {
+        "en": "Contact Person",
+        "hi": "संपर्क व्यक्ति",
+        "kn": "ಸಂಪರ್ಕ ವ್ಯಕ್ತಿ"
+    },
+    "partners_lbl_phone": {
+        "en": "Phone Number",
+        "hi": "फ़ोन नंबर",
+        "kn": "ದೂರವಾಣಿ ಸಂಖ್ಯೆ"
+    },
+    "partners_lbl_service": {
+        "en": "Primary Service Type",
+        "hi": "प्राथमिक सेवा प्रकार",
+        "kn": "ಪ್ರಾಥಮಿಕ ಸೇವಾ ಪ್ರಕಾರ"
+    },
+    "partners_lbl_team": {
+        "en": "Team Size",
+        "hi": "टीम का आकार",
+        "kn": "ತಂಡದ ಗಾತ್ರ"
+    },
+    "partners_lbl_area": {
+        "en": "Primary Area of Operation (City/Region)",
+        "hi": "संचालन का प्राथमिक क्षेत्र (शहर/क्षेत्र)",
+        "kn": "ಕಾರ್ಯಾಚರಣೆಯ ಪ್ರಾಥಮಿಕ ಪ್ರದೇಶ (ನಗರ/ಪ್ರದೇಶ)"
+    },
+    "partners_lbl_desc": {
+        "en": "Short Description of Experience",
+        "hi": "अनुभव का संक्षिप्त विवरण",
+        "kn": "ಅನುಭವದ ಸಂಕ್ಷಿಪ್ತ ವಿವರಣೆ"
+    },
+    "partners_chk_standards": {
+        "en": "I agree to maintain NODE's professional standards of conduct and quality.",
+        "hi": "मैं NODE के पेशेवर आचरण और गुणवत्ता के मानकों को बनाए रखने के लिए सहमत हूँ।",
+        "kn": "NODE ನ ವೃತ್ತಿಪರ ನಡಾವಳಿ ಮತ್ತು ಗುಣಮಟ್ಟದ ಮಾನದಂಡಗಳನ್ನು ಕಾಪಾಡಿಕೊಳ್ಳಲು ನಾನು ಒಪ್ಪುತ್ತೇನೆ."
+    },
+    "partners_chk_assignment": {
+        "en": "I understand NODE assigns work based on quality metrics and availability.",
+        "hi": "मैं समझता हूं कि NODE गुणवत्ता मेट्रिक्स और उपलब्धता के आधार पर काम सौंपता है।",
+        "kn": "ಗುಣಮಟ್ಟ ಮತ್ತು ಲಭ್ಯತೆಯ ಆಧಾರದ ಮೇಲೆ NODE ಕೆಲಸವನ್ನು ವಹಿಸುತ್ತದೆ ಎಂದು ನಾನು ಅರ್ಥಮಾಡಿಕೊಂಡಿದ್ದೇನೆ."
+    },
+    "partners_btn_submit": {
+        "en": "Submit Application",
+        "hi": "आवेदन जमा करें",
+        "kn": "ಅರ್ಜಿಯನ್ನು ಸಲ್ಲಿಸಿ"
+    },
+    "partners_final_cta": {
+        "en": "Ready to grow with structure?",
+        "hi": "संरचना के साथ बढ़ने के लिए तैयार हैं?",
+        "kn": "ರಚನೆಯೊಂದಿಗೆ ಬೆಳೆಯಲು ಸಿದ್ಧರಿದ್ದೀರಾ?"
+    }
 };

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>NODE - Partner Application</title>
+
+    <meta name="description" content="NODE is a premium service platform. Small teams and contractors can apply to partner for consistent, high-quality work.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles/partners.css">
+    
+    <script type="module">
+        import { translations } from '/src/utils/translations.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentLang = localStorage.getItem('node-lang') || 'en';
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[key] && translations[key][currentLang]) {
+                    if (key === 'partners_hero_sub') {
+                        el.innerHTML = translations[key][currentLang];
+                    } else if (key === 'partners_std_1' || key === 'partners_std_2' || key === 'partners_std_3' || key === 'partners_std_4' || key === 'partners_std_5') {
+                         el.innerHTML = '✓ ' + translations[key][currentLang];
+                    } else {
+                        el.textContent = translations[key][currentLang];
+                    }
+                }
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Minimal Clean Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <a href="/index.html" class="logo-link">
+                <span class="logo">NODE</span>
+            </a>
+            <nav class="primary-nav">
+                <a href="/src/pages/services.html" class="nav-item" data-i18n="nav_services">Services</a>
+                <a href="/index.html#how-it-works" class="nav-item" data-i18n="nav_how_it_works">How It Works</a>
+                <a href="/src/pages/partners.html" class="nav-item active" data-i18n="nav_professionals">Partners</a>
+            </nav>
+             <div class="header-right">
+                <a href="/src/pages/services.html" class="btn-primary" style="padding: 10px 20px; font-size: 14px;" data-i18n="nav_services">Explore Services</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="partners-page">
+        <!-- 1. Hero Section -->
+        <section class="partner-hero animate-on-scroll">
+            <div class="container text-center">
+                <h1 class="hero-title" data-i18n="partners_hero_title">Work with NODE</h1>
+                <p class="hero-subtitle" data-i18n="partners_hero_sub">Build consistent demand. Operate with structure. Deliver with professionalism.</p>
+                <a href="#partner-form" class="btn-primary btn-large" data-i18n="partners_btn_cta">Become a Partner</a>
+            </div>
+        </section>
+
+        <!-- 2. Why Partner -->
+        <section class="partner-why">
+            <div class="container">
+                <h2 class="section-title text-center animate-on-scroll" data-i18n="partners_sec_why">Why Partner with NODE</h2>
+                <div class="features-grid">
+                    <div class="feature-card animate-on-scroll" style="transition-delay: 80ms;">
+                        <h3 data-i18n="partners_why_1_title">Consistent Work Flow</h3>
+                        <p data-i18n="partners_why_1_desc">Get structured and reliable service requests</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll" style="transition-delay: 160ms;">
+                        <h3 data-i18n="partners_why_2_title">Professional Positioning</h3>
+                        <p data-i18n="partners_why_2_desc">Work under a platform that values standards</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll" style="transition-delay: 240ms;">
+                        <h3 data-i18n="partners_why_3_title">Clear Communication</h3>
+                        <p data-i18n="partners_why_3_desc">Defined scope and expectations</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll" style="transition-delay: 320ms;">
+                        <h3 data-i18n="partners_why_4_title">Growth with Structure</h3>
+                        <p data-i18n="partners_why_4_desc">Build long-term credibility and demand</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Who This Is For -->
+        <section class="partner-who bg-light-grey">
+            <div class="container text-center">
+                <h2 class="section-title animate-on-scroll" data-i18n="partners_sec_who">Who This Is For</h2>
+                <p class="section-subtitle animate-on-scroll" data-i18n="partners_who_sub">NODE partners with:</p>
+                <ul class="clean-list animate-on-scroll">
+                    <li data-i18n="partners_who_1">Service firms</li>
+                    <li data-i18n="partners_who_2">Contractors</li>
+                    <li data-i18n="partners_who_3">Small teams (2–15 members)</li>
+                    <li data-i18n="partners_who_4">Skilled operators with consistent quality</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 4. How It Works -->
+        <section class="partner-how clear-bg">
+            <div class="container">
+                <h2 class="section-title text-center animate-on-scroll" data-i18n="partners_sec_how">How It Works</h2>
+                <div class="timeline-steps">
+                    <div class="timeline-step animate-on-scroll">
+                        <div class="step-num">01</div>
+                        <h3 data-i18n="partners_how_1">Apply to become a partner</h3>
+                    </div>
+                    <div class="timeline-step animate-on-scroll" style="transition-delay: 100ms;">
+                        <div class="step-num">02</div>
+                        <h3 data-i18n="partners_how_2">Get verified and onboarded</h3>
+                    </div>
+                    <div class="timeline-step animate-on-scroll" style="transition-delay: 200ms;">
+                        <div class="step-num">03</div>
+                        <h3 data-i18n="partners_how_3">Start receiving structured work requests</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Standards (Grey Section) -->
+        <section class="partner-standards bg-soft-grey">
+            <div class="container">
+                <div class="standards-box animate-on-scroll">
+                    <h2 class="section-title text-center" data-i18n="partners_sec_standards">Standards & Expectations</h2>
+                    <p class="text-center" data-i18n="partners_standards_sub" style="margin-bottom: 24px; color: var(--text-secondary);">NODE maintains professional standards across all partners:</p>
+                    <div class="standards-list">
+                        <span class="std-chip" data-i18n="partners_std_1">✓ Timely service</span>
+                        <span class="std-chip" data-i18n="partners_std_2">✓ Respectful conduct</span>
+                        <span class="std-chip" data-i18n="partners_std_3">✓ Clean work execution</span>
+                        <span class="std-chip" data-i18n="partners_std_4">✓ Clear communication</span>
+                        <span class="std-chip" data-i18n="partners_std_5">✓ Accountability for work</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Form Section -->
+        <section class="partner-form-section" id="partner-form">
+            <div class="container">
+                <div class="form-card animate-on-scroll">
+                    <h2 class="section-title text-center" data-i18n="partners_form_title" style="margin-bottom: 32px;">Partner Application</h2>
+                    
+                    <form class="structured-form" id="applicationForm" onsubmit="event.preventDefault(); alert('Application submitted! We will contact you soon.'); this.reset();">
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bizName" data-i18n="partners_lbl_bizname">Business/Firm Name</label>
+                                <input type="text" id="bizName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPerson" data-i18n="partners_lbl_contact">Contact Person</label>
+                                <input type="text" id="contactPerson" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phoneNum" data-i18n="partners_lbl_phone">Phone Number</label>
+                                <input type="tel" id="phoneNum" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="serviceType" data-i18n="partners_lbl_service">Primary Service Type</label>
+                                <select id="serviceType" required>
+                                    <option value="" disabled selected>Select Service...</option>
+                                    <option value="plumbing">Plumbing</option>
+                                    <option value="electrical">Electrical</option>
+                                    <option value="construction">Construction & Renovation</option>
+                                    <option value="repairs">General Repairs</option>
+                                    <option value="cleaning">Domestic Help & Cleaning</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="teamSize" data-i18n="partners_lbl_team">Team Size</label>
+                                <input type="number" id="teamSize" min="1" max="100" placeholder="e.g. 5" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="opArea" data-i18n="partners_lbl_area">Primary Area of Operation (City/Region)</label>
+                                <input type="text" id="opArea" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="shortDesc" data-i18n="partners_lbl_desc">Short Description of Experience</label>
+                            <textarea id="shortDesc" rows="3" required></textarea>
+                        </div>
+
+                        <div class="form-checkboxes">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" required>
+                                <span class="checkmark"></span>
+                                <span class="box-label" data-i18n="partners_chk_standards">I agree to maintain NODE's professional standards of conduct and quality.</span>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" required>
+                                <span class="checkmark"></span>
+                                <span class="box-label" data-i18n="partners_chk_assignment">I understand NODE assigns work based on quality metrics and availability.</span>
+                            </label>
+                        </div>
+
+                        <div class="form-submit text-center">
+                            <button type="submit" class="btn-primary form-btn" data-i18n="partners_btn_submit">Submit Application</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Final CTA -->
+        <section class="partner-cta text-center animate-on-scroll">
+            <div class="container">
+                <h2 data-i18n="partners_final_cta">Ready to grow with structure?</h2>
+                <a href="#partner-form" class="btn-primary btn-large" style="margin-top: 24px;" data-i18n="partners_btn_cta">Become a Partner</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container text-center">
+             <p style="color: var(--text-tertiary); font-size: 13px;">© 2026 NODE Industries. Trust. Structure. Professionalism.</p>
+        </div>
+    </footer>
+</body>
+</html>
