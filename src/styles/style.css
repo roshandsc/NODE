@@ -498,6 +498,67 @@ body.dark-mode .brand-logo {
     color: var(--text-main);
 }
 
+/* Intelligent Search Dropdown */
+.search-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+  z-index: 1002;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.search-dropdown.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.search-suggestion {
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 15px;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background-color 0.15s ease;
+}
+
+.search-suggestion:last-child {
+  border-bottom: none;
+}
+
+.search-suggestion:hover,
+.search-suggestion.cursor-active {
+  background-color: var(--bg-tertiary);
+}
+
+/* Bold the matched characters in the suggestion string */
+.search-highlight {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.search-no-results {
+  padding: 20px;
+  text-align: center;
+  color: var(--text-placeholder);
+  font-size: 14px;
+}
+
 
 /* 5. RIGHT: Utility Icon (Profile) */
 .utility-icon {
