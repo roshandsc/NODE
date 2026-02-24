@@ -244,6 +244,9 @@ function fetchLocationStr(lat, lon) {
                     // Temporarily remove i18n attribute so translations don't overwrite the live location
                     locationText.removeAttribute('data-i18n'); 
                     locationText.textContent = displayStr;
+                    
+                    // Persist for this session to avoid re-fetching on every page navigation
+                    sessionStorage.setItem('node_user_location', displayStr);
                 }
             } else {
                 throw new Error("No address data");
@@ -251,7 +254,10 @@ function fetchLocationStr(lat, lon) {
         })
         .catch(error => {
             console.error("Geocoding failed:", error);
-            if (locationText) locationText.textContent = "Bengaluru, KA"; // Ultimate fallback
+            if (locationText) {
+                locationText.textContent = "Bengaluru, KA"; // Ultimate fallback
+                sessionStorage.setItem('node_user_location', "Bengaluru, KA");
+            }
         });
 }
 
@@ -274,13 +280,17 @@ function requestUserLocation(isAuto = false) {
                 // Fallback to default
                 if (locationText && locationText.textContent === "Requesting...") {
                      locationText.textContent = "Bengaluru, KA";
+                     sessionStorage.setItem('node_user_location', "Bengaluru, KA");
                 }
             },
             { timeout: 10000, maximumAge: 60000 }
         );
     } else {
         localStorage.setItem('node_location_prompted', 'true');
-        if (locationText) locationText.textContent = "Bengaluru, KA";
+        if (locationText) {
+            locationText.textContent = "Bengaluru, KA";
+            sessionStorage.setItem('node_user_location', "Bengaluru, KA");
+        }
     }
 }
 
@@ -291,7 +301,17 @@ if (locationBtn) {
 
 // Auto-request or silently load location on page load
 window.addEventListener('load', () => {
-    // Delay slightly to ensure UI is visible and not blocked during initial render
+    // 1. Check if we already fetched the location in this session
+    const cachedLocation = sessionStorage.getItem('node_user_location');
+    if (cachedLocation) {
+        if (locationText) {
+            locationText.removeAttribute('data-i18n');
+            locationText.textContent = cachedLocation;
+        }
+        return; // Skip geolocation API entirely to save rendering time and API limits
+    }
+
+    // 2. Otherwise, delay slightly to ensure UI is visible and not blocked during initial render
     setTimeout(() => {
         const hasPrompted = localStorage.getItem('node_location_prompted');
         
