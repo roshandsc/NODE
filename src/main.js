@@ -255,29 +255,61 @@ function fetchLocationStr(lat, lon) {
         });
 }
 
-function requestUserLocation() {
+function requestUserLocation(isAuto = false) {
     if ("geolocation" in navigator) {
-        if (locationText) locationText.textContent = "Requesting...";
+        // Only show "Requesting..." text if the user manually clicked the button to avoid jumping UI on auto-load
+        if (!isAuto && locationText) locationText.textContent = "Requesting...";
+        
         navigator.geolocation.getCurrentPosition(
             (position) => {
+                // Success - Mark that we've prompted them (even though this was a success, we don't need to force prompt again)
+                localStorage.setItem('node_location_prompted', 'true');
                 fetchLocationStr(position.coords.latitude, position.coords.longitude);
             },
             (error) => {
+                // Denied or timeout
                 console.warn("Geolocation denied or failed:", error.message);
+                localStorage.setItem('node_location_prompted', 'true'); // Don't prompt again if they denied
+                
                 // Fallback to default
-                if (locationText) locationText.textContent = "Bengaluru, KA";
+                if (locationText && locationText.textContent === "Requesting...") {
+                     locationText.textContent = "Bengaluru, KA";
+                }
             },
             { timeout: 10000, maximumAge: 60000 }
         );
     } else {
+        localStorage.setItem('node_location_prompted', 'true');
         if (locationText) locationText.textContent = "Bengaluru, KA";
     }
 }
 
 // Attach click listener to location button to manually trigger/refresh location
 if (locationBtn) {
-    locationBtn.addEventListener('click', requestUserLocation);
+    locationBtn.addEventListener('click', () => requestUserLocation(false));
 }
+
+// Auto-request or silently load location on page load
+window.addEventListener('load', () => {
+    // Delay slightly to ensure UI is visible and not blocked during initial render
+    setTimeout(() => {
+        const hasPrompted = localStorage.getItem('node_location_prompted');
+        
+        if (!hasPrompted) {
+            // First time visitor: Trigger the prompt non-intrusively
+            requestUserLocation(true);
+        } else {
+            // Returning visitor: Check if permission is already granted to load silently without prompting
+            if (navigator.permissions) {
+                navigator.permissions.query({ name: 'geolocation' }).then(result => {
+                    if (result.state === 'granted') {
+                        requestUserLocation(true); // Silently fetch since we have permission
+                    }
+                });
+            }
+        }
+    }, 2000); // 2-second delay gives the loader time to finish and the user to process the page
+});
 
 // -----------------------------------------------------
 // 4. Animated Search Bar Placeholder
